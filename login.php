@@ -30,7 +30,7 @@
         </label>
         
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesion</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Iniciar Sesion</button>
      	<p class="mt-3"><a href="crear.php">Crear Usuario</a></p>
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
     </form>
