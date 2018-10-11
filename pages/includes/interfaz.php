@@ -287,7 +287,7 @@
                                     <a href="agregar_profesional.php">Profesional</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Alumno</a>
+                                    <a href="agregar_alumno.php">Alumno</a>
                                 </li>
                                 <li>
                                     <a href="morris.html">Establecimiento</a>
