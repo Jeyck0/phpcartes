@@ -14,11 +14,12 @@
 
     <!-- Custom styles for this template -->
     <link href="assets/signin.css" rel="stylesheet">
+    <link href="vendor/font-awesome/css/all.css" rel="stylesheet" type="text/css">
   </head>
 
   <body class="text-center">
     <form class="form-signin"  method="post" action="modulos/login.php">
-      <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <i class="fas fa-users fa-9x"></i>
       <h1 class="h3 mb-3 font-weight-normal">Iniciar Sesion</h1>
       <label for="inputEmail" class="sr-only">Usuario</label>
       <input type="text" id="inputEmail" name="usuario" class="form-control" placeholder="Usuario" required autofocus> 
@@ -30,7 +31,7 @@
         </label>
         
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Iniciar Sesion</button>
+      <div><button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Iniciar Sesion</button></div>
      	<p class="mt-3"><a href="crear.php">Crear Usuario</a></p>
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
     </form>
