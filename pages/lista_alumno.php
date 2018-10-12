@@ -58,14 +58,13 @@ include('includes/interfaz.php');
                                     <?php echo $dado['curso'] ?>
                                 </td>
                                 <td>
-                                        <a  type="submit" name="btn-ver" class="btn btn-xs btn-info">Ver</a>
-                                        <a  id="editar" class="btn btn-xs btn-warning">Editar</a>
-                                        <a  class="btn btn-xs btn-danger">Eliminar</a>
-                                        <label id="id" class="hidden" for=""><?php echo $dado['id'] ?></label>
+                                    <a href="ver_alumno.php?id=<?php echo $dado['id'] ?>" class="btn btn-xs btn-info">Ver</a>
+                                    <a href="editar_alumno.php?id=<?php echo $dado['id'] ?>" class="btn btn-xs btn-warning">Editar</a>
+                                    <a href="" class="btn btn-xs btn-danger">Eliminar</a>
                                 </td>
                             </tr>
                             <?php endwhile; ?>
-                        </tbody>
+                      </tbody>
                     </table>
                     
                     </form>
@@ -76,21 +75,3 @@ include('includes/interfaz.php');
 </div>
 
 <?php include('includes/cierre-interfaz.php'); ?>
-
-<script>
-    $("#editar").click(function{
-         //var id = $("#id").text();
-         alert("hola");
-
-            $.ajax({
-                url:"modulos/editar_alumnos.php",
-                type:"POST",
-                data:{
-                    id: id,
-                },
-                success: function(respuesta){
-                    window.location.href='modulos/editar_alumnos2.php';
-                }
-            });
-    });   
-</script>
