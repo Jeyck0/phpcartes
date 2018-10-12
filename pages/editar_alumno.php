@@ -69,9 +69,10 @@ endif;
                                 </div> 
                                 <div class="form-group">
                                     <label>Genero</label>
-                                    <select name="sexo" class="form-control">
-                                        <option value=""><?php echo $dado['sexo']?></option>
-                                        <option value=""><?php echo $dado['sexo']?></option>
+                                    <label id="valor-sexo" class="hidden"><?php echo $dado['sexo']?></label>
+                                    <select id="select-sexo"  name="sexo" class="form-control">
+                                        <option  value="1">Masculino</option>
+                                        <option value="2">Femenino</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -92,3 +93,17 @@ endif;
 </div>
 
 <?php include('includes/cierre-interfaz.php'); ?>
+
+<script >
+        $(document).ready(function(){
+            var valor_sexo = $("#valor-sexo").text();
+            var select_sexo =$("#select-sexo");
+            if(valor_sexo=="MASCULINO"){
+                select_sexo.val("1").attr("selected");
+            }
+            else{
+                select_sexo.val("2").attr("selected");
+            }
+            
+        });    
+    </script>

@@ -55,7 +55,7 @@
                                 </td>
                                 <td>
                                     <a href="" type="submit" name="btn-ver" class="btn btn-xs btn-info">Ver</a>
-                                    <a href="" class="btn btn-xs btn-warning">Editar</a>
+                                    <a href="editar_profesional.php?id=<?php echo $dado['id'] ?>" class="btn btn-xs btn-warning">Editar</a>
                                     <a href="" class="btn btn-xs btn-danger">Eliminar</a>
                                 </td>
                             </tr>
