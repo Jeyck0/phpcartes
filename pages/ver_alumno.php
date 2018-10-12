@@ -78,6 +78,7 @@ endif;
                             </div>                                              
                         </div>
                         <div class="row">
+                            <div class="col-lg-6"><a href="lista_alumno.php" class="btn btn-primary btn-lg btn-block " >Listado de Alumno</a></div>
                             <div class="col-lg-6"></div>
                         </div>
                 </form> 
