@@ -7,7 +7,7 @@ include('includes/interfaz.php');
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Lista de alumnos</h1>
+            <h1 class="page-header">Lista de establecimientos</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -22,19 +22,20 @@ include('includes/interfaz.php');
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Numero Matricula</th>
-                                <th scope="col">Rut</th>
-                                <th scope="col">Nombres</th>
-                                <th scope="col">Apellidos</th>
-                                <th scope="col">Curso</th>
+                                <th scope="col">RBD</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Ciudad</th>
+                                <th scope="col">Dirección</th>
+                                <th scope="col">Teléfono</th>
+                                <th scope="col">Entidad</th>
+                                <th scope="col">Nivel educacional</th>
                                 <th scope="col">Opciones</th>
-
                             </tr>
                         </thead>
 
                         <tbody>
                             <?php 
-                                    $sql = "SELECT * FROM alumnos";
+                                    $sql = "SELECT * FROM establecimientos";
                                     $resultado = mysqli_query($enlace, $sql);
                                     while ($dado = mysqli_fetch_array($resultado)):
                                     ?>
@@ -43,25 +44,30 @@ include('includes/interfaz.php');
                                     <?php echo $dado['id'] ?>
                                 </td>
                                 <td>
-                                    <?php echo $dado['num_matricula'] ?>
+                                    <?php echo $dado['rbd'] ?>
                                 </td>
                                 <td>
-                                    <?php echo $dado['rut'] ?>
+                                    <?php echo $dado['nombre'] ?>
                                 </td>
                                 <td>
-                                    <?php echo $dado['nombres'] ?>
+                                    <?php echo $dado['ciudad'] ?>
                                 </td>
                                 <td>
-                                    <?php echo $dado['apellidos'] ?>
+                                    <?php echo $dado['direccion'] ?>
                                 </td>
                                 <td>
-                                    <?php echo $dado['curso'] ?>
+                                    <?php echo $dado['telefono'] ?>
                                 </td>
                                 <td>
-                                        <a  type="submit" name="btn-ver" class="btn btn-xs btn-info">Ver</a>
-                                        <a  id="editar" class="btn btn-xs btn-warning">Editar</a>
-                                        <a  class="btn btn-xs btn-danger">Eliminar</a>
-                                        <label id="id" class="hidden" for=""><?php echo $dado['id'] ?></label>
+                                    <?php echo $dado['entidad'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $dado['nivel_educacional'] ?>
+                                </td>
+                                <td>
+                                    <a href="" type="submit" name="btn-ver" class="btn btn-xs btn-info">Ver</a>
+                                    <a href="" class="btn btn-xs btn-warning">Editar</a>
+                                    <a href="" class="btn btn-xs btn-danger">Eliminar</a>
                                 </td>
                             </tr>
                             <?php endwhile; ?>
@@ -76,21 +82,3 @@ include('includes/interfaz.php');
 </div>
 
 <?php include('includes/cierre-interfaz.php'); ?>
-
-<script>
-    $("#editar").click(function{
-         //var id = $("#id").text();
-         alert("hola");
-
-            $.ajax({
-                url:"modulos/editar_alumnos.php",
-                type:"POST",
-                data:{
-                    id: id,
-                },
-                success: function(respuesta){
-                    window.location.href='modulos/editar_alumnos2.php';
-                }
-            });
-    });   
-</script>
