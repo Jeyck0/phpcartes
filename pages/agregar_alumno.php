@@ -21,23 +21,23 @@ include('includes/interfaz.php');
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="">Numero de Matricula</label>
-                                    <input name="matricula" type="number" class="form-control">
+                                    <input name="matricula" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Rut</label>
-                                    <input name="rut" type="text" class="form-control">
+                                    <input name="rut" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Nombres</label>
-                                    <input name="nombres" type="text" class="form-control">
+                                    <input name="nombres" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Apellidos</label>
-                                    <input name="apellidos" type="text" class="form-control">
+                                    <input name="apellidos" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Fecha nacimiento</label>
-                                    <input name="nacimiento" type="date" class="form-control">
+                                    <input name="nacimiento" type="date" class="form-control" required>
                                 </div>
                                 
                                 
@@ -46,15 +46,15 @@ include('includes/interfaz.php');
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="">Ciudad</label>
-                                    <input name="ciudad" type="text" class="form-control">
+                                    <input name="ciudad" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Dirección</label>
-                                    <input name="direccion" type="text" class="form-control">
+                                    <input name="direccion" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Teléfono</label>
-                                    <input name="telefono" type="text" class="form-control">
+                                    <input name="telefono" type="text" class="form-control" required>
                                 </div> 
                                 <div class="form-group">
                                     <label>Genero</label>
@@ -66,7 +66,7 @@ include('includes/interfaz.php');
                                 </div>
                                 <div class="form-group">
                                     <label>Curso</label>
-                                    <input name="curso" type="text" class="form-control">
+                                    <input name="curso" type="text" class="form-control" required>
                                 </div>                                                 
                             </div>                                              
                         </div>

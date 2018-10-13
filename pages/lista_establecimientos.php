@@ -21,7 +21,6 @@ include('includes/interfaz.php');
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
                                 <th scope="col">RBD</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Ciudad</th>
@@ -40,9 +39,6 @@ include('includes/interfaz.php');
                                     while ($dado = mysqli_fetch_array($resultado)):
                                     ?>
                             <tr>
-                                <td>
-                                    <?php echo $dado['id'] ?>
-                                </td>
                                 <td>
                                     <?php echo $dado['rbd'] ?>
                                 </td>
@@ -66,7 +62,7 @@ include('includes/interfaz.php');
                                 </td>
                                 <td>
                                     <a href="" type="submit" name="btn-ver" class="btn btn-xs btn-info">Ver</a>
-                                    <a href="" class="btn btn-xs btn-warning">Editar</a>
+                                    <a href="editar_establecimiento.php?id=<?php echo $dado['id'] ?>" class="btn btn-xs btn-warning">Editar</a>
                                     <a href="" class="btn btn-xs btn-danger">Eliminar</a>
                                 </td>
                             </tr>
