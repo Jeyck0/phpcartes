@@ -21,7 +21,7 @@ include('includes/interfaz.php');
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="">Nombres</label>
-                                    <input name="nombres" type="text" class="form-control">
+                                    <input name="nombres" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Apellidos</label>

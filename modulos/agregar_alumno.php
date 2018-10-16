@@ -4,7 +4,7 @@ require_once ("../configs/conexion_db.php");
 if(isset($_POST['btn-crear'])):
     $matricula = mysqli_escape_string($enlace, $_POST['matricula']);
     $rut = mysqli_escape_string($enlace, $_POST['rut']);
-    $nombres = mysqli_escape_string($enlace, $_POST['nombres']);
+    $nombres = strtoupper($enlace, $_POST['nombres']);
     $apellidos = mysqli_escape_string($enlace, $_POST['apellidos']);
     $nacimiento = mysqli_escape_string($enlace, $_POST['nacimiento']);
     $ciudad = mysqli_escape_string($enlace, $_POST['ciudad']);
