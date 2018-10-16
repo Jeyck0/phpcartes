@@ -9,18 +9,18 @@ if(isset($_POST['btn-delete'])):
 
 endif;
 
-    $sql = "DELETE FROM alumnos WHERE id = '$id'";
+    $sql = "DELETE FROM profesionals WHERE id = '$id'";
 
 
 
     if(mysqli_query($enlace, $sql)):
         $_SESSION['mensaje'] = '<div class="alert alert-danger alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        Alumno eliminado con exito!</div>';
-        header('Location: ../pages/lista_alumno.php?successo');
+        <strong>Profesional eliminado con exito!</strong></div>';
+        header('Location: ../pages/listaProfesionals.php?successo');
         
     else:
         $_SESSION['mensaje'] = "Error al intentar eliminar";
-        header('Location: ../pages/lista_alumno.php?error');
+        header('Location: ../pages/listaProfesionals.php?error');
     endif;
 

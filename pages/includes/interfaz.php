@@ -290,7 +290,7 @@
                                     <a href="agregar_alumno.php">Alumno</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Establecimiento</a>
+                                    <a href="agregar_establecimiento.php">Establecimiento</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -299,10 +299,13 @@
                             <a href="#"><i class="fas fa-address-book"></i> Ver Usuarios<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="lista_profesional.php">Profesionales</a>
+                                    <a href="listaProfesionals.php">Profesionales</a>
                                 </li>
                                 <li>
                                     <a href="lista_alumno.php">Alumnos</a>
+                                </li>
+                                <li>
+                                    <a href="lista_establecimientos.php">Establecimientos</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
