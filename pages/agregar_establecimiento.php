@@ -56,7 +56,7 @@ include('includes/interfaz.php');
                             </div>                                              
                         </div>
                         <div class="row">
-                            <div class="col-lg-6"><button class="btn btn-primary btn-lg btn-block " name="submit" type ="submit" >Registrar Profesional</button></div>
+                            <div class="col-lg-6"><button class="btn btn-primary btn-lg btn-block " name="submit" type ="submit" >Registrar Establecimiento</button></div>
                             <div class="col-lg-6"></div>
                         </div>
                 </form> 

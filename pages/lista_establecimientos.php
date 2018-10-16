@@ -1,3 +1,11 @@
+<?php 
+// Sesion
+session_start();
+if(isset($_SESSION['mensaje'])):
+    echo $_SESSION['mensaje'];
+endif;   
+session_unset();
+?>
 <?php include ("../configs/conexion_db.php"); ?>
 
 <?php
@@ -18,7 +26,7 @@ include('includes/interfaz.php');
                     Vista de datos
                 </div>
                 <div class="panel-body">
-                    <table class="table">
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr>
                                 <th scope="col">RBD</th>
@@ -61,9 +69,34 @@ include('includes/interfaz.php');
                                     <?php echo $dado['nivel_educacional'] ?>
                                 </td>
                                 <td>
-                                    <a href="" type="submit" name="btn-ver" class="btn btn-xs btn-info">Ver</a>
+                                    <a href="ver_establecimiento.php?id=<?php echo $dado['id'] ?>" type="submit" name="btn-ver" class="btn btn-xs btn-info">Ver</a>
                                     <a href="editar_establecimiento.php?id=<?php echo $dado['id'] ?>" class="btn btn-xs btn-warning">Editar</a>
-                                    <a href="" class="btn btn-xs btn-danger">Eliminar</a>
+                                    <a href="" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#myModal<?php echo $dado['id'] ?>">Eliminar</a>
+                                    <!-- Modal -->
+                                    <div id="myModal<?php echo $dado['id'] ?>" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">Eliminar registro</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Esta seguro de que quiere eliminar este registro?</p>
+                                                </div>
+                                                <div class="modal-footer">
+
+                                                    <form action="../modulos/eliminar_establecimiento.php" method="POST">
+                                                        <input type="hidden" name="id" value="<?php echo $dado['id'] ?>">
+                                                        <button type="submit" name="btn-delete" class="btn btn-danger">Eliminar</button>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             <?php endwhile; ?>
@@ -78,3 +111,5 @@ include('includes/interfaz.php');
 </div>
 
 <?php include('includes/cierre-interfaz.php'); ?>
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+
