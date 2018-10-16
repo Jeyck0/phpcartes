@@ -22,7 +22,7 @@ session_unset();
                     Vista de datos
                 </div>
                 <div class="panel-body">
-                    <table class="table">
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr>
                                 <th scope="col">Nombres</th>
