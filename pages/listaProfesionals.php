@@ -19,7 +19,7 @@ session_unset();
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Vista de datos
+                    <a href="agregar_profesional.php" class="btn btn-sm btn-success">Nuevo profesional</a>
                 </div>
                 <div class="panel-body">
                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">

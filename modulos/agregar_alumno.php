@@ -27,3 +27,5 @@ endif;
         header('Location: ../pages/agregar_alumno.php?error');
     endif;
 
+    
+

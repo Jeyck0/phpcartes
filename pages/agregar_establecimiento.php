@@ -2,7 +2,7 @@
 include('includes/interfaz.php');
 ?>
 
-<div id="page-wrapper" >
+<div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Agregar Establecimiento</h1>
@@ -17,7 +17,7 @@ include('includes/interfaz.php');
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <form role="form" method="POST" action="../modulos/agregar_establecimiento.php">
+                        <form id="limpiar" role="form" method="POST" action="../modulos/agregar_establecimiento.php">
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="">RBD</label>
@@ -42,7 +42,7 @@ include('includes/interfaz.php');
                                 <div class="form-group">
                                     <label for="">Entidad</label>
                                     <input name="entidad" type="text" class="form-control">
-                                </div>                                
+                                </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
@@ -52,18 +52,39 @@ include('includes/interfaz.php');
                                         <option value="2">Media</option>
                                         <option value="3">Básica y media</option>
                                     </select>
-                                </div>                                                                            
-                            </div>                                              
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6"><button class="btn btn-primary btn-lg btn-block " name="submit" type ="submit" >Registrar Establecimiento</button></div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <button class="btn btn-primary btn-lg btn-block " name="submit" type="submit">Registrar
+                                        Establecimiento</button>
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="button" class="btn btn-lg btn-block btn-danger" value="Limpiar campos"
+                                        onclick="Limpiar();" />
+                                </div>
+                            </div>
                             <div class="col-lg-6"></div>
                         </div>
-                </form> 
+                    </div>
+
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    function Limpiar() {
+        var t = document.getElementById("limpiar").getElementsByTagName("input");
+        for (var i = 0; i < t.length; i++) {
+            t[i].value = "";
+        }
+    }
+</script>
 
 <?php include('includes/cierre-interfaz.php'); ?>
