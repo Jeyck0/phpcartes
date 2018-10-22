@@ -23,6 +23,7 @@ if(isset($_POST["submit"])){
 		echo "login correcto";
 	}
 	else{
+		header("Location:../login.php");
 		echo "login incorrecto";
 	}
 	

@@ -21,33 +21,33 @@ include('includes/interfaz.php');
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="">RBD</label>
-                                    <input name="rbd" type="text" class="form-control">
+                                    <input name="rbd" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Nombre</label>
-                                    <input name="nombre" type="text" class="form-control">
+                                    <input name="nombre" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Ciudad</label>
-                                    <input name="ciudad" type="text" class="form-control">
+                                    <input name="ciudad" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Dirección</label>
-                                    <input name="direccion" type="text" class="form-control">
+                                    <input name="direccion" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Teléfono</label>
-                                    <input name="telefono" type="text" class="form-control">
+                                    <input name="telefono" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Entidad</label>
-                                    <input name="entidad" type="text" class="form-control">
+                                    <input name="entidad" type="text" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Nivel educacional</label>
-                                    <select class="form-control" name="nivel">
+                                    <select class="form-control" required name="nivel">
                                         <option value="1">Básica</option>
                                         <option value="2">Media</option>
                                         <option value="3">Básica y media</option>

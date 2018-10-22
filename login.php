@@ -15,6 +15,8 @@
     <!-- Custom styles for this template -->
     <link href="assets/signin.css" rel="stylesheet">
     <link href="vendor/font-awesome/css/all.css" rel="stylesheet" type="text/css">
+
+
   </head>
 
   <body class="text-center">
@@ -22,15 +24,16 @@
       <i class="fas fa-users fa-9x"></i>
       <h1 class="h3 mb-3 font-weight-normal">Iniciar Sesion</h1>
       <label for="inputEmail" class="sr-only">Usuario</label>
-      <input type="text" id="inputEmail" name="usuario" class="form-control" placeholder="Usuario" required autofocus> 
+      <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Usuario" required autofocus> 
       <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" name="password" required>
+      <input type="password" id="password" class="form-control" placeholder="Contraseña" name="password" required>
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Recordarme
         </label>
         
       </div>
+      <p style="color : red;" hidden>Usuario o password incorrectos!</p>
       <div><button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Iniciar Sesion</button></div>
      	<p class="mt-3"><a href="crear.php">Crear Usuario</a></p>
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>

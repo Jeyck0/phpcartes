@@ -1,17 +1,9 @@
 function validar(){
-    var matricula, rut, nombres, apellidos, nacimiento, ciudad, direccion, telefono, sexo, curso, expresion;
-    matricula = document.getElementById("matricula").value;
-    rut = document.getElementById("rut").value;
-    nombres = document.getElementById("nombres").value;
-    apellidos = document.getElementById("apellidos").value;
-    nacimiento = document.getElementById("nacimiento").value;
-    ciudad = document.getElementById("ciudad").value;
-    direccion = document.getElementById("direccion").value;
-    telefono = document.getElementById("telefono").value;
-    sexo = document.getElementById("sexo").value;
-    curso = document.getElementById("curso").value;
+    var usuario, password;
+    usuario = document.getElementById("usuario").value;
+    password = document.getElementById("password").value;
 
-    if (matricula === "" || rut === "" || nombres === "" || apellidos === "" || nacimiento === "" || ciudad === "" || direccion === "" || telefono === "" || sexo === "" || curso === ""){
+    if (usuario === "" || password === ""){
         alert("Todos los campos son obligatorios");
         return false;
     }
