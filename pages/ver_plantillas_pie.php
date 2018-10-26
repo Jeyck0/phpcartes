@@ -13,7 +13,7 @@ include ('../configs/conexion_db.php');
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href="agregar_establecimiento.php" class="btn btn-sm btn-success">Llenar nueva plantilla</a>
+                    <a href="agregar_alumno_plantilla.php" class="btn btn-sm btn-success">Llenar nueva plantilla</a>
                 </div>
                 <div class="panel-body">
                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
