@@ -1,5 +1,6 @@
 <?php
 include('includes/interfaz.php');
+include ('../configs/conexion_db.php');
 ?>
 <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script> -->
 
@@ -35,8 +36,15 @@ include('includes/interfaz.php');
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label for="">Nombre</label>
-                                            <input id="nombre1" name="nombre1" type="text" class="form-control"
-                                                required>
+                                            <select name="alumno1" id="" class="form-control">
+                                            <?php
+                                                $sql = "SELECT * FROM profesionals";
+                                                $resultado = mysqli_query($enlace, $sql);
+                                                while ($dado = mysqli_fetch_array($resultado)):
+                                                    echo "<option id="."hola"." value=".$dado['id'].">".$dado['nombres']."</option>";
+                                                endwhile;
+                                            ?>
+                                            </select>
                                         </div>
                                     </div>
 
@@ -51,7 +59,7 @@ include('includes/interfaz.php');
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label for="">Teléfono</label>
-                                            <input id="telefono1" name="telefono1" type="text" class="form-control"
+                                            <input id="telefono1" name="telefono1" type="text" class="form-control" value="<?php $dado['telefono']?>"
                                                 required>
                                         </div>
                                     </div>
