@@ -679,7 +679,7 @@ include('includes/interfaz.php');
 </div>
 
 
-
+<script src="../js/agregar_eliminar.js" type="text/javascript"></script>
 
 
 <?php include('includes/cierre-interfaz.php'); ?>
