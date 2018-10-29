@@ -4,7 +4,7 @@ include ('../configs/conexion_db.php');
 ?>
 <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script> -->
 
-<script src="../js/agregar_eliminar.js" type="text/javascript"></script>
+<script type="text/javascript" src="../js/seleccionar.js"></script>
 
 <div id="page-wrapper">
     <div class="row">
@@ -36,14 +36,22 @@ include ('../configs/conexion_db.php');
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label for="">Nombre</label>
-                                            <select name="alumno1" id="" class="form-control">
+                                            <select name="select_profesional" id="select_profesional" class="form-control" onchange="select_profesional();">
+                                            <option value=""> Seleccione </option>
                                             <?php
-                                                $sql = "SELECT * FROM profesionals";
+
+                                                $sql = "SELECT * FROM profesionals ORDER BY id";
                                                 $resultado = mysqli_query($enlace, $sql);
                                                 while ($dado = mysqli_fetch_array($resultado)):
-                                                    echo "<option id="."hola"." value=".$dado['id'].">".$dado['nombres']."</option>";
+                                                    $id = $dado['id'];
+                                                    $nombre = $dado['nombres'];
+                                                ?>
+                                                    <option value="<?php echo $id; ?>"><?php echo $nombre; ?></option>
+                                                <?php
                                                 endwhile;
                                             ?>
+
+                       
                                             </select>
                                         </div>
                                     </div>
@@ -59,7 +67,7 @@ include ('../configs/conexion_db.php');
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label for="">Teléfono</label>
-                                            <input id="telefono1" name="telefono1" type="text" class="form-control" value="<?php $dado['telefono']?>"
+                                            <input id="telefono1" name="telefono1" type="text" class="form-control"
                                                 required>
                                         </div>
                                     </div>

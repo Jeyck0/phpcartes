@@ -11,6 +11,10 @@ if(!$enlace){
     echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
     exit;
 }
+else {
+    // echo "Conectado";
+}
+
 
 
 // echo "Éxito: Se realizó una conexión apropiada a MySQL! La base de datos ".$nombre_bd." es genial." . PHP_EOL;

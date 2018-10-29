@@ -1,3 +1,6 @@
+<?php require '../configs/conexion_db.php' ;
+
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
                     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -6,22 +9,36 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
 
     <script src="../js/agregar_eliminar.js"></script>
+    <script type="text/javascript" src="../js/seleccionar.js"></script>
+
 
 </head>
  
 <body>
  
-<form id="myForm">
-    <div id="input1" style="margin-bottom:4px;" class="clonedInput">
-        Name: <input type="text" name="name1" id="name1" />
-        Apellido: <input type="text" name="ap2" id="ap2" />
-    </div>
- 
-    <div>
-        <input type="button" id="btnAdd" value="add another name" />
-        <input type="button" id="btnDel" value="remove name" />
-    </div>
-</form>
+<div class="form-group">
+    <label for="">Nombre</label>
+    <select name="select_profesional" id="select_profesional" class="form-control" onchange="select_profesional();">
+    <option value=""> Seleccione </option>
+    <?php
+
+        $sql = "SELECT * FROM profesionals ORDER BY id";
+        $resultado = mysqli_query($enlace, $sql);
+        while ($dado = mysqli_fetch_array($resultado)):
+            $id = $dado['id'];
+            $nombre = $dado['nombres'];
+        ?>
+            <option value="<?php echo $id; ?>"><?php echo $nombre; ?></option>
+        <?php
+        endwhile;
+    ?>
+    </select>
+</div>
+
+<div id="panel_profesional">
+
+
+</div>
  
 </body>
 </html>
