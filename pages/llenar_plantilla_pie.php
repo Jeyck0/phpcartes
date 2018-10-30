@@ -32,7 +32,7 @@ include ('../configs/conexion_db.php');
                                 <br>
                             </div>
                             <form id="" role="form" method="POST" action="../modulos/agregar_establecimiento.php">
-                                <div id="input1" class="clonedInput">
+                                <div id="input1" class="clonedInput">    
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label for="">Nombre</label>
@@ -59,7 +59,7 @@ include ('../configs/conexion_db.php');
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label for="">Núcleo, asignatura y/o módulo</label>
-                                            <input id="nuvleo1" name="nucleo1" type="text" class="form-control"
+                                            <input id="nucleo1" name="nucleo1" type="text" class="form-control"
                                                 required>
                                         </div>
                                     </div>

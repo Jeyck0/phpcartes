@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $('#btnAdd').click(function() {
+       // $("#select_profesional").attr("name",'select_profesional_1');
         var num     = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
         var newNum  = new Number(num + 1);      // the numeric ID of the new input field being added
 
