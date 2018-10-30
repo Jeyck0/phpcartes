@@ -7,11 +7,8 @@ $(document).ready(function() {
         var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
 
         // manipulate the name/id values of the input inside the new element
-        newElem.children(':first').attr('id', 'nombre' + newNum).attr('nombre', 'nombre' + newNum);
-        newElem.children(':first').attr('id', 'nucleo' + newNum).attr('nucleo', 'nucleo' + newNum);
-        newElem.children(':first').attr('id', 'telefono' + newNum).attr('telefono', 'telefono' + newNum);
-        newElem.children(':first').attr('id', 'correo' + newNum).attr('correo', 'correo' + newNum);
-        newElem.children(':first').attr('id', 'firma' + newNum).attr('firma', 'firma' + newNum);
+        newElem.children(':first').attr('id', 'nombre' + newNum).attr('name', 'nombre' + newNum);
+     
 
         // insert the new element after the last "duplicatable" input field
         $('#input' + num).after(newElem);
