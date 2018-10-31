@@ -77,7 +77,7 @@ include ('../configs/conexion_db.php');
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label for="">Nombre</label>
-                                        <div id="input21" class="clonedInput2">
+                                        <div id="input2" class="clonedInput2">
                                             <select name="nombre2" id="nombre2" class="form-control">
                                                 <option value=""> Seleccione </option>
                                                 <?php
@@ -674,6 +674,7 @@ include ('../configs/conexion_db.php');
 
 
 <script src="../js/agregar_eliminar.js" type="text/javascript"></script>
+<script src="../js/agregar_eliminar_2.js" type="text/javascript"></script>
 
 
 <?php include('includes/cierre-interfaz.php'); ?>
