@@ -11,8 +11,8 @@ $resultado = mysqli_query($enlace, $sql);
 
 $dado = mysqli_fetch_array($resultado); 
 
+$rut = $dado['rut'];
+$telefono = $dado['telefono'];
 
 ?>
 
-<input type="text" name="" id="" value="<?php echo $dado['rut']; ?>">
-<input type="text" name="" id="" value="<?php echo $dado['telefono']; ?>">

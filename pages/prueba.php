@@ -36,7 +36,8 @@
 </div>
 
 <div id="panel_profesional">
-
+        <input type="text" name="" id="" value="<?php echo $rut; ?>">
+        <input type="text" name="" id="" value="<?php echo $telefono; ?>">
 
 </div>
  
