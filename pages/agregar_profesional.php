@@ -61,6 +61,7 @@ include('includes/interfaz.php');
                                         <option value="3">Terapeuta ocupacional</option>
                                         <option value="4">Fonoaudiologo(A)</option>
                                         <option value="5">Profesor(A)</option>
+                                        <option value="6">Educador(A) Diferencial</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

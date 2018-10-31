@@ -73,8 +73,40 @@ include ('../configs/conexion_db.php');
                                 <h5><strong>b) Profesores especializados:</strong></h5>
                                 <br>
                             </div>
-                           
-                        
+                            <form id="" role="form" method="POST" action="../modulos/agregar_establecimiento.php">   
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="">Nombre</label>
+                                        <div id="input21" class="clonedInput2">
+                                            <select name="nombre2" id="nombre2" class="form-control">
+                                                <option value=""> Seleccione </option>
+                                                <?php
+
+                                                $sql = "SELECT * FROM profesionals where titulo_profesional='EDUCADORA DE PARBULO' OR titulo_profesional='EDUCADOR(A) DIFERENCIAL'  ORDER BY id";
+                                                $resultado = mysqli_query($enlace, $sql);
+                                                while ($dado = mysqli_fetch_array($resultado)):
+                                                    $id = $dado['id'];
+                                                    $nombre = $dado['nombres'];
+                                                ?>
+                                                <option value="<?php echo $id; ?>">
+                                                    <?php echo $nombre; ?>
+                                                </option>
+                                                <?php
+                                                endwhile;
+                                            ?>
+
+
+                                            </select>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="container-fluid">
+                                    <input type="button" id="btnAdd2" value="+" class="btn btn-lg btn-primary" />
+                                </div>
                             </form>
                         </div>
                         <hr>

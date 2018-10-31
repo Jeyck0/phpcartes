@@ -72,6 +72,7 @@ endif;
                                         <option value="3">Terapeuta ocupacional</option>
                                         <option value="4">Fonoaudiologo(A)</option>
                                         <option value="5">Profesor(A)</option>
+                                        <option value="6">Educador(A) Diferencial</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -123,6 +124,9 @@ endif;
             }
             if(valor_profesional=="PROFESOR(A)"){
                 select_profesional.val("5").attr("selected");
+            }
+            if(valor_profesional=="EDUCADOR(A) DIFERENCIAL"){
+                select_profesional.val("6").attr("selected");
             }
             
         });    
