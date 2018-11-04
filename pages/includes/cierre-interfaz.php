@@ -2,7 +2,6 @@
 <script src="../vendor/jquery/jquery.min.js"></script>
 
 
-<script src="../js/llenar_plantilla.js" type="text/javascript"></script>
 <script src="../js/agregar_eliminar.js" type="text/javascript"></script>
 <script src="../js/agregar_eliminar3.js" type="text/javascript"></script>
 <script src="../js/agregar_eliminar2.js" type="text/javascript"></script>

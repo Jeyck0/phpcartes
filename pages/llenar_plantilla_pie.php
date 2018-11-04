@@ -2,7 +2,6 @@
 include('includes/interfaz.php');
 include ('../configs/conexion_db.php');
 ?>
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script> -->
 
 <script type="text/javascript" src="../js/seleccionar.js"></script>
 
@@ -52,18 +51,14 @@ include ('../configs/conexion_db.php');
                                                 <?php
                                                 endwhile;
                                             ?>
-
-
                                             </select>
                                             <br>
                                         </div>
                                     </div>
                                 </div>
-
-
-
                                 <div class="container-fluid">
                                     <input type="button" id="btnAdd" value="+" class="btn btn-lg btn-primary" />
+                                    <input type="button" id="btnDel" value="-" class="btn btn-lg btn-danger" />
                                 </div>
                             </form>
                         </div>
@@ -82,7 +77,7 @@ include ('../configs/conexion_db.php');
                                                 <option value=""> Seleccione </option>
                                                 <?php
 
-                                                $sql = "SELECT * FROM profesionals WHERE titulo_profesional='TERAPEUTA OCUPACIONAL' OR titulo_profesional='PSICOLOGO(A)' OR titulo_profesional='FONOAUDIOLOGO(A)' ORDER BY id";
+                                                $sql = "SELECT * FROM profesionals WHERE titulo_profesional='EDUCADORA DE PARVULO' OR titulo_profesional='EDUCADORA DIFERENCIAL' ORDER BY id";
                                                 $resultado = mysqli_query($enlace, $sql);
                                                 while ($dado = mysqli_fetch_array($resultado)):
                                                     $id = $dado['id'];
@@ -102,6 +97,7 @@ include ('../configs/conexion_db.php');
 
                                 <div class="container-fluid">
                                     <input type="button" id="boton" value="+" class="btn btn-lg btn-primary" />
+                                    <input type="button" id="borrar" value="-" class="btn btn-lg btn-danger" />
                                 </div>
                             </form>
                         </div>
@@ -141,6 +137,7 @@ include ('../configs/conexion_db.php');
 
                                 <div class="container-fluid">
                                     <input type="button" id="agregar" value="+" class="btn btn-lg btn-primary" />
+                                    <input type="button" id="eliminar" value="-" class="btn btn-lg btn-danger" />
                                 </div>
                             </form>
 
