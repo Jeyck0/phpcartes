@@ -1,3 +1,14 @@
+<?php 
+// Sesion
+session_start();
+if(isset($_SESSION['mensaje'])):
+    echo $_SESSION['mensaje'];
+endif;   
+session_unset();
+?>
+<!-- Conexion -->
+<?php include ("../configs/conexion_db.php"); ?>
+
 <?php
 include('includes/interfaz.php');
 ?>

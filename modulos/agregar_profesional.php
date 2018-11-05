@@ -13,12 +13,13 @@ if(isset($_POST["submit"])){
 	$titulo = $_POST["titulo"];
 	$sexo =$_POST["sexo"];
 	$jefatura =$_POST["jefatura"];
+	$coordinador =$_POST["coordinador"];
 	
 	}
 
 	$sql = ("insert into profesionals 
-	(nombres,apellidos,rut,ciudad,direccion,telefono,correo,fecha_nacimiento,titulo_profesional,sexo,jefatura_curso)
-	VALUES('".$nombres."','".$apellidos."','".$rut."','".$ciudad."','".$direccion."','".$telefono."','".$correo."','".$fecha_nac."','".$titulo."','".$sexo."','".$jefatura."')");
+	(nombres,apellidos,rut,ciudad,direccion,telefono,correo,fecha_nacimiento,titulo_profesional,sexo,jefatura_curso,coordinador)
+	VALUES('".$nombres."','".$apellidos."','".$rut."','".$ciudad."','".$direccion."','".$telefono."','".$correo."','".$fecha_nac."','".$titulo."','".$sexo."','".$jefatura."','".$coordinador."')");
 
 	if(mysqli_query($enlace, $sql)){
 		header('Location: ../pages/listaProfesionals.php?success'); 

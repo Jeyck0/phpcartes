@@ -38,16 +38,16 @@ include ('../configs/conexion_db.php');
                                     ?>
                             <tr>
                                 <td>
-                                   
+                                 
+                                </td>
+                                <td>
+                                
                                 </td>
                                 <td>
                                     
                                 </td>
                                 <td>
-                                    
-                                </td>
-                                <td>
-                                    
+                                
                                 </td>
                                 <td>
                                     

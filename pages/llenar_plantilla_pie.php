@@ -2,7 +2,6 @@
 include('includes/interfaz.php');
 include ('../configs/conexion_db.php');
 ?>
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script> -->
 
 <script type="text/javascript" src="../js/seleccionar.js"></script>
 
@@ -23,6 +22,9 @@ include ('../configs/conexion_db.php');
 
                 <div class="panel-body">
                     <div class="row">
+                        <div class="container-fluid">
+                            <h3>N° Planilla</h3>
+                        </div>
                         <div class="container">
                             <h4>1.- Identificación del Equipo de Aula</h4>
                         </div>
@@ -31,12 +33,13 @@ include ('../configs/conexion_db.php');
                                 <h5><strong>a) Docente(s) de educación regular del curso:</strong></h5>
                                 <br>
                             </div>
-                            <form id="" role="form" method="POST" action="../modulos/agregar_establecimiento.php">   
+
+                            <form id="" role="form" method="POST" action="../modulos/insertarDatosEnPlanilla.php">
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label for="">Nombre</label>
                                         <div id="input1" class="clonedInput">
-                                            <select name="nombre" id="nombre" class="form-control">
+                                            <select name="nombre1" id="nombre1" class="form-control">
                                                 <option value=""> Seleccione </option>
                                                 <?php
 
@@ -52,18 +55,14 @@ include ('../configs/conexion_db.php');
                                                 <?php
                                                 endwhile;
                                             ?>
-
-
                                             </select>
                                             <br>
                                         </div>
                                     </div>
                                 </div>
-
-
-
                                 <div class="container-fluid">
                                     <input type="button" id="btnAdd" value="+" class="btn btn-lg btn-primary" />
+                                    <input type="button" id="btnDel" value="-" class="btn btn-lg btn-danger" />
                                 </div>
                             </form>
                         </div>
@@ -73,7 +72,7 @@ include ('../configs/conexion_db.php');
                                 <h5><strong>b) Profesores especializados:</strong></h5>
                                 <br>
                             </div>
-                            <form id="" role="form" method="POST" action="../modulos/agregar_establecimiento.php">   
+                            <form id="" role="form" method="POST" action="../modulos/agregar_establecimiento.php">
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label for="">Nombre</label>
@@ -102,6 +101,7 @@ include ('../configs/conexion_db.php');
 
                                 <div class="container-fluid">
                                     <input type="button" id="boton" value="+" class="btn btn-lg btn-primary" />
+                                    <input type="button" id="borrar" value="-" class="btn btn-lg btn-danger" />
                                 </div>
                             </form>
                         </div>
@@ -111,8 +111,8 @@ include ('../configs/conexion_db.php');
                                 <h5><strong>c) Profesionales especializados asistentes de la educación:</strong></h5>
                                 <br>
                             </div>
-                            
-                            <form id="" role="form" method="POST" action="../modulos/agregar_establecimiento.php">   
+
+                            <form id="" role="form" method="POST" action="../modulos/agregar_establecimiento.php">
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label for="">Nombre</label>
@@ -141,6 +141,7 @@ include ('../configs/conexion_db.php');
 
                                 <div class="container-fluid">
                                     <input type="button" id="agregar" value="+" class="btn btn-lg btn-primary" />
+                                    <input type="button" id="eliminar" value="-" class="btn btn-lg btn-danger" />
                                 </div>
                             </form>
 
