@@ -22,25 +22,6 @@ include ('../configs/conexion_db.php');
 
                 <div class="panel-body">
                     <div class="row">
-                        <div class="container-fluid">
-                            <h3>N° Planilla</h3>
-                            <select name="numero" id="numero" class="form-control">
-                                <option value=""> Seleccione </option>
-                                <?php
-
-                                    $sql = "SELECT * FROM planilla ORDER BY id";
-                                    $resultado = mysqli_query($enlace, $sql);
-                                    while ($dado = mysqli_fetch_array($resultado)):
-                                        $id = $dado['id'];
-                                    ?>
-                                <option value="<?php echo $id; ?>">
-                                    <?php echo $id; ?>
-                                </option>
-                                <?php
-                                    endwhile;
-                                ?>
-                            </select>
-                        </div>
                         <div class="container">
                             <h4>1.- Identificación del Equipo de Aula</h4>
                         </div>
