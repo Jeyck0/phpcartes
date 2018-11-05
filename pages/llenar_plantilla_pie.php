@@ -61,6 +61,7 @@ include ('../configs/conexion_db.php');
                                     <input type="button" id="btnAdd" value="+" class="btn btn-lg btn-primary" />
                                     <input type="button" id="btnDel" value="-" class="btn btn-lg btn-danger" />
                                 </div>
+                                <input name="insertar" type="submit"  value="enviar" class="btn btn-lg btn-danger"  />
                             </form>
                         </div>
                         <hr>
