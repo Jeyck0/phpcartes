@@ -32,22 +32,22 @@ include ('../configs/conexion_db.php');
 
                         <tbody>
                             <?php 
-                                    $sql = "SELECT * FROM establecimientos";
+                                    $sql = "SELECT profesionals.nombres FROM datos_plantilla INNER JOIN profesionals ON datos_planilla.profesionals_id = profesionals.id" ;
                                     $resultado = mysqli_query($enlace, $sql);
                                     while ($dado = mysqli_fetch_array($resultado)):
                                     ?>
                             <tr>
                                 <td>
-                                   
+                                <?php echo $dado['planilla_id'] ?>    
+                                </td>
+                                <td>
+                                <?php echo $dado['alumno_id'] ?>
                                 </td>
                                 <td>
                                     
                                 </td>
                                 <td>
-                                    
-                                </td>
-                                <td>
-                                    
+                                <?php echo $dado['profesionals_id'] ?>
                                 </td>
                                 <td>
                                     
