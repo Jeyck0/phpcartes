@@ -90,7 +90,15 @@ endif;
                                         <option value="1">Si</option>
                                         <option value="2">No</option>                                       
                                     </select>
-                                </div>                                                                    
+                                </div>
+                                <div class="form-group">
+                                    <label>Coordinador</label>
+                                    <label id="valor-coordinador" class="hidden"><?php echo $dado['jefatura_curso']?></label>
+                                    <select id="select-coordinador" class="form-control" name="coordinador">
+                                        <option value="1">Si</option>
+                                        <option value="2">No</option>                                       
+                                    </select>
+                                </div>                                                                      
                             </div>                                              
                         </div>
                         <div class="row">
@@ -148,6 +156,19 @@ endif;
         $(document).ready(function(){
             var valor_jefe = $("#valor-jefe").text();
             var select_jefe =$("#select-jefe");
+            if(valor_jefe=="si"){
+                select_jefe.val("1").attr("selected");
+            }
+            else{
+                select_jefe.val("2").attr("selected");
+            }
+            
+        });    
+</script>
+<script >
+        $(document).ready(function(){
+            var valor_jefe = $("#valor-coordinador").text();
+            var select_jefe =$("#select-coordinador");
             if(valor_jefe=="si"){
                 select_jefe.val("1").attr("selected");
             }

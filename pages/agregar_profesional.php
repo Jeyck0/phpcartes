@@ -78,6 +78,13 @@ include('includes/interfaz.php');
                                         <option value="2">No</option>
                                     </select>
                                 </div>
+                                <div class="form-group">
+                                    <label>Coordinador</label>
+                                    <select class="form-control" name="coordinador">
+                                        <option value="1">Si</option>
+                                        <option value="2">No</option>
+                                    </select>
+                                </div>
                             </div>
                     </div>
                     <div class="row">

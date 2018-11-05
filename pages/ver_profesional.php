@@ -77,6 +77,10 @@ endif;
                                 <div class="form-group">
                                     <label>Jefe de Curso</label>
                                     <input disabled name="sexo" type="text" class="form-control" value="<?php echo $dado['jefatura_curso'] ?>">
+                                </div> 
+                                <div class="form-group">
+                                    <label>Coordinador</label>
+                                    <input disabled name="coordinador" type="text" class="form-control" value="<?php echo $dado['Coordinador'] ?>">
                                 </div>                                                 
                             </div>                                              
                         </div>

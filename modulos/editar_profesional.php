@@ -14,13 +14,14 @@ if(isset($_POST['submit'])):
 	$sexo =$_POST["sexo"];
     $jefatura =$_POST["jefatura"];
     $id =$_POST["id"];
+    $coordinador =$_POST["coordinador"];
     
 
 endif;
 
     $sql = "UPDATE profesionals SET nombres = '$nombres', apellidos = '$apellidos', rut = '$rut', 
     ciudad = '$ciudad', direccion = '$direccion', fecha_nacimiento = '$fecha_nac', telefono = '$telefono', 
-    sexo = '$sexo', titulo_profesional = '$titulo', correo = '$correo', jefatura_curso = '$jefatura' WHERE id = '$id'";
+    sexo = '$sexo', titulo_profesional = '$titulo', correo = '$correo', jefatura_curso = '$jefatura',coordinador = '$coordinador' WHERE id = '$id'";
 
 
 

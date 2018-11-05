@@ -61,9 +61,6 @@ include ('../configs/conexion_db.php');
                                     <input type="button" id="btnAdd" value="+" class="btn btn-lg btn-primary" />
                                     <input type="button" id="btnDel" value="-" class="btn btn-lg btn-danger" />
                                 </div>
-
-                                <input type="submit" id="insertar" name="insertar" value="Insertar en planilla" class="btn btn-lg btn-danger" />
-
                             </form>
                         </div>
                         <hr>
@@ -81,7 +78,7 @@ include ('../configs/conexion_db.php');
                                                 <option value=""> Seleccione </option>
                                                 <?php
 
-                                                $sql = "SELECT * FROM profesionals WHERE titulo_profesional='EDUCADORA DE PARVULO' OR titulo_profesional='EDUCADORA DIFERENCIAL' ORDER BY id";
+                                                $sql = "SELECT * FROM profesionals WHERE titulo_profesional='EDUCADORA DE PARBULO' OR titulo_profesional='EDUCADOR(A) DIFERENCIAL' ORDER BY id";
                                                 $resultado = mysqli_query($enlace, $sql);
                                                 while ($dado = mysqli_fetch_array($resultado)):
                                                     $id = $dado['id'];
@@ -674,6 +671,7 @@ include ('../configs/conexion_db.php');
 
 
 <script src="../js/agregar_eliminar.js" type="text/javascript"></script>
+<script src="../js/agregar_eliminar_2.js" type="text/javascript"></script>
 
 
 <?php include('includes/cierre-interfaz.php'); ?>
