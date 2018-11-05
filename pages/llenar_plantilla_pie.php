@@ -77,12 +77,12 @@ include ('../configs/conexion_db.php');
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label for="">Nombre</label>
-                                        <div id="input2" class="clonedInput2">
-                                            <select name="nombre2" id="nombre2" class="form-control">
+                                        <div id="divs1" class="clon">
+                                            <select name="profe1" id="profe1" class="form-control">
                                                 <option value=""> Seleccione </option>
                                                 <?php
 
-                                                $sql = "SELECT * FROM profesionals where titulo_profesional='EDUCADORA DE PARBULO' OR titulo_profesional='EDUCADOR(A) DIFERENCIAL'  ORDER BY id";
+                                                $sql = "SELECT * FROM profesionals WHERE titulo_profesional='EDUCADORA DE PARBULO' OR titulo_profesional='EDUCADOR(A) DIFERENCIAL' ORDER BY id";
                                                 $resultado = mysqli_query($enlace, $sql);
                                                 while ($dado = mysqli_fetch_array($resultado)):
                                                     $id = $dado['id'];
@@ -94,18 +94,14 @@ include ('../configs/conexion_db.php');
                                                 <?php
                                                 endwhile;
                                             ?>
-
-
                                             </select>
                                             <br>
                                         </div>
                                     </div>
                                 </div>
 
-
-
                                 <div class="container-fluid">
-                                    <input type="button" id="btnAdd2" value="+" class="btn btn-lg btn-primary" />
+                                    <input type="button" id="boton" value="+" class="btn btn-lg btn-primary" />
                                 </div>
                             </form>
                         </div>
@@ -115,36 +111,39 @@ include ('../configs/conexion_db.php');
                                 <h5><strong>c) Profesionales especializados asistentes de la educación:</strong></h5>
                                 <br>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label for="">Nombre</label>
-                                    <input name="nombre" type="text" class="form-control" required>
+                            
+                            <form id="" role="form" method="POST" action="../modulos/agregar_establecimiento.php">   
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="">Nombre</label>
+                                        <div id="div1" class="clonar">
+                                            <select name="docente1" id="docente1" class="form-control">
+                                                <option value=""> Seleccione </option>
+                                                <?php
+
+                                                $sql = "SELECT * FROM profesionals WHERE titulo_profesional='TERAPEUTA OCUPACIONAL' OR titulo_profesional='PSICOLOGO(A)' OR titulo_profesional='FONOAUDIOLOGO(A)' ORDER BY id";
+                                                $resultado = mysqli_query($enlace, $sql);
+                                                while ($dado = mysqli_fetch_array($resultado)):
+                                                    $id = $dado['id'];
+                                                    $nombre = $dado['nombres'];
+                                                ?>
+                                                <option value="<?php echo $id; ?>">
+                                                    <?php echo $nombre; ?>
+                                                </option>
+                                                <?php
+                                                endwhile;
+                                            ?>
+                                            </select>
+                                            <br>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label for="">Especialidad</label>
-                                    <input name="especialidad" type="text" class="form-control" required>
+
+                                <div class="container-fluid">
+                                    <input type="button" id="agregar" value="+" class="btn btn-lg btn-primary" />
                                 </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label for="">Teléfono</label>
-                                    <input name="telefono" type="text" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="">Correo</label>
-                                    <input name="correo" type="text" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="">Firma</label>
-                                    <input name="firma" type="text" class="form-control" required>
-                                </div>
-                            </div>
+                            </form>
+
                         </div>
                         <hr>
                         <div class="container-fluid">
