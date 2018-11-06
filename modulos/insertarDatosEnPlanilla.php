@@ -10,13 +10,13 @@ if(isset($_POST['insertar'])){
     $selectTres = mysqli_escape_string($enlace, $_POST['nombre3']);
     $selectCuatro = mysqli_escape_string($enlace, $_POST['nombre4']);
     $selectCinco = mysqli_escape_string($enlace, $_POST['nombre5']);
-    
+    $bucle_profe =mysqli_escape_string($enlace, $_POST['bucle_profe']);
+
+
 }
 
 
-
-$sql = "INSERT INTO datos_plantilla (profesionals_id, profesionals_id_2, profesionals_id_3, profesionals_id_4, profesionals_id_5) VALUES ('".$selectUno."', '".$selectDos."', '".$selectTres."','".$selectCuatro."', '".$selectCinco."')";
-
+echo ("el valor del select es ".$bucle_profe);
 
 if(mysqli_query($enlace, $sql)):
     // $_SESSION['mensaje'] = '<div class="alert alert-success alert-dismissible" role="alert">
@@ -26,6 +26,7 @@ if(mysqli_query($enlace, $sql)):
     
 else:
     echo "Error";
+    echo $sql;
 endif;
 
 

@@ -43,6 +43,13 @@ include ('../configs/conexion_db.php');
                             </div>
 
                             <form id="" role="form" method="POST" action="../modulos/insertarDatosEnPlanilla.php">
+                            <select name="bucle_profe" id="bucle_profe"  class="hidden">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            </select>
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label for="">Nombre</label>
@@ -72,7 +79,7 @@ include ('../configs/conexion_db.php');
                                     <input type="button" id="btnAdd" name="btnAdd" value="+" class="btn btn-lg btn-primary" />
                                     <input type="button" id="btnDel" value="-" class="btn btn-lg btn-danger" />
                                 </div>
-                                <input type="submit" id="insertar" value="Insertar a planilla" class="btn btn-lg btn-danger" />
+                                <input type="submit" name="insertar" id="insertar" value="Insertar a planilla" class="btn btn-lg btn-danger" />
                             </form>
                         </div>
                         <hr>
@@ -174,25 +181,23 @@ include ('../configs/conexion_db.php');
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="">Nombre</label>
-                                    <input name="nombre" type="text" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label for="">Teléfono</label>
-                                    <input name="teléfono" type="text" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="">Correo</label>
-                                    <input name="correo" type="text" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="">Firma</label>
-                                    <input name="firma" type="text" class="form-control" required>
+                                    <select name="nombre1" id="nombre1" class="form-control">
+                                                <option value=""> Seleccione </option>
+                                                <?php
+
+                                                $sql = "SELECT * FROM profesionals where coordinador='si' ORDER BY id";
+                                                $resultado = mysqli_query($enlace, $sql);
+                                                while ($dado = mysqli_fetch_array($resultado)):
+                                                    $id = $dado['id'];
+                                                    $nombre = $dado['nombres'];
+                                                ?>
+                                                <option value="<?php echo $id; ?>">
+                                                    <?php echo $nombre; ?>
+                                                </option>
+                                                <?php
+                                                endwhile;
+                                            ?>
+                                            </select>
                                 </div>
                             </div>
                         </div>

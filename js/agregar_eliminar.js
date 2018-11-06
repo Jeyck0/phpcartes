@@ -3,6 +3,8 @@ $(document).ready(function() {
     $('#btnAdd').click(function() {
       var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
       var newNum = new Number(num + 1); // the numeric ID of the new input field being added
+      r=newNum.toString();
+      $('#bucle_profe').val(r);
    
       // create the new element via clone(), and manipulate it's ID using newNum value
       var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
@@ -15,15 +17,19 @@ $(document).ready(function() {
    
       // enable the "remove" button
       $('#btnDel').attr('disabled',false);
+     
    
       // business rule: you can only add 10 names
       if (newNum == 5)
         $('#btnAdd').attr('disabled','disabled');
+
     });
    
     $('#btnDel').click(function() {
       var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
       $('#input' + num).remove(); // remove the last element
+
+      alert("chao");
    
       // enable the "add" button
       $('#btnAdd').attr('disabled',false);
@@ -34,3 +40,4 @@ $(document).ready(function() {
     });
    
   });
+
