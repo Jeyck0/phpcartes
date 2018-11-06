@@ -1,6 +1,7 @@
 <?php
 require '../configs/conexion_db.php';
 
+session_start();
 if(isset($_POST["submit"])){
 
 	$usuario = $_POST["usuario"];
@@ -17,7 +18,7 @@ if(isset($_POST["submit"])){
 	if($num > 0){
 		//SE CREA LA SESION CON LA ID DEL USUARIO
 		$row=mysqli_fetch_array($respuesta);
-		$_SESSION['s_id']=$row['id'];
+		$_SESSION['s_id'] = $usuario;
 		//SE REDIRECCIONA AL SISTEMA
 		header("Location:../pages/index.php");
 		echo "login correcto";

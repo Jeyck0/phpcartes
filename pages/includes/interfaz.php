@@ -1,3 +1,9 @@
+<?php 
+session_start();
+if(!isset($_SESSION['s_id'])){
+header('Location:../login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -70,7 +76,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuración</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+                        <li><a href="../modulos/cerrar.php"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

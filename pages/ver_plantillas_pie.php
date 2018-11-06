@@ -23,7 +23,7 @@ include ('../configs/conexion_db.php');
                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr>
-                                <th scope="col">Numero Plantilla</th>
+                                <th scope="col">N° Plantilla</th>
                                 <th scope="col">Alumnos</th>
                                 <th scope="col">Colegio</th>
                                 <th scope="col">Participantes</th>
@@ -36,7 +36,7 @@ include ('../configs/conexion_db.php');
 
                         <tbody>
                             <?php 
-                                    $sql = "SELECT * FROM usuarios_planilla";
+                                    $sql = "SELECT a.nombres, u.id_planilla from alumnos a  inner join usuarios_planilla u ON a.id=u.id_alumno where id_alumno > 0";
                                     $resultado = mysqli_query($enlace, $sql);
                                     while ($dado = mysqli_fetch_array($resultado)):
                                     ?>
@@ -45,14 +45,13 @@ include ('../configs/conexion_db.php');
                                 <?php echo $dado['id_planilla'] ?>
                                 </td>
                                 <td>
-                                <?php echo $dado['id_alumno'] ?>
+                                <?php echo $dado['nombres'] ?>
                                     
                                 </td>
                                 <td>
                                     
                                 </td>
                                 <td>
-                                <?php echo $dado['id_profesional'] ?>
                                     
                                 </td>
                                 <td>

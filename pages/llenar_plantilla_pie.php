@@ -23,6 +23,17 @@ include ('../configs/conexion_db.php');
                 <div class="panel-body">
                     <div class="row">
                         <div class="container">
+                                <h2>N° Planilla</h2>
+                                <input disabled class="form-control" style="width: 80px" type="text" name="" id="" value=" <?php 
+                                    $sql = "SELECT MAX(id) FROM planilla";
+                                    $resultado = mysqli_query($enlace, $sql);
+                                    $dado = mysqli_fetch_array($resultado);
+
+                                    print_r($dado['0']);
+                                    
+                                    ?>  ">
+                        </div>
+                        <div class="container">
                             <h4>1.- Identificación del Equipo de Aula</h4>
                         </div>
                         <div class="container-fluid">
@@ -58,7 +69,7 @@ include ('../configs/conexion_db.php');
                                     </div>
                                 </div>
                                 <div class="container-fluid">
-                                    <input type="button" id="btnAdd" value="+" class="btn btn-lg btn-primary" />
+                                    <input type="button" id="btnAdd" name="btnAdd" value="+" class="btn btn-lg btn-primary" />
                                     <input type="button" id="btnDel" value="-" class="btn btn-lg btn-danger" />
                                 </div>
                                 <input type="submit" id="insertar" value="Insertar a planilla" class="btn btn-lg btn-danger" />
