@@ -13,7 +13,11 @@ include ('../configs/conexion_db.php');
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href="llenar_plantilla_pie.php" class="btn btn-sm btn-success">Llenar nueva plantilla</a>
+                    <!-- <a href="llenar_plantilla_pie.php" class="btn btn-sm btn-success">Llenar nueva plantilla</a> -->
+
+                    <form id="" role="form" method="POST" action="../modulos/nuevaPlanilla.php">
+                        <input type="submit" id="numero" name="numero" value="Llenar nueva planilla" class="btn btn-sm btn-success" />
+                    </form>
                 </div>
                 <div class="panel-body">
                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -32,21 +36,23 @@ include ('../configs/conexion_db.php');
 
                         <tbody>
                             <?php 
-                                    $sql = "SELECT * FROM establecimientos";
+                                    $sql = "SELECT * FROM usuarios_planilla";
                                     $resultado = mysqli_query($enlace, $sql);
                                     while ($dado = mysqli_fetch_array($resultado)):
                                     ?>
                             <tr>
                                 <td>
-                                   
+                                <?php echo $dado['id_planilla'] ?>
                                 </td>
                                 <td>
+                                <?php echo $dado['id_alumno'] ?>
                                     
                                 </td>
                                 <td>
                                     
                                 </td>
                                 <td>
+                                <?php echo $dado['id_profesional'] ?>
                                     
                                 </td>
                                 <td>
