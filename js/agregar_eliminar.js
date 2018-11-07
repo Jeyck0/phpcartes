@@ -29,10 +29,11 @@ $(document).ready(function() {
       var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
       $('#input' + num).remove(); // remove the last element
 
-      alert("chao");
+      var r2=(num-1).toString();
    
       // enable the "add" button
       $('#btnAdd').attr('disabled',false);
+      $('#bucle_profe').val(r2);
    
       // if only one element remains, disable the "remove" button
       if (num-1 == 1)
