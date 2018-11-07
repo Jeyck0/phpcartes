@@ -24,7 +24,7 @@ include ('../configs/conexion_db.php');
                     <div class="row">
                         <div class="container">
                                 <h2>N° Planilla</h2>
-                                <input disabled class="form-control" style="width: 80px" type="text" name="" id="" value=" <?php 
+                                <input name="numero" disabled class="form-control" style="width: 80px" type="text" id="numero" value=" <?php 
                                     $sql = "SELECT MAX(id) FROM planilla";
                                     $resultado = mysqli_query($enlace, $sql);
                                     $dado = mysqli_fetch_array($resultado);
@@ -43,6 +43,16 @@ include ('../configs/conexion_db.php');
                             </div>
 
                             <form id="" role="form" method="POST" action="../modulos/insertarDatosEnPlanilla.php">
+                            <div class="form-group">
+                                    <input name="numero" type="text" style="width: 80px" class="form-control hidden" value=" <?php 
+                                    $sql = "SELECT MAX(id) FROM planilla";
+                                    $resultado = mysqli_query($enlace, $sql);
+                                    $dado = mysqli_fetch_array($resultado);
+
+                                    print_r($dado['0']);
+                                    
+                                    ?> ">
+                            </div>
                             <select name="bucle_profe" id="bucle_profe"  class="hidden">
                             <option value="1">1</option>
                             <option value="2">2</option>
