@@ -5,6 +5,7 @@ $(document).ready(function() {
       var newNum = new Number(num + 1); // the numeric ID of the new input field being added
       r=newNum.toString();
       $('#bucle_profe').val(r);
+      
    
       // create the new element via clone(), and manipulate it's ID using newNum value
       var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);

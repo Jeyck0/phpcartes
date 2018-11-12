@@ -53,7 +53,7 @@ include ('../configs/conexion_db.php');
                                     
                                     ?> ">
                             </div>
-                            <select name="bucle_profe" id="bucle_profe"  class="hidden">
+                            <select name="bucle_profe" id="bucle_profe"  >
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -88,9 +88,7 @@ include ('../configs/conexion_db.php');
                                 <div class="container-fluid">
                                     <input type="button" id="btnAdd" name="btnAdd" value="+" class="btn btn-lg btn-primary" />
                                     <input type="button" id="btnDel" value="-" class="btn btn-lg btn-danger" />
-                                </div>
-                                <input type="submit" name="insertar" id="insertar" value="Insertar a planilla" class="btn btn-lg btn-danger" />
-                            </form>
+                                </div> 
                         </div>
                         <hr>
                         <div class="container-fluid">
@@ -98,7 +96,13 @@ include ('../configs/conexion_db.php');
                                 <h5><strong>b) Profesores especializados:</strong></h5>
                                 <br>
                             </div>
-                            <form id="" role="form" method="POST" action="../modulos/agregar_establecimiento.php">
+                                <select name="bucle_profe_especializado" id="bucle_profe_especializado"  >
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                </select>
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label for="">Nombre</label>
@@ -129,6 +133,7 @@ include ('../configs/conexion_db.php');
                                     <input type="button" id="boton" value="+" class="btn btn-lg btn-primary" />
                                     <input type="button" id="borrar" value="-" class="btn btn-lg btn-danger" />
                                 </div>
+                                <input type="submit" name="insertar" id="insertar" value="Insertar a planilla" class="btn btn-lg btn-danger" />
                             </form>
                         </div>
                         <hr>
@@ -695,7 +700,6 @@ include ('../configs/conexion_db.php');
 
 
 </div>
-
 
 <script src="../js/agregar_eliminar.js" type="text/javascript"></script>
 <script src="../js/agregar_eliminar_2.js" type="text/javascript"></script>
