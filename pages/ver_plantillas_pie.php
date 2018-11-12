@@ -24,7 +24,7 @@ include ('../configs/conexion_db.php');
                         <thead>
                             <tr>
                                 <th scope="col">N° Plantilla</th>
-                                <th scope="col">Alumnos</th>
+                                <th scope="col">Profesores</th>
                                 <th scope="col">Colegio</th>
                                 <th scope="col">Participantes</th>
                                 <th scope="col">Ultima edición</th>
@@ -36,7 +36,7 @@ include ('../configs/conexion_db.php');
 
                         <tbody>
                             <?php 
-                                    $sql = "SELECT a.nombres, u.id_planilla from alumnos a  inner join usuarios_planilla u ON a.id=u.id_alumno where id_alumno > 0";
+                                    $sql = "SELECT p.nombres, u.id_planilla, u.ultimo_cambio from profesionals p  inner join usuarios_planilla u ON p.id=u.id_profesional where id_profesional > 0";
                                     $resultado = mysqli_query($enlace, $sql);
                                     while ($dado = mysqli_fetch_array($resultado)):
                                     ?>
@@ -52,9 +52,10 @@ include ('../configs/conexion_db.php');
                                     
                                 </td>
                                 <td>
-                                    
+                                <?php echo $_SESSION['s_id'] ?>
                                 </td>
                                 <td>
+                                <?php echo $dado['ultimo_cambio'] ?>
                                     
                                 </td>
                                 <td>

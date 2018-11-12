@@ -4,6 +4,8 @@ $(document).ready(function () {
         // $("#select_profesional").attr("name",'select_profesional_1');
         var num = $('.clon').length; // how many "duplicatable" divs fields we currently have
         var newNum = new Number(num + 1); // the numeric ID of the new divs field being added
+        r=newNum.toString();
+        $('#bucle_especializado').val(r);
 
         // create the new element via clone(), and manipulate it's ID using newNum value
         var newElem = $('#divs' + num).clone().attr('id', 'divs' + newNum);

@@ -1,4 +1,4 @@
-<?php
+<?php  
 include('includes/interfaz.php');
 include ('../configs/conexion_db.php');
 ?>
@@ -23,15 +23,12 @@ include ('../configs/conexion_db.php');
                 <div class="panel-body">
                     <div class="row">
                         <div class="container">
-                                <h2>N° Planilla</h2>
-                                <input name="numero" disabled class="form-control" style="width: 80px" type="text" id="numero" value=" <?php 
-                                    $sql = "SELECT MAX(id) FROM planilla";
-                                    $resultado = mysqli_query($enlace, $sql);
-                                    $dado = mysqli_fetch_array($resultado);
-
-                                    print_r($dado['0']);
-                                    
-                                    ?>  ">
+                            <h2>N° Planilla</h2>
+                            <input name="numero" disabled class="form-control" style="width: 80px" type="text" id="numero"
+                                value=" <?php 
+                                    $sql = " SELECT MAX(id) FROM
+                                planilla"; $resultado=mysqli_query($enlace, $sql); $dado=mysqli_fetch_array($resultado);
+                                print_r($dado['0']); ?> ">
                         </div>
                         <div class="container">
                             <h4>1.- Identificación del Equipo de Aula</h4>
@@ -43,23 +40,20 @@ include ('../configs/conexion_db.php');
                             </div>
 
                             <form id="" role="form" method="POST" action="../modulos/insertarDatosEnPlanilla.php">
-                            <div class="form-group">
-                                    <input name="numero" type="text" style="width: 80px" class="form-control hidden" value=" <?php 
-                                    $sql = "SELECT MAX(id) FROM planilla";
-                                    $resultado = mysqli_query($enlace, $sql);
-                                    $dado = mysqli_fetch_array($resultado);
-
-                                    print_r($dado['0']);
-                                    
-                                    ?> ">
-                            </div>
-                            <select name="bucle_profe" id="bucle_profe"  class="hidden">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            </select>
+                                <div class="form-group">
+                                    <input name="numero" type="text" style="width: 80px" class="form-control hidden"
+                                        value=" <?php 
+                                    $sql = " SELECT MAX(id) FROM
+                                        planilla"; $resultado=mysqli_query($enlace, $sql); $dado=mysqli_fetch_array($resultado);
+                                        print_r($dado['0']); ?> ">
+                                </div>
+                                <select name="bucle_profe" id="bucle_profe" class="hidden">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label for="">Nombre</label>
@@ -89,16 +83,17 @@ include ('../configs/conexion_db.php');
                                     <input type="button" id="btnAdd" name="btnAdd" value="+" class="btn btn-lg btn-primary" />
                                     <input type="button" id="btnDel" value="-" class="btn btn-lg btn-danger" />
                                 </div>
-                                <input type="submit" name="insertar" id="insertar" value="Insertar a planilla" class="btn btn-lg btn-danger" />
-                            </form>
-                        </div>
-                        <hr>
-                        <div class="container-fluid">
-                            <div class="container">
-                                <h5><strong>b) Profesores especializados:</strong></h5>
-                                <br>
-                            </div>
-                            <form id="" role="form" method="POST" action="../modulos/agregar_establecimiento.php">
+                                <div class="container">
+                                    <h5><strong>b) Profesores especializados:</strong></h5>
+                                    <br>
+                                </div>
+                                <select id="bucle_especializado" name="bucle_especializado" class="hidden">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label for="">Nombre</label>
@@ -129,6 +124,17 @@ include ('../configs/conexion_db.php');
                                     <input type="button" id="boton" value="+" class="btn btn-lg btn-primary" />
                                     <input type="button" id="borrar" value="-" class="btn btn-lg btn-danger" />
                                 </div>
+
+                                <input type="submit" name="insertar" id="insertar" value="Insertar a planilla" class="btn btn-lg btn-danger" />
+
+
+                            </form>
+                        </div>
+                        <hr>
+                        <div class="container-fluid">
+                            
+                            <form id="" role="form" method="POST" action="../modulos/agregar_establecimiento.php">
+
                             </form>
                         </div>
                         <hr>
@@ -192,8 +198,8 @@ include ('../configs/conexion_db.php');
                                 <div class="form-group">
                                     <label for="">Nombre</label>
                                     <select name="nombre1" id="nombre1" class="form-control">
-                                                <option value=""> Seleccione </option>
-                                                <?php
+                                        <option value=""> Seleccione </option>
+                                        <?php
 
                                                 $sql = "SELECT * FROM profesionals where coordinador='si' ORDER BY id";
                                                 $resultado = mysqli_query($enlace, $sql);
@@ -201,13 +207,13 @@ include ('../configs/conexion_db.php');
                                                     $id = $dado['id'];
                                                     $nombre = $dado['nombres'];
                                                 ?>
-                                                <option value="<?php echo $id; ?>">
-                                                    <?php echo $nombre; ?>
-                                                </option>
-                                                <?php
+                                        <option value="<?php echo $id; ?>">
+                                            <?php echo $nombre; ?>
+                                        </option>
+                                        <?php
                                                 endwhile;
                                             ?>
-                                            </select>
+                                    </select>
                                 </div>
                             </div>
                         </div>
