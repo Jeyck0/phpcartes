@@ -1,4 +1,4 @@
-<?php
+<?php  
 include('includes/interfaz.php');
 include ('../configs/conexion_db.php');
 ?>
@@ -23,15 +23,12 @@ include ('../configs/conexion_db.php');
                 <div class="panel-body">
                     <div class="row">
                         <div class="container">
-                                <h2>N° Planilla</h2>
-                                <input name="numero" disabled class="form-control" style="width: 80px" type="text" id="numero" value=" <?php 
-                                    $sql = "SELECT MAX(id) FROM planilla";
-                                    $resultado = mysqli_query($enlace, $sql);
-                                    $dado = mysqli_fetch_array($resultado);
-
-                                    print_r($dado['0']);
-                                    
-                                    ?>  ">
+                            <h2>N° Planilla</h2>
+                            <input name="numero" disabled class="form-control" style="width: 80px" type="text" id="numero"
+                                value=" <?php 
+                                    $sql = " SELECT MAX(id) FROM
+                                planilla"; $resultado=mysqli_query($enlace, $sql); $dado=mysqli_fetch_array($resultado);
+                                print_r($dado['0']); ?> ">
                         </div>
                         <div class="container">
                             <h4>1.- Identificación del Equipo de Aula</h4>
@@ -197,8 +194,8 @@ include ('../configs/conexion_db.php');
                                 <div class="form-group">
                                     <label for="">Nombre</label>
                                     <select name="nombre1" id="nombre1" class="form-control">
-                                                <option value=""> Seleccione </option>
-                                                <?php
+                                        <option value=""> Seleccione </option>
+                                        <?php
 
                                                 $sql = "SELECT * FROM profesionals where coordinador='si' ORDER BY id";
                                                 $resultado = mysqli_query($enlace, $sql);
@@ -206,13 +203,13 @@ include ('../configs/conexion_db.php');
                                                     $id = $dado['id'];
                                                     $nombre = $dado['nombres'];
                                                 ?>
-                                                <option value="<?php echo $id; ?>">
-                                                    <?php echo $nombre; ?>
-                                                </option>
-                                                <?php
+                                        <option value="<?php echo $id; ?>">
+                                            <?php echo $nombre; ?>
+                                        </option>
+                                        <?php
                                                 endwhile;
                                             ?>
-                                            </select>
+                                    </select>
                                 </div>
                             </div>
                         </div>
