@@ -6,6 +6,8 @@ $(document).ready(function () {
         var newNum = new Number(num + 1); // the numeric ID of the new divs field being added
         r=newNum.toString();
         $('#bucle_profe_especializado').val(r);
+
+        
         
 
         // create the new element via clone(), and manipulate it's ID using newNum value

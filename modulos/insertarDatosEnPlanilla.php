@@ -20,11 +20,20 @@ if(isset($_POST['insertar'])){
     $selectEspecializadoCuatro = mysqli_escape_string($enlace, $_POST['profe4']);
     $selectEspecializadoCinco = mysqli_escape_string($enlace, $_POST['profe5']);
 
+     //select asistentes
+     $bucle_profe_asistente = mysqli_escape_string($enlace, $_POST['bucle_profe_asistente']);
+     $selectAsistenteUno = mysqli_escape_string($enlace, $_POST['docente1']);
+     $selectAsistenteDos = mysqli_escape_string($enlace, $_POST['docente2']);
+     $selectAsistenteTres = mysqli_escape_string($enlace, $_POST['docente3']);
+     $selectAsistenteCuatro = mysqli_escape_string($enlace, $_POST['docente4']);
+     $selectAsistenteCinco = mysqli_escape_string($enlace, $_POST['docente5']);
+
 
     $numero = mysqli_escape_string($enlace, $_POST['numero']);
 
 
 }
+
 
 //insert 
 if($bucle_profe==1){
@@ -51,27 +60,55 @@ if($bucle_profe==1){
 
 if($bucle_profe_especializado==1){
     $sql2=$sql_1.", ('".$numero."','".$selectEspecializadoUno."')";
+    echo $sql2;
 
 }
 if($bucle_profe_especializado==2){
-    $sql2=$sql_1.", ('".$numero."','".$selectEspecializadoUno."'), ('".$numero."','".$selectEspecializadoDos."')";
+    $sql2=$sql_1.", ('".$numero."','".$selectEspecializadoUno."'),('".$numero."','".$selectEspecializadoDos."')";
 
 }
 if($bucle_profe_especializado==3){
-    $sql2=$sql_1.", ('".$numero."','".$selectEspecializadoUno."'), ('".$numero."','".$selectEspecializadoDos."'), ('".$numero."','".$selectEspecializadoTres."')";
+    $sql2=$sql_1.", ('".$numero."','".$selectEspecializadoUno."'),('".$numero."','".$selectEspecializadoDos."'), ('".$numero."','".$selectEspecializadoTres."')";
 
 }
 if($bucle_profe_especializado==4){
-    $sql2=$sql_1.", ('".$numero."','".$selectEspecializadoUno."'), ('".$numero."','".$selectEspecializadoDos."'), ('".$numero."','".$selectEspecializadoTres."'), ('".$numero."','".$selectEspecializadoCuatro."')";
+    $sql2=$sql_1.", ('".$numero."','".$selectEspecializadoUno."'),('".$numero."','".$selectEspecializadoDos."'), ('".$numero."','".$selectEspecializadoTres."'), ('".$numero."','".$selectEspecializadoCuatro."')";
 
 }
 if($bucle_profe_especializado==5){
-    $sql2=$sql_1.", ('".$numero."','".$selectEspecializadoUno."'), ('".$numero."','".$selectEspecializadoDos."'), ('".$numero."','".$selectEspecializadoTres."'), ('".$numero."','".$selectEspecializadoCuatro."'), ('".$numero."','".$selectEspecializadoCinco."')";
+    $sql2=$sql_1.", ('".$numero."','".$selectEspecializadoUno."'),('".$numero."','".$selectEspecializadoDos."'), ('".$numero."','".$selectEspecializadoTres."'), ('".$numero."','".$selectEspecializadoCuatro."'), ('".$numero."','".$selectEspecializadoCinco."')";
 
 
 }
 
-if(mysqli_query($enlace, $sql2)):
+
+
+if($bucle_profe_asistente==1){
+    $sql3=$sql2.", ('".$numero."','".$selectAsistenteUno."')";
+    
+
+}
+if($bucle_profe_asistente==2){
+    $sql3=$sql2.", ('".$numero."','".$selectAsistenteUno."'),('".$numero."','".$selectAsistenteDos."')";
+
+}
+if($bucle_profe_asistente==3){
+    $sql3=$sql2.", ('".$numero."','".$selectAsistenteUno."'),('".$numero."','".$selectAsistenteDos."'), ('".$numero."','".$selectAsistenteTres."')";
+
+}
+if($bucle_profe_asistente==4){
+    $sql3=$sql2.", ('".$numero."','".$selectAsistenteUno."'),('".$numero."','".$selectAsistenteDos."'), ('".$numero."','".$selectAsistenteTres."'), ('".$numero."','".$selectAsistenteCuatro."')";
+
+}
+if($bucle_profe_asistente==5){
+    $sql3=$sql2.", ('".$numero."','".$selectAsistenteUno."'),('".$numero."','".$selectAsistenteDos."'), ('".$numero."','".$selectAsistenteTres."'), ('".$numero."','".$selectAsistenteCuatro."'),('".$numero."','".$selectAsistenteCinco."')"; 
+}
+
+
+
+
+
+if(mysqli_query($enlace, $sql3)):
     // $_SESSION['mensaje'] = '<div class="alert alert-success alert-dismissible" role="alert">
     // <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     // Alumno agregado con exito!</div>';
@@ -80,7 +117,7 @@ if(mysqli_query($enlace, $sql2)):
     
 else:
     echo "Error";
-    echo $sql2;
+    echo $sql3;
 endif;
 
 

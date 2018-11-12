@@ -33,7 +33,7 @@ include ('../configs/conexion_db.php');
                         <div class="container">
                             <h4>1.- Identificación del Equipo de Aula</h4>
                         </div>
-                        <div class="container-fluid">
+                        
                             <div class="container">
                                 <h5><strong>a) Docente(s) de educación regular del curso:</strong></h5>
                                 <br>
@@ -50,7 +50,7 @@ include ('../configs/conexion_db.php');
                                     
                                     ?> ">
                             </div>
-                            <select name="bucle_profe" id="bucle_profe"  >
+                            <select name="bucle_profe" id="bucle_profe" class="hidden" >
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -86,14 +86,14 @@ include ('../configs/conexion_db.php');
                                     <input type="button" id="btnAdd" name="btnAdd" value="+" class="btn btn-lg btn-primary" />
                                     <input type="button" id="btnDel" value="-" class="btn btn-lg btn-danger" />
                                 </div> 
-                        </div>
+                    
                         <hr>
                         <div class="container-fluid">
                             <div class="container">
                                 <h5><strong>b) Profesores especializados:</strong></h5>
                                 <br>
                             </div>
-                                <select name="bucle_profe_especializado" id="bucle_profe_especializado"  >
+                                <select name="bucle_profe_especializado" id="bucle_profe_especializado"  class="hidden">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -130,8 +130,6 @@ include ('../configs/conexion_db.php');
                                     <input type="button" id="boton" value="+" class="btn btn-lg btn-primary" />
                                     <input type="button" id="borrar" value="-" class="btn btn-lg btn-danger" />
                                 </div>
-                                <input type="submit" name="insertar" id="insertar" value="Insertar a planilla" class="btn btn-lg btn-danger" />
-                            </form>
                         </div>
                         <hr>
                         <div class="container-fluid">
@@ -139,8 +137,13 @@ include ('../configs/conexion_db.php');
                                 <h5><strong>c) Profesionales especializados asistentes de la educación:</strong></h5>
                                 <br>
                             </div>
-
-                            <form id="" role="form" method="POST" action="../modulos/agregar_establecimiento.php">
+                            <select name="bucle_profe_asistente" id="bucle_profe_asistente"  class="hidden">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                </select>                     
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label for="">Nombre</label>
@@ -171,6 +174,7 @@ include ('../configs/conexion_db.php');
                                     <input type="button" id="agregar" value="+" class="btn btn-lg btn-primary" />
                                     <input type="button" id="eliminar" value="-" class="btn btn-lg btn-danger" />
                                 </div>
+                                <input type="submit" name="insertar" id="insertar" value="Insertar a planilla" class="btn btn-lg btn-danger" />
                             </form>
 
                         </div>
