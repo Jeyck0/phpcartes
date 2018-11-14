@@ -36,16 +36,17 @@ include ('../configs/conexion_db.php');
 
                         <tbody>
                             <?php 
-                                    $sql = "SELECT p.nombres, u.id_planilla, u.ultimo_cambio from profesionals p  inner join usuarios_planilla u ON p.id=u.id_profesional where id_profesional > 0";
+                                    // $sql = "SELECT p.nombres, u.id, u.id_planilla, u.ultimo_cambio from profesionals p  inner join usuarios_planilla u ON p.id=u.id_profesional where id_profesional > 0";
+                                    $sql = "SELECT * from planilla ";
+                                    // $sql = "SELECT id_planilla FROM usuarios_planilla u, planilla pl WHERE u.id_planilla=pl.id";
                                     $resultado = mysqli_query($enlace, $sql);
                                     while ($dado = mysqli_fetch_array($resultado)):
                                     ?>
                             <tr>
                                 <td>
-                                <?php echo $dado['id_planilla'] ?>
+                                <?php echo $dado['id'] ?>
                                 </td>
                                 <td>
-                                <?php echo $dado['nombres'] ?>
                                     
                                 </td>
                                 <td>
@@ -55,7 +56,7 @@ include ('../configs/conexion_db.php');
                                 <?php echo $_SESSION['s_id'] ?>
                                 </td>
                                 <td>
-                                <?php echo $dado['ultimo_cambio'] ?>
+                                
                                     
                                 </td>
                                 <td>
@@ -65,7 +66,7 @@ include ('../configs/conexion_db.php');
                                     
                                 </td>
                                 <td>
-                                    <a href="ver_establecimiento.php?id=<?php echo $dado['id'] ?>" type="submit" name="btn-ver" class="btn btn-xs btn-info">Ver</a>
+                                    <a href="ver_planilla_pie.php?id=<?php echo $dado['id'] ?>" type="submit" name="btn-ver" class="btn btn-xs btn-info">Ver</a>
                                     <a href="editar_establecimiento.php?id=<?php echo $dado['id'] ?>" class="btn btn-xs btn-warning">Editar</a>
                                     <a href="" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#myModal<?php echo $dado['id'] ?>">Eliminar</a>
                                     <!-- Modal -->
@@ -83,7 +84,7 @@ include ('../configs/conexion_db.php');
                                                 </div>
                                                 <div class="modal-footer">
 
-                                                    <form action="../modulos/eliminar_establecimiento.php" method="POST">
+                                                    <form action="../modulos/eliminar_planilla.php" method="POST">
                                                         <input type="hidden" name="id" value="<?php echo $dado['id'] ?>">
                                                         <button type="submit" name="btn-delete" class="btn btn-danger">Eliminar</button>
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
