@@ -54,7 +54,10 @@ endif;
                                     <label for="">Teléfono</label>
                                     <input disabled name="telefono" type="text" class="form-control" value="<?php echo $dado['telefono'] ?>">
                                 </div>
-                                
+                                <div class="form-group">
+                                    <label for="">Asignatura y/o Modulo</label>
+                                    <input disabled name="asignatura" type="text" class="form-control" value="<?php echo $dado['asignatura_modulo'] ?>">
+                                </div>  
                                                                
                             </div>
                             <div class="col-lg-6">                                

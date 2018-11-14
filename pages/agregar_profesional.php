@@ -43,6 +43,10 @@ include('includes/interfaz.php');
                                     <label for="">Teléfono</label>
                                     <input name="telefono" type="text" class="form-control">
                                 </div>
+                                <div class="form-group">
+                                    <label for="">Asignatura y/o modulo</label>
+                                    <input name="asignatura" type="text" class="form-control">
+                                </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
