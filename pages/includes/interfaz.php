@@ -130,7 +130,7 @@ header('Location:../login.php');
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="ver_plantillas_pie.php"><i class="fa fa-table fa-fw"></i> Plantillas Pie</a>
+                            <a href="lista_plantillas_pie.php"><i class="fa fa-table fa-fw"></i> Plantillas Pie</a>
                         </li>                                             
                     </ul>
                 </div>
