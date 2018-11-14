@@ -119,12 +119,62 @@ while($row=$resultado->fetch_assoc()){
     $pdf->SetFillColor(255,255,255);
     $pdf->SetFont('Arial');
     $pdf->CellFitSpace(35,6,$row['nombres'],1,0,'C',1);
-    $pdf->Cell(45,6,'',1,0,'C',1);
+    $pdf->Cell(45,6,$row['asignatura_modulo'],1,0,'C',1);
     $pdf->Cell(30,6,$row['telefono'],1,0,'C',1);
     $pdf->Cell(50,6,$row['correo'],1,0,'C',1);
     $pdf->Cell(30,6,'',1,1,'C',1);
 }
 
+$pdf->Ln();
+$pdf->SetFont('Arial');
+$pdf->Write(14,utf8_decode('Profesores especiaizados: '));
+$pdf->Ln();
+$pdf->SetFillColor(232,232,232);
+$pdf->SetFont('Arial','B');
+$pdf->Cell(35,6,'Nombre',1,0,'C',1);
+$pdf->CellFitSpace(45,6,utf8_decode('especialidad'),1,0,'C',1);
+$pdf->Cell(30,6,utf8_decode('Teléfono'),1,0,'C',1);
+$pdf->Cell(50,6,utf8_decode('Correo'),1,0,'C',1);
+$pdf->Cell(30,6,utf8_decode('Firma'),1,1,'C',1);
+
+$query="SELECT * from profesionals ";
+$resultado= $enlace->query($query);
+
+while($row=$resultado->fetch_assoc()){
+    $pdf->SetFillColor(255,255,255);
+    $pdf->SetFont('Arial');
+    $pdf->CellFitSpace(35,6,$row['nombres'],1,0,'C',1);
+    $pdf->CellFitSpace(45,6,$row['titulo_profesional'],1,0,'C',1);
+    $pdf->Cell(30,6,$row['telefono'],1,0,'C',1);
+    $pdf->Cell(50,6,$row['correo'],1,0,'C',1);
+    $pdf->Cell(30,6,'',1,1,'C',1);
+}
+
+
+$pdf->Ln();
+$pdf->SetFont('Arial');
+$pdf->Write(14,utf8_decode('Profesionales especializados de la educación: '));
+$pdf->Ln();
+$pdf->SetFillColor(232,232,232);
+$pdf->SetFont('Arial','B');
+$pdf->Cell(35,6,'Nombre',1,0,'C',1);
+$pdf->CellFitSpace(45,6,utf8_decode('especialidad'),1,0,'C',1);
+$pdf->Cell(30,6,utf8_decode('Teléfono'),1,0,'C',1);
+$pdf->Cell(50,6,utf8_decode('Correo'),1,0,'C',1);
+$pdf->Cell(30,6,utf8_decode('Firma'),1,1,'C',1);
+
+$query="SELECT * from profesionals ";
+$resultado= $enlace->query($query);
+
+while($row=$resultado->fetch_assoc()){
+    $pdf->SetFillColor(255,255,255);
+    $pdf->SetFont('Arial');
+    $pdf->CellFitSpace(35,6,$row['nombres'],1,0,'C',1);
+    $pdf->CellFitSpace(45,6,$row['titulo_profesional'],1,0,'C',1);
+    $pdf->Cell(30,6,$row['telefono'],1,0,'C',1);
+    $pdf->Cell(50,6,$row['correo'],1,0,'C',1);
+    $pdf->Cell(30,6,'',1,1,'C',1);
+}
 
 
 
