@@ -3,8 +3,12 @@
 require '../fpdf/fpdf.php';
 include ('../configs/conexion_db.php');
 
-$query="SELECT * from profesionals ";
+
+$id = mysqli_escape_string($enlace, $_GET['id']);
+
+$query="SELECT nombres, telefono, correo, id_planilla, id_profesional FROM usuarios_planilla up INNER JOIN profesionals pr ON up.id_profesional=pr.id WHERE up.id_planilla=$id";
 $resultado= $enlace->query($query);
+
 
 class pdf extends FPDF{
 
