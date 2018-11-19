@@ -6,7 +6,7 @@ include ('../configs/conexion_db.php');
 
 $id = mysqli_escape_string($enlace, $_GET['id']);
 
-$query="SELECT nombres, telefono, correo, id_planilla, id_profesional FROM usuarios_planilla up INNER JOIN profesionals pr ON up.id_profesional=pr.id WHERE up.id_planilla=$id";
+$query="SELECT nombres,asignatura_modulo, telefono, correo, id_planilla, id_profesional FROM usuarios_planilla up INNER JOIN profesionals pr ON up.id_profesional=pr.id WHERE up.id_planilla=$id and pr.titulo_profesional='PROFESOR(A)'";
 $resultado= $enlace->query($query);
 
 
@@ -116,7 +116,7 @@ $pdf->SetFont('Arial','B');
 $pdf->Cell(35,6,'Nombre',1,0,'C',1);
 $pdf->CellFitSpace(45,6,utf8_decode('Asignatura y/o módulo'),1,0,'C',1);
 $pdf->Cell(30,6,utf8_decode('Teléfono'),1,0,'C',1);
-$pdf->Cell(50,6,utf8_decode('Correo'),1,0,'C',1);
+$pdf->Cell(55,6,utf8_decode('Correo'),1,0,'C',1);
 $pdf->Cell(30,6,utf8_decode('Firma'),1,1,'C',1);
 
 while($row=$resultado->fetch_assoc()){
@@ -125,7 +125,7 @@ while($row=$resultado->fetch_assoc()){
     $pdf->CellFitSpace(35,6,$row['nombres'],1,0,'C',1);
     $pdf->Cell(45,6,$row['asignatura_modulo'],1,0,'C',1);
     $pdf->Cell(30,6,$row['telefono'],1,0,'C',1);
-    $pdf->Cell(50,6,$row['correo'],1,0,'C',1);
+    $pdf->CellFitSpace(55,6,$row['correo'],1,0,'C',1);
     $pdf->Cell(30,6,'',1,1,'C',1);
 }
 
@@ -136,12 +136,13 @@ $pdf->Ln();
 $pdf->SetFillColor(232,232,232);
 $pdf->SetFont('Arial','B');
 $pdf->Cell(35,6,'Nombre',1,0,'C',1);
-$pdf->CellFitSpace(45,6,utf8_decode('especialidad'),1,0,'C',1);
+$pdf->CellFitSpace(45,6,utf8_decode('Especialidad'),1,0,'C',1);
 $pdf->Cell(30,6,utf8_decode('Teléfono'),1,0,'C',1);
-$pdf->Cell(50,6,utf8_decode('Correo'),1,0,'C',1);
+$pdf->Cell(55,6,utf8_decode('Correo'),1,0,'C',1);
 $pdf->Cell(30,6,utf8_decode('Firma'),1,1,'C',1);
 
-$query="SELECT * from profesionals ";
+$query="SELECT nombres,asignatura_modulo,titulo_profesional, telefono, correo, id_planilla, id_profesional FROM usuarios_planilla up INNER JOIN profesionals pr ON up.id_profesional=pr.id WHERE up.id_planilla='$id' and (pr.titulo_profesional='EDUCADORA DE PARBULO' OR pr.titulo_profesional='EDUCADOR(A) DIFERENCIAL')";
+
 $resultado= $enlace->query($query);
 
 while($row=$resultado->fetch_assoc()){
@@ -150,7 +151,7 @@ while($row=$resultado->fetch_assoc()){
     $pdf->CellFitSpace(35,6,$row['nombres'],1,0,'C',1);
     $pdf->CellFitSpace(45,6,$row['titulo_profesional'],1,0,'C',1);
     $pdf->Cell(30,6,$row['telefono'],1,0,'C',1);
-    $pdf->Cell(50,6,$row['correo'],1,0,'C',1);
+    $pdf->CellFitSpace(55,6,$row['correo'],1,0,'C',1);
     $pdf->Cell(30,6,'',1,1,'C',1);
 }
 
@@ -162,12 +163,13 @@ $pdf->Ln();
 $pdf->SetFillColor(232,232,232);
 $pdf->SetFont('Arial','B');
 $pdf->Cell(35,6,'Nombre',1,0,'C',1);
-$pdf->CellFitSpace(45,6,utf8_decode('especialidad'),1,0,'C',1);
+$pdf->CellFitSpace(45,6,utf8_decode('Especialidad'),1,0,'C',1);
 $pdf->Cell(30,6,utf8_decode('Teléfono'),1,0,'C',1);
-$pdf->Cell(50,6,utf8_decode('Correo'),1,0,'C',1);
+$pdf->Cell(55,6,utf8_decode('Correo'),1,0,'C',1);
 $pdf->Cell(30,6,utf8_decode('Firma'),1,1,'C',1);
 
-$query="SELECT * from profesionals ";
+$query="SELECT nombres,asignatura_modulo,titulo_profesional, telefono, correo, id_planilla, id_profesional FROM usuarios_planilla up INNER JOIN profesionals pr ON up.id_profesional=pr.id WHERE up.id_planilla=$id and (pr.titulo_profesional='FONOAUDIOLOGO(A)' or pr.titulo_profesional='TERAPEUTA OCUPACIONAL' or pr.titulo_profesional='PSICOLOGO(A)' )";
+
 $resultado= $enlace->query($query);
 
 while($row=$resultado->fetch_assoc()){
@@ -176,9 +178,64 @@ while($row=$resultado->fetch_assoc()){
     $pdf->CellFitSpace(35,6,$row['nombres'],1,0,'C',1);
     $pdf->CellFitSpace(45,6,$row['titulo_profesional'],1,0,'C',1);
     $pdf->Cell(30,6,$row['telefono'],1,0,'C',1);
-    $pdf->Cell(50,6,$row['correo'],1,0,'C',1);
+    $pdf->CellFitSpace(55,6,$row['correo'],1,0,'C',1);
     $pdf->Cell(30,6,'',1,1,'C',1);
 }
+
+$pdf->Ln();
+$pdf->SetFont('Arial');
+$pdf->Write(14,utf8_decode('Coordinación del programa: '));
+$pdf->Ln();
+$pdf->SetFillColor(232,232,232);
+$pdf->SetFont('Arial','B');
+$pdf->Cell(40,6,'',1,0,'C',1);
+$pdf->CellFitSpace(40,6,utf8_decode('Nombre'),1,0,'C',1);
+$pdf->Cell(30,6,utf8_decode('Teléfono'),1,0,'C',1);
+$pdf->Cell(55,6,utf8_decode('Correo'),1,0,'C',1);
+$pdf->Cell(30,6,utf8_decode('Firma'),1,1,'C',1);
+
+$query="SELECT p.lugar_establecimiento,p.lugar_daem,p.lugar_redes_apoyo,pr.nombres,pr.telefono,pr.correo FROM planilla p INNER JOIN profesionals pr ON p.lugar_establecimiento=pr.id WHERE p.id=$id ";
+$resultado= $enlace->query($query);
+
+while($row=$resultado->fetch_assoc()){
+    $pdf->SetFillColor(255,255,255);
+    $pdf->SetFont('Arial');
+    $pdf->Cell(40,6,'En establecimiento',1,0,'C',1);
+    $pdf->Cell(40,6,$row['nombres'],1,0,'C',1);
+    $pdf->Cell(30,6,$row['telefono'],1,0,'C',1);
+    $pdf->CellFitSpace(55,6,$row['correo'],1,0,'C',1);
+    $pdf->Cell(30,6,utf8_decode(''),1,1,'C',1);
+   
+}
+
+$query="SELECT p.lugar_establecimiento,p.lugar_daem,p.lugar_daem,p.lugar_redes_apoyo,pr.nombres,pr.telefono,pr.correo FROM planilla p INNER JOIN profesionals pr ON p.lugar_daem=pr.id WHERE p.id=$id ";
+$resultado= $enlace->query($query);
+
+while($row=$resultado->fetch_assoc()){
+    $pdf->SetFillColor(255,255,255);
+    $pdf->SetFont('Arial');
+    $pdf->Cell(40,6,'En el Daem',1,0,'C',1);
+    $pdf->Cell(40,6,$row['nombres'],1,0,'C',1);
+    $pdf->Cell(30,6,$row['telefono'],1,0,'C',1);
+    $pdf->CellFitSpace(55,6,$row['correo'],1,0,'C',1);
+    $pdf->Cell(30,6,utf8_decode(''),1,1,'C',1);
+   
+}
+
+$query="SELECT p.lugar_establecimiento,p.lugar_daem,p.lugar_redes_apoyo,pr.nombres,pr.telefono,pr.correo FROM planilla p INNER JOIN profesionals pr ON p.lugar_redes_apoyo=pr.id WHERE p.id=$id ";
+$resultado= $enlace->query($query);
+
+while($row=$resultado->fetch_assoc()){
+    $pdf->SetFillColor(255,255,255);
+    $pdf->SetFont('Arial');
+    $pdf->Cell(40,6,'Con Redes de Apoyo',1,0,'C',1);
+    $pdf->Cell(40,6,$row['nombres'],1,0,'C',1);
+    $pdf->Cell(30,6,$row['telefono'],1,0,'C',1);
+    $pdf->CellFitSpace(55,6,$row['correo'],1,0,'C',1);
+    $pdf->Cell(30,6,utf8_decode(''),1,1,'C',1);
+   
+}
+
 
 
 

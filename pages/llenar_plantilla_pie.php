@@ -174,8 +174,7 @@ include ('../configs/conexion_db.php');
                                     <input type="button" id="agregar" value="+" class="btn btn-lg btn-primary" />
                                     <input type="button" id="eliminar" value="-" class="btn btn-lg btn-danger" />
                                 </div>
-                                <input type="submit" name="insertar" id="insertar" value="Insertar a planilla" class="btn btn-lg btn-danger" />
-                            </form>
+                            
 
                         </div>
                         <hr>
@@ -186,18 +185,56 @@ include ('../configs/conexion_db.php');
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
-                                    <label>Seleccione el lugar</label>
-                                    <select class="form-control" required name="lugar">
-                                        <option value="1">En el establecimiento</option>
-                                        <option value="2">En el DAEM (si el PIE es comunal)</option>
-                                        <option value="3">Con redes de apoyo</option>
-                                    </select>
+                                    <label>En el establecimiento</label>
+                                </div>
+                                <div class="form-group">
+                                    <label>En el Daem (Si el PIE es comunal)</label>
+                                </div>
+                                <div class="form-group">
+                                    <label>Con Redes de Apoyo</label>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
-                                    <label for="">Nombre</label>
-                                    <select name="nombre1" id="nombre1" class="form-control">
+                                    <select name="cordinador1" id="nombre1" class="form-control">
+                                        <option value=""> Seleccione </option>
+                                        <?php
+
+                                                $sql = "SELECT * FROM profesionals where coordinador='si' ORDER BY id";
+                                                $resultado = mysqli_query($enlace, $sql);
+                                                while ($dado = mysqli_fetch_array($resultado)):
+                                                    $id = $dado['id'];
+                                                    $nombre = $dado['nombres'];
+                                                ?>
+                                        <option value="<?php echo $id; ?>">
+                                            <?php echo $nombre; ?>
+                                        </option>
+                                        <?php
+                                                endwhile;
+                                            ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select name="cordinador2" id="nombre1" class="form-control">
+                                        <option value=""> Seleccione </option>
+                                        <?php
+
+                                                $sql = "SELECT * FROM profesionals where coordinador='si' ORDER BY id";
+                                                $resultado = mysqli_query($enlace, $sql);
+                                                while ($dado = mysqli_fetch_array($resultado)):
+                                                    $id = $dado['id'];
+                                                    $nombre = $dado['nombres'];
+                                                ?>
+                                        <option value="<?php echo $id; ?>">
+                                            <?php echo $nombre; ?>
+                                        </option>
+                                        <?php
+                                                endwhile;
+                                            ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select name="cordinador3" id="nombre1" class="form-control">
                                         <option value=""> Seleccione </option>
                                         <?php
 
@@ -217,18 +254,17 @@ include ('../configs/conexion_db.php');
                                 </div>
                             </div>
                         </div>
-                        </form>
+                        
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <button class="btn btn-primary btn-lg btn-block " name="submit" type="submit">Registrar
-                                        Establecimiento</button>
+                                <input type="submit" name="insertar" id="insertar" value="Insertar a planilla" class="btn btn-lg btn-danger" />
+
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="button" class="btn btn-lg btn-block btn-danger" value="Limpiar campos"
-                                        onclick="Limpiar();" />
+                                    
                                 </div>
                             </div>
                             <div class="col-lg-6"></div>

@@ -28,6 +28,11 @@ if(isset($_POST['insertar'])){
      $selectAsistenteCuatro = mysqli_escape_string($enlace, $_POST['docente4']);
      $selectAsistenteCinco = mysqli_escape_string($enlace, $_POST['docente5']);
 
+     //select cordinadores
+     $selectCordinadorUno = mysqli_escape_string($enlace, $_POST['cordinador1']);
+     $selectCordinadorDos = mysqli_escape_string($enlace, $_POST['cordinador2']);
+     $selectCordinadorTres = mysqli_escape_string($enlace, $_POST['cordinador3']);
+
 
     $numero = mysqli_escape_string($enlace, $_POST['numero']);
 
@@ -104,11 +109,11 @@ if($bucle_profe_asistente==5){
     $sql3=$sql2.", ('".$numero."','".$selectAsistenteUno."'),('".$numero."','".$selectAsistenteDos."'), ('".$numero."','".$selectAsistenteTres."'), ('".$numero."','".$selectAsistenteCuatro."'),('".$numero."','".$selectAsistenteCinco."')"; 
 }
 
+$sql4=" UPDATE planilla SET  lugar_establecimiento='.$selectCordinadorUno.',lugar_daem='.$selectCordinadorDos.',lugar_redes_apoyo='.$selectCordinadorTres.' WHERE id=$numero ";
 
 
 
-
-if(mysqli_query($enlace, $sql3)):
+if(mysqli_query($enlace, $sql3) && mysqli_query($enlace,$sql4)):
     // $_SESSION['mensaje'] = '<div class="alert alert-success alert-dismissible" role="alert">
     // <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     // Alumno agregado con exito!</div>';
