@@ -20,6 +20,12 @@ class pdf extends FPDF{
         $this->SetTextColor(120,120,120);
         $this->Write(14,utf8_decode('Educación Especial'));
         $this->Ln();
+
+        $this->SetLineWidth(0.2);
+        $this->Line(8,8,208,8);
+        $this->Line(8,8,8,272);
+        $this->Line(8,272,208,272);
+        $this->Line(208,8,208,272);
     }
 
     //***** Aquí comienza código para ajustar texto *************
@@ -92,16 +98,13 @@ class pdf extends FPDF{
     }
 //************** Fin del código para ajustar texto *****************
 //******************************************************************
+    
 } 
 
 
 $pdf = new pdf();
 $pdf->AddPage('portrait','letter');
-$pdf->SetLineWidth(0.2);
-$pdf->Line(8,8,208,8);
-$pdf->Line(8,8,8,272);
-$pdf->Line(8,272,208,272);
-$pdf->Line(208,8,208,272);
+
 
 $pdf->SetFillColor(232,232,232);
 $pdf->SetFont('Arial','B');
@@ -214,7 +217,7 @@ $resultado= $enlace->query($query);
 while($row=$resultado->fetch_assoc()){
     $pdf->SetFillColor(255,255,255);
     $pdf->SetFont('Arial');
-    $pdf->Cell(40,6,'En el Daem',1,0,'C',1);
+    $pdf->Cell(40,6,'En el Daem ',1,0,'C',1);
     $pdf->Cell(40,6,$row['nombres'],1,0,'C',1);
     $pdf->Cell(30,6,$row['telefono'],1,0,'C',1);
     $pdf->CellFitSpace(55,6,$row['correo'],1,0,'C',1);
@@ -236,6 +239,34 @@ while($row=$resultado->fetch_assoc()){
    
 }
 
+
+$pdf->AddPage('portrait','letter');
+$pdf->SetFont('Arial','B');
+$pdf->Write(14,utf8_decode(''));
+$pdf->Ln();
+$pdf->Write(14,utf8_decode('2.- Registro de aopoyo para cada estudiante o grupo de estudiantes'));
+$pdf->Ln();
+$pdf->SetFont('Arial');
+$pdf->Write(6,utf8_decode('Registrar, por estudiante o grupos de estudiantes, los apoyos específicos o actividades especiales que se realizan en
+forma individual o en pequeños grupos dentro o fuera del aula regular y el o las/os nombres de los profesionales que
+los entregan. '));
+$pdf->Ln();
+
+$pdf->SetFillColor(232,232,232);
+$pdf->SetFont('Arial');
+$pdf->Cell(195,6,'Nombres de los estudiantes',1,1,'L',1);
+
+$query="SELECT p.lugar_establecimiento,p.lugar_daem,p.lugar_daem,p.lugar_redes_apoyo,pr.apellidos,pr.nombres,pr.telefono,pr.correo FROM planilla p INNER JOIN profesionals pr ON p.lugar_daem=pr.id WHERE p.id=$id ";
+$resultado= $enlace->query($query);
+
+while($row=$resultado->fetch_assoc()){
+    $pdf->SetFillColor(255,255,255);
+    $pdf->SetFont('Arial');
+    $pdf->Cell(195,6,$row['nombres']." ".$row['apellidos'],1,1,'L',1);
+    
+    
+   
+}
 
 
 
