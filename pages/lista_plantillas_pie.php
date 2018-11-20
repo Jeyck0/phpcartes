@@ -67,7 +67,7 @@ include ('../configs/conexion_db.php');
                                 </td>
                                 <td>
                                     <a href="ver_planilla_pie.php?id=<?php echo $dado['id'] ?>" type="submit" name="btn-ver" class="btn btn-xs btn-info">Ver</a>
-                                    <a href="editar_planilla.php?id=<?php echo $dado['id'] ?>" class="btn btn-xs btn-warning">Editar</a>
+                                    <a href="prueba.php?id=<?php echo $dado['id'] ?>" class="btn btn-xs btn-warning">Editar</a>
                                     <a href="" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#myModal<?php echo $dado['id'] ?>">Eliminar</a>
                                     <!-- Modal -->
                                     <div id="myModal<?php echo $dado['id'] ?>" class="modal fade" role="dialog">
