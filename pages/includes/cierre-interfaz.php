@@ -7,6 +7,8 @@
 <script src="../js/agregar_eliminar3.js" type="text/javascript"></script>
 <script src="../js/agregar_eliminar2.js" type="text/javascript"></script>
 <script src="../js/editar_planilla.js" type="text/javascript"></script>
+<script src="../js/editar_planilla.1.js" type="text/javascript"></script>
+<script src="../js/editar_planilla.2.js" type="text/javascript"></script>
 
 
 <!-- Bootstrap Core JavaScript -->

@@ -15,7 +15,7 @@ endif;
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Editar Planilla</h1>
+            <h1 class="page-header">Agregar Alumno</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -25,51 +25,35 @@ endif;
                 <div class="panel-heading">
                     Ingreso de datos
                 </div>
+                <!-- -----------DOCENTES------------------------------------------------------------------------------------------------- -->
                 <div class="panel-body">
                     <div class="row">
-                            <div class="container">
-                                <h2>N° Planilla</h2>
-                                <input name="numero" disabled class="form-control" style="width: 80px" type="text" id="numero"
-                                    value=" <?php print_r($id_planilla)?>">
+                        <form id="formularioDocentes" role="form" action="../modulos/editar_planilla_eliminar.php"
+                            method="POST">
+                            <div class="form-group">
+                                <input name="numero" type="text" style="width: 80px" class="form-control hidden" value=" <?php print_r($id_planilla) ?> ">
                             </div>
-                            <div class="container">
-                                <h4>1.- Identificación del Equipo de Aula</h4>
-                            </div>
-
-                            <div class="container">
-                                <h5><strong>a) Docente(s) de educación regular del curso:</strong></h5>
-                                <br>
-                            </div>
-
-                            <form id="" role="form" method="POST" action="../modulos/editar_planilla.php">
+                            <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input name="numero" type="text" style="width: 80px" class="form-control hidden"
-                                        value=" <?php print_r($id_planilla) ?> ">
-                                </div>
-                                <select name="bucle_profeDos" id="bucle_profeDos" class="hidden">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <!-- <option value=""> Seleccione </option> -->
-                                        <?php
+                                    <input type="text" name="cantidadDocentes" id="cantidadDocentes" class="hidden">
+                                    <label for="">a) Docente(s) de educación regular del curso:</label>
+
+                                    <br>
+                                    <?php
                                         $num = 0;
                                         $sql = "SELECT nombres, titulo_profesional, id_profesional FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND titulo_profesional='PROFESOR(A)' AND id_planilla = $id_planilla";
                                         $resultado = mysqli_query($enlace, $sql);
                                         while ($dado = mysqli_fetch_array($resultado)):
                                             $nombre = $dado['nombres'];
+                                            $titulo = $dado['titulo_profesional'];
                                             $num ++;
                                     ?>
-                                        <div id="inputDos<?php echo $num?>">
-
+                                    <div id="row<?php echo $num?>" class="row">
+                                        <div id="inputTres<?php echo $num?>" class="col-md-12 cantidadDocentes">
                                             <select name="nombre<?php echo $num ?>" id="nombre<?php echo $num ?>" class="form-control">
 
                                                 <option value="<?php echo $dado['id_profesional'] ?>">
-                                                    <?php echo $nombre; ?>
+                                                    <?php echo $nombre." - ".$titulo; ?>
                                                 </option>
                                                 <?php
 
@@ -79,8 +63,8 @@ endif;
                                                     $id2 = $dado2['id'];
                                                     $nombre2 = $dado2['nombres'];
                                                 ?>
-                                                <option value="<?php echo $id2; ?>">
-                                                    <?php echo $nombre2; ?>
+                                                <option value="<?php echo $id2;?>">
+                                                    <?php echo $nombre2." - ".$titulo; ?>
                                                 </option>
                                                 <?php
                                                 endwhile;
@@ -88,177 +72,453 @@ endif;
 
                                             </select>
                                             <br>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <input class="hidden" type="" name="numeroUno<?php echo $num;?>"
+                                                        value="<?php print_r($id_planilla) ?>">
+                                                    <input class="hidden" type="" name="idUno<?php echo $num;?>" value="<?php echo $dado['id_profesional'] ?>">
+                                                    <button type="submit" name="btn-delete<?php echo $num;?>" class="btn btn-danger">Eliminar</button>
+                                                </div>
+                                            </div>
+                                            <br>
                                         </div>
-                                        <?php
+                                    </div>
+                                    <?php
                                         endwhile;
                                     ?>
-                                        <hr>
-                                        <div>
-                                            <select name="" id="" class="form-control">
-                                                <option value=""></option>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input class="hidden" type="" name="numero<?php echo $num;?>" value="<?php print_r($id_planilla) ?>">
+                                            <button type="submit" id="btn-update" name="btn-update" class="btn btn-lg btn-success btn-block">Actualizar
+                                                Docentes existentes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" name="" id="" class="hidden">
+                                    <p><strong>*Agregar nuevo docente</strong></p>
+                                    <div id="" class="row">
+                                        <div id="" class="col-md-12">
+                                            <select name="nuevoDocente" id="nuevoDocente" class="form-control" required>
+                                                <option>Seleccionar</option>
+                                                <?php
+
+                                            $sql2 = "SELECT * FROM profesionals where titulo_profesional='PROFESOR(A)' ORDER BY id";
+                                            $resultado2 = mysqli_query($enlace, $sql2);
+                                            while ($dado2 = mysqli_fetch_array($resultado2)):
+                                                $id2 = $dado2['id'];
+                                                $nombre2 = $dado2['nombres'];
+                                            ?>
+                                                <option value="<?php echo $id2;?>">
+                                                    <?php echo $nombre2; ?>
+                                                </option>
+                                                <?php
+                                            endwhile;
+                                        ?>
+
                                             </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="container">
-                                    <input type="button" id="btnAddDos" name="btnAddDos" value="+" class="btn btn-lg btn-primary" />
-                                    <input type="button" id="btnDelDos" value="-" class="btn btn-lg btn-danger" />
-                                </div>
-
-                                <hr>
-                                <div class="container-fluid">
-                                    <div class="container">
-                                        <h5><strong>b) Profesores especializados:</strong></h5>
-                                        <br>
-                                    </div>
-                                    <select name="bucle_profe_especializado" id="bucle_profe_especializado" class="hidden">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label for="">Nombre</label>
-                                            <div id="divs1" class="clon">
-                                                <select name="profe1" id="profe1" class="form-control">
-                                                    <option value=""> Seleccione </option>
-                                                    <?php
-
-                                                $sql = "SELECT * FROM profesionals WHERE titulo_profesional='EDUCADORA DE PARBULO' OR titulo_profesional='EDUCADOR(A) DIFERENCIAL' ORDER BY id";
-                                                $resultado = mysqli_query($enlace, $sql);
-                                                while ($dado = mysqli_fetch_array($resultado)):
-                                                    $id = $dado['id'];
-                                                    $nombre = $dado['nombres'];
-                                                ?>
-                                                    <option value="<?php echo $id; ?>">
-                                                        <?php echo $nombre; ?>
-                                                    </option>
-                                                    <?php
-                                                endwhile;
-                                            ?>
-                                                </select>
-                                                <br>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <input class="hidden" type="" name="" value="<?php print_r($id_planilla) ?>">
+                                                    <input class="hidden" type="" name="" value="<?php echo $dado['id_profesional'] ?>">
+                                                    <button type="submit" name="agregar" id="agregar" class="btn btn-primary">Agregar</button>
+                                                </div>
                                             </div>
+                                            <br>
                                         </div>
                                     </div>
-
-                                    <div class="container-fluid">
-                                        <input type="button" id="boton" value="+" class="btn btn-lg btn-primary" />
-                                        <input type="button" id="borrar" value="-" class="btn btn-lg btn-danger" />
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="container-fluid">
-                                    <div class="container">
-                                        <h5><strong>c) Profesionales especializados asistentes de la educación:</strong></h5>
-                                        <br>
-                                    </div>
-                                    <select name="bucle_profe_asistente" id="bucle_profe_asistente" class="hidden">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label for="">Nombre</label>
-                                            <div id="div1" class="clonar">
-                                                <select name="docente1" id="docente1" class="form-control">
-                                                    <option value=""> Seleccione </option>
-                                                    <?php
-
-                                                $sql = "SELECT * FROM profesionals WHERE titulo_profesional='TERAPEUTA OCUPACIONAL' OR titulo_profesional='PSICOLOGO(A)' OR titulo_profesional='FONOAUDIOLOGO(A)' ORDER BY id";
-                                                $resultado = mysqli_query($enlace, $sql);
-                                                while ($dado = mysqli_fetch_array($resultado)):
-                                                    $id = $dado['id'];
-                                                    $nombre = $dado['nombres'];
-                                                ?>
-                                                    <option value="<?php echo $id; ?>">
-                                                        <?php echo $nombre; ?>
-                                                    </option>
-                                                    <?php
-                                                endwhile;
-                                            ?>
-                                                </select>
-                                                <br>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="container-fluid">
-                                        <input type="button" id="agregar" value="+" class="btn btn-lg btn-primary" />
-                                        <input type="button" id="eliminar" value="-" class="btn btn-lg btn-danger" />
-                                    </div>
-                                    <input type="submit" name="actualizar" id="actualizar" value="Actualizar planilla"
-                                        class="btn btn-lg btn-danger" />
-                            </form>
-
-                        </div>
-                        <hr>
-                        <div class="container-fluid">
-                            <div class="container">
-                                <h5><strong>d) Coordinación del Programa:</strong></h5>
-                                <br>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label>Seleccione el lugar</label>
-                                    <select class="form-control" required name="lugar">
-                                        <option value="1">En el establecimiento</option>
-                                        <option value="2">En el DAEM (si el PIE es comunal)</option>
-                                        <option value="3">Con redes de apoyo</option>
-                                    </select>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label for="">Nombre</label>
-                                    <select name="nombre1" id="nombre1" class="form-control">
-                                        <option value=""> Seleccione </option>
-                                        <?php
-
-                                                $sql = "SELECT * FROM profesionals where coordinador='si' ORDER BY id";
-                                                $resultado = mysqli_query($enlace, $sql);
-                                                while ($dado = mysqli_fetch_array($resultado)):
-                                                    $id = $dado['id'];
-                                                    $nombre = $dado['nombres'];
-                                                ?>
-                                        <option value="<?php echo $id; ?>">
-                                            <?php echo $nombre; ?>
-                                        </option>
-                                        <?php
-                                                endwhile;
-                                            ?>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
                         </form>
+                        <br>
                     </div>
+                </div>
+                <hr>
+                <!-- ------------EDUCADORES DIFERENCIAL Y PARVULO------------------------------------------------------------------------------------------------ -->
+                <div class="panel-body">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <button class="btn btn-primary btn-lg btn-block " name="submit" type="submit">Registrar
-                                        Establecimiento</button>
-                                </div>
-                                <div class="col-lg-6">
-                                    <input type="button" class="btn btn-lg btn-block btn-danger" value="Limpiar campos"
-                                        onclick="Limpiar();" />
+                        <form id="formularioEspecial" role="form" action="../modulos/editar_planilla_eliminar.1.php"
+                            method="POST">
+                            <div class="form-group">
+                                <input name="numero" type="text" style="width: 80px" class="form-control hidden" value=" <?php print_r($id_planilla) ?> ">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" name="especial" id="especial" class="hidden">
+                                    <label for="">b) Profesores especializados:</label>
+
+                                    <br>
+                                    <?php
+                                        $num = 0;
+                                        $sql = "SELECT nombres, titulo_profesional, id_profesional FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND id_planilla = $id_planilla AND titulo_profesional='EDUCADOR(A) DIFERENCIAL'";
+                                        $resultado = mysqli_query($enlace, $sql);
+                                        while ($dado = mysqli_fetch_array($resultado)):
+                                            $nombre = $dado['nombres'];
+                                            $titulo = $dado['titulo_profesional'];
+                                            $num ++;
+                                    ?>
+                                    <div id="row<?php echo $num?>" class="row">
+                                        <div id="col<?php echo $num?>" class="col-md-12 cantidadEspecial">
+                                            <select name="select<?php echo $num ?>" id="select<?php echo $num ?>" class="form-control">
+
+                                                <option value="<?php echo $dado['id_profesional'] ?>">
+                                                    <?php echo $nombre." - ".$titulo; ?>
+                                                </option>
+                                                <?php
+
+                                                    $sql2 = "SELECT * FROM profesionals WHERE titulo_profesional='EDUCADOR(A) DIFERENCIAL' ORDER BY id";
+                                                    $resultado2 = mysqli_query($enlace, $sql2);
+                                                    while ($dado2 = mysqli_fetch_array($resultado2)):
+                                                        $id2 = $dado2['id'];
+                                                        $nombre2 = $dado2['nombres'];
+                                                ?>
+                                                <option value="<?php echo $id2;?>">
+                                                    <?php echo $nombre2." - ".$titulo; ?>
+                                                </option>
+                                                <?php
+                                                    endwhile;
+                                                ?>
+
+                                            </select>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <input class="hidden" type="" name="numeroDos<?php echo $num;?>"
+                                                        value="<?php print_r($id_planilla) ?>">
+                                                    <input class="hidden" type="" name="idDos<?php echo $num;?>" value="<?php echo $dado['id_profesional'] ?>">
+                                                    <button type="submit" name="borrar<?php echo $num;?>" class="btn btn-danger">Eliminar</button>
+                                                </div>
+                                            </div>
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <?php
+                                        endwhile;
+                                    ?>
+
+                                    <?php
+                                        $num2 = $num;
+                                        $sql = "SELECT nombres, titulo_profesional, id_profesional FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND id_planilla = $id_planilla AND titulo_profesional='EDUCADORA DE PARBULO'";
+                                        $resultado = mysqli_query($enlace, $sql);
+                                        while ($dado = mysqli_fetch_array($resultado)):
+                                            $nombre = $dado['nombres'];
+                                            $titulo = $dado['titulo_profesional'];
+                                            $num2 ++;
+                                    ?>
+                                    <div id="row<?php echo $num2?>" class="row">
+                                        <div id="col<?php echo $num2?>" class="col-md-12 cantidadEspecial">
+                                            <select name="select<?php echo $num2 ?>" id="select<?php echo $num2 ?>"
+                                                class="form-control">
+
+                                                <option value="<?php echo $dado['id_profesional'] ?>">
+                                                    <?php echo $nombre." - ".$titulo; ?>
+                                                </option>
+                                                <?php
+
+                                                    $sql2 = "SELECT * FROM profesionals WHERE titulo_profesional='EDUCADORA DE PARBULO' ORDER BY id";
+                                                    $resultado2 = mysqli_query($enlace, $sql2);
+                                                    while ($dado2 = mysqli_fetch_array($resultado2)):
+                                                        $id2 = $dado2['id'];
+                                                        $nombre2 = $dado2['nombres'];
+                                                ?>
+                                                <option value="<?php echo $id2;?>">
+                                                    <?php echo $nombre2." - ".$titulo; ?>
+                                                </option>
+                                                <?php
+                                                    endwhile;
+                                                ?>
+
+                                            </select>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <input class="hidden" type="" name="numeroDos<?php echo $num2;?>"
+                                                        value="<?php print_r($id_planilla) ?>">
+                                                    <input class="hidden" type="" name="idDos<?php echo $num2;?>" value="<?php echo $dado['id_profesional'] ?>">
+                                                    <button type="submit" name="borrar<?php echo $num2;?>" class="btn btn-danger">Eliminar</button>
+                                                </div>
+                                            </div>
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <?php
+                                        endwhile;
+                                    ?>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input class="hidden" type="" name="numero<?php echo $num2;?>" value="<?php print_r($id_planilla) ?>">
+                                            <button type="submit" id="actualizar" name="actualizar" class="btn btn-lg btn-success btn-block">Actualizar
+                                                profesores especializados existentes</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6"></div>
-                        </div>
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" name="" id="" class="hidden">
+                                    <p><strong>*Agregar nuevo profesor especializado</strong></p>
+                                    <div id="" class="row">
+                                        <div id="" class="col-md-12">
+                                            <select name="nuevoEspecial" id="" class="form-control" required>
+                                                <option>Seleccionar</option>
+                                                <?php
+
+                                                    $sql2 = "SELECT * FROM profesionals where titulo_profesional='EDUCADORA DE PARBULO' OR titulo_profesional='EDUCADOR(A) DIFERENCIAL' ORDER BY id";
+                                                    $resultado2 = mysqli_query($enlace, $sql2);
+                                                    while ($dado2 = mysqli_fetch_array($resultado2)):
+                                                        $id2 = $dado2['id'];
+                                                        $nombre2 = $dado2['nombres'];
+                                                        $titulo2 = $dado2['titulo_profesional'];
+                                                ?>
+                                                <option value="<?php echo $id2;?>">
+                                                    <?php echo $nombre2." - ".$titulo2; ?>
+                                                </option>
+                                                <?php
+                                                    endwhile;
+                                                ?>
+
+                                            </select>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <input class="hidden" type="" name="" value="<?php print_r($id_planilla) ?>">
+                                                    <input class="hidden" type="" name="" value="<?php echo $dado['id_profesional'] ?>">
+                                                    <button type="submit" name="agregarDos" id="agregarDos" class="btn btn-primary">Agregar</button>
+                                                </div>
+                                            </div>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <br>
                     </div>
-                </form>
+                </div>
+                <hr>
+                <!-- -------------RESTO------------------------------------------------------------------------------------------------------------- -->
+                <div class="panel-body">
+                    <div class="row">
+                        <form id="formularioAsistente" role="form" action="../modulos/editar_planilla_eliminar.2.php"
+                            method="POST">
+                            <div class="form-group">
+                                <input name="numero" type="text" style="width: 80px" class="form-control hidden" value=" <?php print_r($id_planilla) ?> ">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" name="asistente" id="asistente" class="hidden">
+                                    <label for="">c) Profesionales especializados asistentes de la educación:</label>
+
+                                    <br>
+                                    <?php
+                                        $num = 0;
+                                        $sql = "SELECT nombres, titulo_profesional, id_profesional FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND id_planilla = $id_planilla AND titulo_profesional='TERAPEUTA OCUPACIONAL'";
+                                        $resultado = mysqli_query($enlace, $sql);
+                                        while ($dado = mysqli_fetch_array($resultado)):
+                                            $nombre = $dado['nombres'];
+                                            $titulo = $dado['titulo_profesional'];
+                                            $num ++;
+                                    ?>
+                                    <div id="row<?php echo $num?>" class="row">
+                                        <div id="col<?php echo $num?>" class="col-md-12 cantidadAsistente">
+                                            <select name="sel<?php echo $num ?>" id="sel<?php echo $num ?>" class="form-control">
+
+                                                <option value="<?php echo $dado['id_profesional'] ?>">
+                                                    <?php echo $nombre." - ".$titulo; ?>
+                                                </option>
+                                                <?php
+
+                                                    $sql2 = "SELECT * FROM profesionals WHERE titulo_profesional='TERAPEUTA OCUPACIONAL' ORDER BY id";
+                                                    $resultado2 = mysqli_query($enlace, $sql2);
+                                                    while ($dado2 = mysqli_fetch_array($resultado2)):
+                                                        $id2 = $dado2['id'];
+                                                        $nombre2 = $dado2['nombres'];
+                                                ?>
+                                                <option value="<?php echo $id2;?>">
+                                                    <?php echo $nombre2." - ".$titulo; ?>
+                                                </option>
+                                                <?php
+                                                    endwhile;
+                                                ?>
+
+                                            </select>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <input class="hidden" type="" name="numeroDos<?php echo $num;?>"
+                                                        value="<?php print_r($id_planilla) ?>">
+                                                    <input class="hidden" type="" name="idTres<?php echo $num;?>" value="<?php echo $dado['id_profesional'] ?>">
+                                                    <button type="submit" name="delete<?php echo $num;?>" class="btn btn-danger">Eliminar</button>
+                                                </div>
+                                            </div>
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <?php
+                                        endwhile;
+                                    ?>
+
+                                    <?php
+                                        $num2 = $num;
+                                        $sql = "SELECT nombres, titulo_profesional, id_profesional FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND id_planilla = $id_planilla AND titulo_profesional='PSICOLOGO(A)'";
+                                        $resultado = mysqli_query($enlace, $sql);
+                                        while ($dado = mysqli_fetch_array($resultado)):
+                                            $nombre = $dado['nombres'];
+                                            $titulo = $dado['titulo_profesional'];
+                                            $num2 ++;
+                                    ?>
+                                    <div id="row<?php echo $num2?>" class="row">
+                                        <div id="col<?php echo $num2?>" class="col-md-12 cantidadAsistente">
+                                            <select name="sel<?php echo $num2 ?>" id="sel<?php echo $num2 ?>"
+                                                class="form-control">
+
+                                                <option value="<?php echo $dado['id_profesional'] ?>">
+                                                    <?php echo $nombre." - ".$titulo; ?>
+                                                </option>
+                                                <?php
+
+                                                    $sql2 = "SELECT * FROM profesionals WHERE titulo_profesional='PSICOLOGO(A)' ORDER BY id";
+                                                    $resultado2 = mysqli_query($enlace, $sql2);
+                                                    while ($dado2 = mysqli_fetch_array($resultado2)):
+                                                        $id2 = $dado2['id'];
+                                                        $nombre2 = $dado2['nombres'];
+                                                ?>
+                                                <option value="<?php echo $id2;?>">
+                                                    <?php echo $nombre2." - ".$titulo; ?>
+                                                </option>
+                                                <?php
+                                                    endwhile;
+                                                ?>
+
+                                            </select>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <input class="hidden" type="" name="numeroDos<?php echo $num2;?>"
+                                                        value="<?php print_r($id_planilla) ?>">
+                                                    <input class="hidden" type="" name="idTres<?php echo $num2;?>" value="<?php echo $dado['id_profesional'] ?>">
+                                                    <button type="submit" name="delete<?php echo $num2;?>" class="btn btn-danger">Eliminar</button>
+                                                </div>
+                                            </div>
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <?php
+                                        endwhile;
+                                    ?>
+
+                                    <?php
+                                        $num3 = $num2;
+                                        $sql = "SELECT nombres, titulo_profesional, id_profesional FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND id_planilla = $id_planilla AND titulo_profesional='FONOAUDIOLOGO(A)'";
+                                        $resultado = mysqli_query($enlace, $sql);
+                                        while ($dado = mysqli_fetch_array($resultado)):
+                                            $nombre = $dado['nombres'];
+                                            $titulo = $dado['titulo_profesional'];
+                                            $num3 ++;
+                                    ?>
+                                    <div id="row<?php echo $num3?>" class="row">
+                                        <div id="col<?php echo $num3?>" class="col-md-12 cantidadAsistente">
+                                            <select name="sel<?php echo $num3 ?>" id="sel<?php echo $num3 ?>"
+                                                class="form-control">
+
+                                                <option value="<?php echo $dado['id_profesional'] ?>">
+                                                    <?php echo $nombre." - ".$titulo; ?>
+                                                </option>
+                                                <?php
+
+                                                    $sql2 = "SELECT * FROM profesionals WHERE titulo_profesional='FONOAUDIOLOGO(A)' ORDER BY id";
+                                                    $resultado2 = mysqli_query($enlace, $sql2);
+                                                    while ($dado2 = mysqli_fetch_array($resultado2)):
+                                                        $id2 = $dado2['id'];
+                                                        $nombre2 = $dado2['nombres'];
+                                                ?>
+                                                <option value="<?php echo $id2;?>">
+                                                    <?php echo $nombre2." - ".$titulo; ?>
+                                                </option>
+                                                <?php
+                                                    endwhile;
+                                                ?>
+
+                                            </select>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <input class="hidden" type="" name="numeroDos<?php echo $num3;?>"
+                                                        value="<?php print_r($id_planilla) ?>">
+                                                    <input class="hidden" type="" name="idTres<?php echo $num3;?>" value="<?php echo $dado['id_profesional'] ?>">
+                                                    <button type="submit" name="delete<?php echo $num3;?>" class="btn btn-danger">Eliminar</button>
+                                                </div>
+                                            </div>
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <?php
+                                        endwhile;
+                                    ?>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input class="hidden" type="" name="numero<?php echo $num3;?>" value="<?php print_r($id_planilla) ?>">
+                                            <button type="submit" id="update" name="update" class="btn btn-lg btn-success btn-block">Actualizar
+                                                asistentes especializados existentes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" name="" id="" class="hidden">
+                                    <p><strong>*Agregar nuevo profesor especializado</strong></p>
+                                    <div id="" class="row">
+                                        <div id="" class="col-md-12">
+                                            <select name="nuevoAsistente" id="nuevoAsistente" class="form-control" required>
+                                                <option>Seleccionar</option>
+                                                <?php
+
+                                                    $sql2 = "SELECT * FROM profesionals where titulo_profesional='FONOAUDIOLOGO(A)' OR titulo_profesional='PSICOLOGO(A)' OR titulo_profesional='TERAPEUTA OCUPACIONAL' ORDER BY id";
+                                                    $resultado2 = mysqli_query($enlace, $sql2);
+                                                    while ($dado2 = mysqli_fetch_array($resultado2)):
+                                                        $id2 = $dado2['id'];
+                                                        $nombre2 = $dado2['nombres'];
+                                                        $titulo2 = $dado2['titulo_profesional'];
+                                                ?>
+                                                <option value="<?php echo $id2;?>">
+                                                    <?php echo $nombre2." - ".$titulo2; ?>
+                                                </option>
+                                                <?php
+                                                    endwhile;
+                                                ?>
+
+                                            </select>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <input class="hidden" type="" name="" value="<?php print_r($id_planilla) ?>">
+                                                    <input class="hidden" type="" name="" value="<?php echo $dado['id_profesional'] ?>">
+                                                    <button type="submit" name="agregarTres" id="agregarTres" class="btn btn-primary">Agregar</button>
+                                                </div>
+                                            </div>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <br>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-</div>
+
 
 <?php include('includes/cierre-interfaz.php'); ?>
 
@@ -272,5 +532,41 @@ endif;
             select_sexo.val("2").attr("selected");
         }
 
+    });
+</script>
+
+<!-- Scripts de Docentes -->
+<script>
+    $('#btn-update').click(function () {
+        $('#formularioDocentes').attr('action', '../modulos/editar_planilla_actualizar.php');
+    });
+</script>
+<script>
+    $('#agregar').click(function () {
+        $('#formularioDocentes').attr('action', '../modulos/editar_planilla_agregar.php');
+    });
+</script>
+
+<!-- Scripts de Profesores Especializados -->
+<script>
+    $('#actualizar').click(function () {
+        $('#formularioEspecial').attr('action', '../modulos/editar_planilla_actualizar.1.php');
+    });
+</script>
+<script>
+    $('#agregarDos').click(function () {
+        $('#formularioEspecial').attr('action', '../modulos/editar_planilla_agregar.1.php');
+    });
+</script>
+
+<!-- Scripts de Asistentes especializados -->
+<script>
+    $('#update').click(function () {
+        $('#formularioAsistente').attr('action', '../modulos/editar_planilla_actualizar.2.php');
+    });
+</script>
+<script>
+    $('#agregarTres').click(function () {
+        $('#formularioAsistente').attr('action', '../modulos/editar_planilla_agregar.2.php');
     });
 </script>

@@ -2,31 +2,31 @@
 session_start();
 require_once ("../configs/conexion_db.php");
 
-if(isset($_POST['btn-delete1'])){
+if(isset($_POST['delete1'])){
 
 
-    $idUno = mysqli_escape_string($enlace, $_POST['idUno1']);
+    $idUno = mysqli_escape_string($enlace, $_POST['idTres1']);
     $numero = mysqli_escape_string($enlace, $_POST['numero']);
 
 
-}elseif(isset($_POST['btn-delete2'])){
+}elseif(isset($_POST['delete2'])){
 
-    $idDos = mysqli_escape_string($enlace, $_POST['idUno2']);
+    $idDos = mysqli_escape_string($enlace, $_POST['idTres2']);
     $numero = mysqli_escape_string($enlace, $_POST['numero']);
 
-}elseif(isset($_POST['btn-delete3'])){
+}elseif(isset($_POST['delete3'])){
 
-    $idTres = mysqli_escape_string($enlace, $_POST['idUno3']);
+    $idTres = mysqli_escape_string($enlace, $_POST['idTres3']);
     $numero = mysqli_escape_string($enlace, $_POST['numero']);
 
-}elseif(isset($_POST['btn-delete4'])){
+}elseif(isset($_POST['delete4'])){
 
-    $idCuatro = mysqli_escape_string($enlace, $_POST['idUno4']);
+    $idCuatro = mysqli_escape_string($enlace, $_POST['idTres4']);
     $numero = mysqli_escape_string($enlace, $_POST['numero']);
 
-}elseif(isset($_POST['btn-delete5'])){
+}elseif(isset($_POST['delete5'])){
 
-    $idCinco = mysqli_escape_string($enlace, $_POST['idUno5']);
+    $idCinco = mysqli_escape_string($enlace, $_POST['idTres5']);
     $numero = mysqli_escape_string($enlace, $_POST['numero']);
 
 }

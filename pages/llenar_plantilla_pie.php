@@ -70,9 +70,11 @@ include ('../configs/conexion_db.php');
                                                 while ($dado = mysqli_fetch_array($resultado)):
                                                     $id = $dado['id'];
                                                     $nombre = $dado['nombres'];
+                                                    $titulo = $dado['titulo_profesional'];
+
                                                 ?>
                                                 <option value="<?php echo $id; ?>">
-                                                    <?php echo $nombre; ?>
+                                                    <?php echo $nombre." - ".$titulo; ?>
                                                 </option>
                                                 <?php
                                                 endwhile;
@@ -113,9 +115,10 @@ include ('../configs/conexion_db.php');
                                                 while ($dado = mysqli_fetch_array($resultado)):
                                                     $id = $dado['id'];
                                                     $nombre = $dado['nombres'];
+                                                    $titulo = $dado['titulo_profesional'];
                                                 ?>
                                                 <option value="<?php echo $id; ?>">
-                                                    <?php echo $nombre; ?>
+                                                    <?php echo $nombre." - ".$titulo; ?>
                                                 </option>
                                                 <?php
                                                 endwhile;
@@ -157,9 +160,11 @@ include ('../configs/conexion_db.php');
                                                 while ($dado = mysqli_fetch_array($resultado)):
                                                     $id = $dado['id'];
                                                     $nombre = $dado['nombres'];
+                                                    $titulo = $dado['titulo_profesional'];
+
                                                 ?>
                                                 <option value="<?php echo $id; ?>">
-                                                    <?php echo $nombre; ?>
+                                                    <?php echo $nombre." - ".$titulo; ?>
                                                 </option>
                                                 <?php
                                                 endwhile;

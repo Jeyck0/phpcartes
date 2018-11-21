@@ -38,9 +38,10 @@ endif;
                                         $resultado = mysqli_query($enlace, $sql);
                                         while ($dado = mysqli_fetch_array($resultado)):
                                             $nombre = $dado['nombres'];
+                                            $titulo = $dado['titulo_profesional'];
                                     ?>
                                                 
-                                    <input disabled name="" type="text" class="form-control" value="<?php echo $dado['nombres'] ?>"><br>
+                                    <input disabled name="" type="text" class="form-control" value="<?php echo $dado['nombres']." - ".$titulo ?>"><br>
 
 
                                     <?php
@@ -49,7 +50,7 @@ endif;
                                     
                                 </div>
                                 <div class="form-group">
-                                    <label for="">c) Profesionales especializados asistentes de la educación:</label>
+                                    <label for="">b) Profesores especializados:</label>
 
                                     <?php
 
@@ -57,9 +58,10 @@ endif;
                                     $resultado = mysqli_query($enlace, $sql);
                                     while ($dado = mysqli_fetch_array($resultado)):
                                         $nombre = $dado['nombres'];
+                                        $titulo2 = $dado['titulo_profesional'];
                                     ?>
                                     
-                                    <input disabled name="" type="text" class="form-control" value="<?php echo $dado['nombres'] ?>"><br>
+                                    <input disabled name="" type="text" class="form-control" value="<?php echo $dado['nombres']." - ".$titulo2; ?>"><br>
 
 
                                     <?php
@@ -72,9 +74,10 @@ endif;
                                     $resultado = mysqli_query($enlace, $sql);
                                     while ($dado = mysqli_fetch_array($resultado)):
                                         $nombre = $dado['nombres'];
+                                        $titulo3 = $dado['titulo_profesional'];
                                     ?>
                                     
-                                    <input disabled name="" type="text" class="form-control" value="<?php echo $dado['nombres'] ?>"><br>
+                                    <input disabled name="" type="text" class="form-control" value="<?php echo $dado['nombres']." - ".$titulo3; ?>"><br>
 
 
                                     <?php
@@ -91,7 +94,7 @@ endif;
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="">b) Profesores especializados:</label>
+                                    <label for="">c) Profesionales especializados asistentes de la educación:</label>
                                     <?php
                                                 $sql = "SELECT nombres, titulo_profesional FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND titulo_profesional='TERAPEUTA OCUPACIONAL' AND id_planilla = $id_planilla ";
                                                 $resultado = mysqli_query($enlace, $sql);
