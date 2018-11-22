@@ -2,20 +2,20 @@
 session_start();
 require_once ("../configs/conexion_db.php");
 
-if(isset($_POST['btn-update'])){
+if(isset($_POST['update'])){
 
-    $selectUno = mysqli_escape_string($enlace, $_POST['nombre1']);
-    $selectDos = mysqli_escape_string($enlace, $_POST['nombre2']);
-    $selectTres = mysqli_escape_string($enlace, $_POST['nombre3']);
-    $selectCuatro = mysqli_escape_string($enlace, $_POST['nombre4']);
-    $selectCinco = mysqli_escape_string($enlace, $_POST['nombre5']);
+    $selectUno = mysqli_escape_string($enlace, $_POST['sel1']);
+    $selectDos = mysqli_escape_string($enlace, $_POST['sel2']);
+    $selectTres = mysqli_escape_string($enlace, $_POST['sel3']);
+    $selectCuatro = mysqli_escape_string($enlace, $_POST['sel4']);
+    $selectCinco = mysqli_escape_string($enlace, $_POST['sel5']);
 
     $numero = mysqli_escape_string($enlace, $_POST['numero']);
-    $numSelect = mysqli_escape_string($enlace, $_POST['cantidadDocentes']);
+    $numSelect = mysqli_escape_string($enlace, $_POST['asistente']);
 
 }
 
-$sql_1 = "DELETE up FROM usuarios_planilla up INNER JOIN profesionals pr ON up.id_profesional = pr.id WHERE id_planilla = $numero AND titulo_profesional = 'PROFESOR(A)'";
+$sql_1 = "DELETE up FROM usuarios_planilla up INNER JOIN profesionals pr ON up.id_profesional = pr.id WHERE id_planilla = $numero AND titulo_profesional = 'TERAPEUTA OCUPACIONAL' OR titulo_profesional = 'PSICOLOGO(A)' OR titulo_profesional = 'FONOAUDIOLOGO(A)'";
 
 
 // echo "ID nombre anterior".$id_anterior;

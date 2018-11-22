@@ -8,7 +8,7 @@ if(isset($_POST['btn-delete'])):
 
 endif;
 
-    $sql = "DELETE up, p,pp FROM usuarios_planilla up LEFT JOIN planilla p ON up.id_planilla = p.id LEFT JOIN planilla_planilla pp ON p.id=pp.id_planilla WHERE up.id_planilla = $id"; 
+    $sql = "DELETE up, p FROM usuarios_planilla up LEFT JOIN planilla p ON up.id_planilla = p.id WHERE up.id_planilla = $id"; 
     // $sql2 = "DELETE FROM planilla WHERE id = '$id'"; 
     // ALTER TABLE usuarios_planilla ADD FOREIGN KEY(id_planilla) REFERENCES planilla(id) 
 

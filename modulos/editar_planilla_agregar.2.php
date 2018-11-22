@@ -1,11 +1,11 @@
 <?php
 require_once ("../configs/conexion_db.php");
 
-if(isset($_POST['agregar'])):
+if(isset($_POST['agregarTres'])):
 
 
     //select profesores
-    $docente = mysqli_escape_string($enlace, $_POST['nuevoDocente']);
+    $docente = mysqli_escape_string($enlace, $_POST['nuevoAsistente']);
 
     $numero = mysqli_escape_string($enlace, $_POST['numero']);
 
