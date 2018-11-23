@@ -33,37 +33,33 @@ include ('../configs/conexion_db.php');
                         <div class="container">
                             <h4>1.- Identificación del Equipo de Aula</h4>
                         </div>
-                        
-                            <div class="container">
-                                <h5><strong>a) Docente(s) de educación regular del curso:</strong></h5>
-                                <br>
-                            </div>
 
-                            <form id="" role="form" method="POST" action="../modulos/insertarDatosEnPlanilla.php">
+                        <div class="container">
+                            <h5><strong>a) Docente(s) de educación regular del curso:</strong></h5>
+                            <br>
+                        </div>
+
+                        <form id="" role="form" method="POST" action="../modulos/insertarDatosEnPlanilla.php">
                             <div class="form-group">
-                                    <input name="numero" type="text" style="width: 80px" class="form-control hidden" value=" <?php 
-                                    $sql = "SELECT MAX(id) FROM planilla";
-                                    $resultado = mysqli_query($enlace, $sql);
-                                    $dado = mysqli_fetch_array($resultado);
-
-                                    print_r($dado['0']);
-                                    
-                                    ?> ">
+                                <input name="numero" type="text" style="width: 80px" class="form-control hidden" value=" <?php 
+                                    $sql = "
+                                    SELECT MAX(id) FROM planilla"; $resultado=mysqli_query($enlace, $sql); $dado=mysqli_fetch_array($resultado);
+                                    print_r($dado['0']); ?> ">
                             </div>
-                            <select name="bucle_profe" id="bucle_profe" class="hidden" >
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            <select name="bucle_profe" id="bucle_profe" class="hidden">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label for="">Nombre</label>
-                                        <div id="input1" class="clonedInput">
-                                            <select name="nombre1" id="nombre1" class="form-control">
-                                                <option value=""> Seleccione </option>
-                                                <?php
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="">Nombre</label>
+                                    <div id="input1" class="clonedInput">
+                                        <select name="nombre1" id="nombre1" class="form-control">
+                                            <option value=""> Seleccione </option>
+                                            <?php
 
                                                 $sql = "SELECT * FROM profesionals where titulo_profesional='PROFESOR(A)' ORDER BY id";
                                                 $resultado = mysqli_query($enlace, $sql);
@@ -73,34 +69,34 @@ include ('../configs/conexion_db.php');
                                                     $titulo = $dado['titulo_profesional'];
 
                                                 ?>
-                                                <option value="<?php echo $id; ?>">
-                                                    <?php echo $nombre." - ".$titulo; ?>
-                                                </option>
-                                                <?php
+                                            <option value="<?php echo $id; ?>">
+                                                <?php echo $nombre." - ".$titulo; ?>
+                                            </option>
+                                            <?php
                                                 endwhile;
                                             ?>
-                                            </select>
-                                            <br>
-                                        </div>
+                                        </select>
+                                        <br>
                                     </div>
                                 </div>
-                                <div class="container-fluid">
-                                    <input type="button" id="btnAdd" name="btnAdd" value="+" class="btn btn-lg btn-primary" />
-                                    <input type="button" id="btnDel" value="-" class="btn btn-lg btn-danger" />
-                                </div> 
-                    
-                        <hr>
-                        <div class="container-fluid">
-                            <div class="container">
-                                <h5><strong>b) Profesores especializados:</strong></h5>
-                                <br>
                             </div>
-                                <select name="bucle_profe_especializado" id="bucle_profe_especializado"  class="hidden">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
+                            <div class="container-fluid">
+                                <input type="button" id="btnAdd" name="btnAdd" value="+" class="btn btn-lg btn-primary" />
+                                <input type="button" id="btnDel" value="-" class="btn btn-lg btn-danger" />
+                            </div>
+
+                            <hr>
+                            <div class="container-fluid">
+                                <div class="container">
+                                    <h5><strong>b) Profesores especializados:</strong></h5>
+                                    <br>
+                                </div>
+                                <select name="bucle_profe_especializado" id="bucle_profe_especializado" class="hidden">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
                                 </select>
                                 <div class="col-lg-4">
                                     <div class="form-group">
@@ -133,20 +129,20 @@ include ('../configs/conexion_db.php');
                                     <input type="button" id="boton" value="+" class="btn btn-lg btn-primary" />
                                     <input type="button" id="borrar" value="-" class="btn btn-lg btn-danger" />
                                 </div>
-                        </div>
-                        <hr>
-                        <div class="container-fluid">
-                            <div class="container">
-                                <h5><strong>c) Profesionales especializados asistentes de la educación:</strong></h5>
-                                <br>
                             </div>
-                            <select name="bucle_profe_asistente" id="bucle_profe_asistente"  class="hidden">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                </select>                     
+                            <hr>
+                            <div class="container-fluid">
+                                <div class="container">
+                                    <h5><strong>c) Profesionales especializados asistentes de la educación:</strong></h5>
+                                    <br>
+                                </div>
+                                <select name="bucle_profe_asistente" id="bucle_profe_asistente" class="hidden">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label for="">Nombre</label>
@@ -179,31 +175,31 @@ include ('../configs/conexion_db.php');
                                     <input type="button" id="agregar" value="+" class="btn btn-lg btn-primary" />
                                     <input type="button" id="eliminar" value="-" class="btn btn-lg btn-danger" />
                                 </div>
-                            
 
-                        </div>
-                        <hr>
-                        <div class="container-fluid">
-                            <div class="container">
-                                <h5><strong>d) Coordinación del Programa:</strong></h5>
-                                <br>
+
                             </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label>En el establecimiento</label>
+                            <hr>
+                            <div class="container-fluid">
+                                <div class="container">
+                                    <h5><strong>d) Coordinación del Programa:</strong></h5>
+                                    <br>
                                 </div>
-                                <div class="form-group">
-                                    <label>En el Daem (Si el PIE es comunal)</label>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label>En el establecimiento</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>En el Daem (Si el PIE es comunal)</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Con Redes de Apoyo</label>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label>Con Redes de Apoyo</label>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <select name="cordinador1" id="nombre1" class="form-control">
-                                        <option value=""> Seleccione </option>
-                                        <?php
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <select name="cordinador1" id="nombre1" class="form-control">
+                                            <option value=""> Seleccione </option>
+                                            <?php
 
                                                 $sql = "SELECT * FROM profesionals where coordinador='si' ORDER BY id";
                                                 $resultado = mysqli_query($enlace, $sql);
@@ -211,18 +207,18 @@ include ('../configs/conexion_db.php');
                                                     $id = $dado['id'];
                                                     $nombre = $dado['nombres'];
                                                 ?>
-                                        <option value="<?php echo $id; ?>">
-                                            <?php echo $nombre; ?>
-                                        </option>
-                                        <?php
+                                            <option value="<?php echo $id; ?>">
+                                                <?php echo $nombre; ?>
+                                            </option>
+                                            <?php
                                                 endwhile;
                                             ?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <select name="cordinador2" id="nombre1" class="form-control">
-                                        <option value=""> Seleccione </option>
-                                        <?php
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <select name="cordinador2" id="nombre1" class="form-control">
+                                            <option value=""> Seleccione </option>
+                                            <?php
 
                                                 $sql = "SELECT * FROM profesionals where coordinador='si' ORDER BY id";
                                                 $resultado = mysqli_query($enlace, $sql);
@@ -230,18 +226,18 @@ include ('../configs/conexion_db.php');
                                                     $id = $dado['id'];
                                                     $nombre = $dado['nombres'];
                                                 ?>
-                                        <option value="<?php echo $id; ?>">
-                                            <?php echo $nombre; ?>
-                                        </option>
-                                        <?php
+                                            <option value="<?php echo $id; ?>">
+                                                <?php echo $nombre; ?>
+                                            </option>
+                                            <?php
                                                 endwhile;
                                             ?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <select name="cordinador3" id="nombre1" class="form-control">
-                                        <option value=""> Seleccione </option>
-                                        <?php
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <select name="cordinador3" id="nombre1" class="form-control">
+                                            <option value=""> Seleccione </option>
+                                            <?php
 
                                                 $sql = "SELECT * FROM profesionals where coordinador='si' ORDER BY id";
                                                 $resultado = mysqli_query($enlace, $sql);
@@ -249,27 +245,28 @@ include ('../configs/conexion_db.php');
                                                     $id = $dado['id'];
                                                     $nombre = $dado['nombres'];
                                                 ?>
-                                        <option value="<?php echo $id; ?>">
-                                            <?php echo $nombre; ?>
-                                        </option>
-                                        <?php
+                                            <option value="<?php echo $id; ?>">
+                                                <?php echo $nombre; ?>
+                                            </option>
+                                            <?php
                                                 endwhile;
                                             ?>
-                                    </select>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
+
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="row">
                                 <div class="col-lg-6">
-                                <input type="submit" name="insertar" id="insertar" value="Insertar a planilla" class="btn btn-lg btn-danger" />
+                                    <input type="submit" name="insertar" id="insertar" value="Insertar a planilla"
+                                        class="btn btn-lg btn-danger" />
 
                                 </div>
                                 <div class="col-lg-6">
-                                    
+
                                 </div>
                             </div>
                             <div class="col-lg-6"></div>

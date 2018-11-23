@@ -15,7 +15,9 @@ endif;
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Agregar Alumno</h1>
+            <h1 class="page-header">Editar planilla N°
+                <?php echo $id_planilla; ?>
+            </h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -23,7 +25,7 @@ endif;
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Ingreso de datos
+                    I EQUIPO DE AULA 1
                 </div>
                 <!-- -----------DOCENTES------------------------------------------------------------------------------------------------- -->
                 <div class="panel-body">
@@ -375,8 +377,7 @@ endif;
                                     ?>
                                     <div id="row<?php echo $num2?>" class="row">
                                         <div id="col<?php echo $num2?>" class="col-md-12 cantidadAsistente">
-                                            <select name="sel<?php echo $num2 ?>" id="sel<?php echo $num2 ?>"
-                                                class="form-control">
+                                            <select name="sel<?php echo $num2 ?>" id="sel<?php echo $num2 ?>" class="form-control">
 
                                                 <option value="<?php echo $dado['id_profesional'] ?>">
                                                     <?php echo $nombre." - ".$titulo; ?>
@@ -402,7 +403,8 @@ endif;
                                                 <div class="col-md-6">
                                                     <input class="hidden" type="" name="numeroDos<?php echo $num2;?>"
                                                         value="<?php print_r($id_planilla) ?>">
-                                                    <input class="hidden" type="" name="idTres<?php echo $num2;?>" value="<?php echo $dado['id_profesional'] ?>">
+                                                    <input class="hidden" type="" name="idTres<?php echo $num2;?>"
+                                                        value="<?php echo $dado['id_profesional'] ?>">
                                                     <button type="submit" name="delete<?php echo $num2;?>" class="btn btn-danger">Eliminar</button>
                                                 </div>
                                             </div>
@@ -424,8 +426,7 @@ endif;
                                     ?>
                                     <div id="row<?php echo $num3?>" class="row">
                                         <div id="col<?php echo $num3?>" class="col-md-12 cantidadAsistente">
-                                            <select name="sel<?php echo $num3 ?>" id="sel<?php echo $num3 ?>"
-                                                class="form-control">
+                                            <select name="sel<?php echo $num3 ?>" id="sel<?php echo $num3 ?>" class="form-control">
 
                                                 <option value="<?php echo $dado['id_profesional'] ?>">
                                                     <?php echo $nombre." - ".$titulo; ?>
@@ -451,7 +452,8 @@ endif;
                                                 <div class="col-md-6">
                                                     <input class="hidden" type="" name="numeroDos<?php echo $num3;?>"
                                                         value="<?php print_r($id_planilla) ?>">
-                                                    <input class="hidden" type="" name="idTres<?php echo $num3;?>" value="<?php echo $dado['id_profesional'] ?>">
+                                                    <input class="hidden" type="" name="idTres<?php echo $num3;?>"
+                                                        value="<?php echo $dado['id_profesional'] ?>">
                                                     <button type="submit" name="delete<?php echo $num3;?>" class="btn btn-danger">Eliminar</button>
                                                 </div>
                                             </div>
@@ -478,7 +480,8 @@ endif;
                                     <p><strong>*Agregar nuevo profesor especializado</strong></p>
                                     <div id="" class="row">
                                         <div id="" class="col-md-12">
-                                            <select name="nuevoAsistente" id="nuevoAsistente" class="form-control" required>
+                                            <select name="nuevoAsistente" id="nuevoAsistente" class="form-control"
+                                                required>
                                                 <option>Seleccionar</option>
                                                 <?php
 
@@ -512,6 +515,100 @@ endif;
                             </div>
                         </form>
                         <br>
+                    </div>
+                </div>
+                <hr>
+                <!-- -------------COORDINACION DEL PROGRAMA------------------------------------------------------------------------------------------------------------- -->
+                <div class="panel-body">
+                    <div class="container">
+                        <h5><strong>d) Coordinación del Programa:</strong></h5>
+                        <br>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label>En el establecimiento</label>
+                        </div>
+                        <div class="form-group">
+                            <label>En el Daem (Si el PIE es comunal)</label>
+                        </div>
+                        <div class="form-group">
+                            <label>Con Redes de Apoyo</label>
+                        </div>
+                    </div>
+                    <?php
+                        $sql = "SELECT * FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND id_planilla = $id_planilla coordinador='si'";
+                        $resultado = mysqli_query($enlace, $sql);
+                        $dado = mysqli_fetch_array($resultado);
+
+                            $id = $dado['id_profesional'];
+                            $nombre = $dado['nombres'];
+                            $titulo = $dado['titulo_profesional'];
+                            echo $id;
+                    ?>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <select name="cordinador1" id="nombre1" class="form-control">
+                                <option value="<?php echo $id; ?>"> 
+                                <?php echo $nombre ?> </option>
+                                <?php
+                                    
+                                    $sql = "SELECT * FROM profesionals where coordinador='si' ORDER BY id";
+                                    $resultado = mysqli_query($enlace, $sql);
+                                    while ($dado = mysqli_fetch_array($resultado)):
+                                        $id = $dado['id'];
+                                        $nombre = $dado['nombres'];
+                                        $titulo = $dado['titulo_profesional'];
+                                ?>
+                                <option value="<?php echo $id; ?>">
+                                    <?php echo $nombre." - ".$titulo; ?>
+                                </option>
+                                <?php
+                                    endwhile;
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="cordinador2" id="nombre1" class="form-control">
+                                <option value=""> Seleccione </option>
+                                <?php
+
+                                    $sql = "SELECT * FROM profesionals where coordinador='si' ORDER BY id";
+                                    $resultado = mysqli_query($enlace, $sql);
+                                    while ($dado = mysqli_fetch_array($resultado)):
+                                        $id = $dado['id'];
+                                        $nombre = $dado['nombres'];
+                                        $titulo = $dado['titulo_profesional'];
+
+                                ?>
+                                <option value="<?php echo $id; ?>">
+                                    <?php echo $nombre." - ".$titulo; ?>
+                                </option>
+                                <?php
+                                    endwhile;
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="cordinador3" id="nombre1" class="form-control">
+                                <option value=""> Seleccione </option>
+                                <?php
+
+                                    $sql = "SELECT * FROM profesionals where coordinador='si' ORDER BY id";
+                                    $resultado = mysqli_query($enlace, $sql);
+                                    while ($dado = mysqli_fetch_array($resultado)):
+                                        $id = $dado['id'];
+                                        $nombre = $dado['nombres'];
+                                        $titulo = $dado['titulo_profesional'];
+
+                                ?>
+                                <option value="<?php echo $id; ?>">
+                                    <?php echo $nombre." - ".$titulo; ?>
+                                </option>
+                                <?php
+                                    endwhile;
+                                ?>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>

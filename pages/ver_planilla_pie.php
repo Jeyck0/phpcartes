@@ -58,10 +58,10 @@ endif;
                                     $resultado = mysqli_query($enlace, $sql);
                                     while ($dado = mysqli_fetch_array($resultado)):
                                         $nombre = $dado['nombres'];
-                                        $titulo2 = $dado['titulo_profesional'];
+                                        $titulo = $dado['titulo_profesional'];
                                     ?>
                                     
-                                    <input disabled name="" type="text" class="form-control" value="<?php echo $dado['nombres']." - ".$titulo2; ?>"><br>
+                                    <input disabled name="" type="text" class="form-control" value="<?php echo $dado['nombres']." - ".$titulo; ?>"><br>
 
 
                                     <?php
@@ -74,10 +74,10 @@ endif;
                                     $resultado = mysqli_query($enlace, $sql);
                                     while ($dado = mysqli_fetch_array($resultado)):
                                         $nombre = $dado['nombres'];
-                                        $titulo3 = $dado['titulo_profesional'];
+                                        $titulo = $dado['titulo_profesional'];
                                     ?>
                                     
-                                    <input disabled name="" type="text" class="form-control" value="<?php echo $dado['nombres']." - ".$titulo3; ?>"><br>
+                                    <input disabled name="" type="text" class="form-control" value="<?php echo $dado['nombres']." - ".$titulo; ?>"><br>
 
 
                                     <?php
@@ -100,11 +100,13 @@ endif;
                                                 $resultado = mysqli_query($enlace, $sql);
                                                 while ($dado = mysqli_fetch_array($resultado)):
                                                     $nombre = $dado['nombres'];
+                                                    $titulo = $dado['titulo_profesional'];
+
                                                 ?>
                                                 <?php
                                     ?>
                                                 
-                                    <input disabled name="" type="text" class="form-control" value="<?php echo $dado['nombres'] ?>"><br>
+                                    <input disabled name="" type="text" class="form-control" value="<?php echo $dado['nombres']." - ".$titulo ?>"><br>
 
 
                                     <?php
@@ -115,11 +117,12 @@ endif;
                                                 $resultado = mysqli_query($enlace, $sql);
                                                 while ($dado = mysqli_fetch_array($resultado)):
                                                     $nombre = $dado['nombres'];
+                                                    $titulo = $dado['titulo_profesional'];
                                                 ?>
                                                 <?php
                                     ?>
                                                 
-                                    <input disabled name="" type="text" class="form-control" value="<?php echo $dado['nombres'] ?>"><br>
+                                    <input disabled name="" type="text" class="form-control" value="<?php echo $dado['nombres']." - ".$titulo ?>"><br>
 
 
                                     <?php
@@ -130,11 +133,13 @@ endif;
                                                 $resultado = mysqli_query($enlace, $sql);
                                                 while ($dado = mysqli_fetch_array($resultado)):
                                                     $nombre = $dado['nombres'];
+                                                    $titulo = $dado['titulo_profesional'];
+
                                                 ?>
                                                 <?php
                                     ?>
                                                 
-                                    <input disabled name="" type="text" class="form-control" value="<?php echo $dado['nombres'] ?>"><br>
+                                    <input disabled name="" type="text" class="form-control" value="<?php echo $dado['nombres']." - ".$titulo ?>"><br>
 
 
                                     <?php
