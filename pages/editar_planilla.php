@@ -545,21 +545,23 @@ endif;
                         </div>
                     </div>
                     <?php
-                        $sql = "SELECT * FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND id_planilla = $id_planilla coordinador='si'";
+                        $sql = "SELECT * FROM planilla pl, profesionals p WHERE pl.lugar_establecimiento=p.id AND pl.id = $id_planilla";
                         $resultado = mysqli_query($enlace, $sql);
                         $dado = mysqli_fetch_array($resultado);
 
-                            $id = $dado['id_profesional'];
+                            $id = $dado['lugar_establecimiento'];
                             $nombre = $dado['nombres'];
                             $titulo = $dado['titulo_profesional'];
-                            echo $id;
                     ?>
-                    <div class="col-lg-4">
-                        <div class="form-group">
-                            <select name="cordinador1" id="nombre1" class="form-control">
-                                <option value="<?php echo $id; ?>"> 
-                                <?php echo $nombre ?> </option>
-                                <?php
+                    <form id="formularioCoordinacion" role="form" action="../modulos/editar_planilla_coordinacion.php"
+                    method="POST">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <select name="coordinador1" id="nombre1" class="form-control">
+                                    <option value="<?php echo $id; ?>">
+                                        <?php echo $nombre." - ".$titulo; ?>
+                                    </option>
+                                    <?php
                                     
                                     $sql = "SELECT * FROM profesionals where coordinador='si' ORDER BY id";
                                     $resultado = mysqli_query($enlace, $sql);
@@ -568,18 +570,29 @@ endif;
                                         $nombre = $dado['nombres'];
                                         $titulo = $dado['titulo_profesional'];
                                 ?>
-                                <option value="<?php echo $id; ?>">
-                                    <?php echo $nombre." - ".$titulo; ?>
-                                </option>
-                                <?php
+                                    <option value="<?php echo $id; ?>">
+                                        <?php echo $nombre." - ".$titulo; ?>
+                                    </option>
+                                    <?php
                                     endwhile;
                                 ?>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <select name="cordinador2" id="nombre1" class="form-control">
-                                <option value=""> Seleccione </option>
-                                <?php
+                                </select>
+                            </div>
+                            <?php
+                        $sql = "SELECT * FROM planilla pl, profesionals p WHERE pl.lugar_daem=p.id AND pl.id = $id_planilla";
+                        $resultado = mysqli_query($enlace, $sql);
+                        $dado = mysqli_fetch_array($resultado);
+
+                            $id = $dado['lugar_daem'];
+                            $nombre = $dado['nombres'];
+                            $titulo = $dado['titulo_profesional'];
+                        ?>
+                            <div class="form-group">
+                                <select name="coordinador2" id="nombre1" class="form-control">
+                                    <option value="<?php echo $id; ?>">
+                                        <?php echo $nombre." - ".$titulo; ?>
+                                    </option>
+                                    <?php
 
                                     $sql = "SELECT * FROM profesionals where coordinador='si' ORDER BY id";
                                     $resultado = mysqli_query($enlace, $sql);
@@ -589,18 +602,29 @@ endif;
                                         $titulo = $dado['titulo_profesional'];
 
                                 ?>
-                                <option value="<?php echo $id; ?>">
-                                    <?php echo $nombre." - ".$titulo; ?>
-                                </option>
-                                <?php
+                                    <option value="<?php echo $id; ?>">
+                                        <?php echo $nombre." - ".$titulo; ?>
+                                    </option>
+                                    <?php
                                     endwhile;
                                 ?>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <select name="cordinador3" id="nombre1" class="form-control">
-                                <option value=""> Seleccione </option>
-                                <?php
+                                </select>
+                            </div>
+                            <?php
+                            $sql = "SELECT * FROM planilla pl, profesionals p WHERE pl.lugar_redes_apoyo=p.id AND pl.id = $id_planilla";
+                            $resultado = mysqli_query($enlace, $sql);
+                            $dado = mysqli_fetch_array($resultado);
+
+                                $id = $dado['lugar_redes_apoyo'];
+                                $nombre = $dado['nombres'];
+                                $titulo = $dado['titulo_profesional'];
+                        ?>
+                            <div class="form-group">
+                                <select name="coordinador3" id="nombre1" class="form-control">
+                                    <option value="<?php echo $id;?>">
+                                        <?php echo $nombre." - ".$titulo; ?>
+                                    </option>
+                                    <?php
 
                                     $sql = "SELECT * FROM profesionals where coordinador='si' ORDER BY id";
                                     $resultado = mysqli_query($enlace, $sql);
@@ -610,15 +634,23 @@ endif;
                                         $titulo = $dado['titulo_profesional'];
 
                                 ?>
-                                <option value="<?php echo $id; ?>">
-                                    <?php echo $nombre." - ".$titulo; ?>
-                                </option>
-                                <?php
+                                    <option value="<?php echo $id; ?>">
+                                        <?php echo $nombre." - ".$titulo; ?>
+                                    </option>
+                                    <?php
                                     endwhile;
                                 ?>
-                            </select>
+                                </select>
+                            </div>
                         </div>
-                    </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input class="hidden" type="" name="numero" value="<?php print_r($id_planilla) ?>">
+                                <button type="submit" id="up-coordinacion" name="up-coordinacion" class="btn btn-lg btn-success btn-block">Actualizar
+                                    Coordinacion del programa</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
