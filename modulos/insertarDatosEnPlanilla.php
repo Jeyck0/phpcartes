@@ -33,6 +33,15 @@ if(isset($_POST['insertar'])){
      $selectCordinadorDos = mysqli_escape_string($enlace, $_POST['cordinador2']);
      $selectCordinadorTres = mysqli_escape_string($enlace, $_POST['cordinador3']);
 
+    //select alumnos
+    $selectAlumnoUno = mysqli_escape_string($enlace, $_POST['alumno1']);
+    $selectAlumnoDos = mysqli_escape_string($enlace, $_POST['alumno2']);
+    $selectAlumnoTres = mysqli_escape_string($enlace, $_POST['alumno3']);
+    $selectAlumnoCuatro = mysqli_escape_string($enlace, $_POST['alumno4']);
+    $selectAlumnoCinco = mysqli_escape_string($enlace, $_POST['alumno5']);
+    $bucle_alumno = mysqli_escape_string($enlace, $_POST['bucle_alumno']);
+    
+
 
     $numero = mysqli_escape_string($enlace, $_POST['numero']);
 
@@ -65,7 +74,7 @@ if($bucle_profe==1){
 
 if($bucle_profe_especializado==1){
     $sql2=$sql_1.", ('".$numero."','".$selectEspecializadoUno."')";
-    echo $sql2;
+    
 
 }
 if($bucle_profe_especializado==2){
@@ -111,18 +120,42 @@ if($bucle_profe_asistente==5){
 
 $sql4=" UPDATE planilla SET  lugar_establecimiento='.$selectCordinadorUno.',lugar_daem='.$selectCordinadorDos.',lugar_redes_apoyo='.$selectCordinadorTres.' WHERE id=$numero ";
 
+if($bucle_alumno==1){
+
+    $sql_5 = "INSERT INTO usuarios_planilla (id_planilla, id_alumno) VALUES ('".$numero."','".$selectAlumnoUno."')";
+
+}if($bucle_alumno==2){
+
+    $sql_5 = "INSERT INTO usuarios_planilla (id_planilla, id_alumno) VALUES ('".$numero."','".$selectAlumnoUno."'), ('".$numero."','".$selectAlumnoDos."')";
+
+}if($bucle_alumno==3){
+
+    $sql_5 = "INSERT INTO usuarios_planilla (id_planilla, id_alumno) VALUES ('".$numero."','".$selectAlumnoUno."'), ('".$numero."','".$selectAlumnoDos."'), ('".$numero."','".$selectAlumnoTres."')";
+
+}if($bucle_alumno==4){
+
+    $sql_5 = "INSERT INTO usuarios_planilla (id_planilla, id_alumno) VALUES ('".$numero."','".$selectAlumnoUno."'), ('".$numero."','".$selectAlumnoDos."'), ('".$numero."','".$selectAlumnoTres."'), ('".$numero."','".$selectAlumnoCuatro."')";
+
+}if($bucle_alumno==5){
+
+    $sql_5 = "INSERT INTO usuarios_planilla (id_planilla, id_alumno) VALUES ('".$numero."','".$selectAlumnoUno."'), ('".$numero."','".$selectAlumnoDos."'), ('".$numero."','".$selectAlumnoTres."'), ('".$numero."','".$selectAlumnoCuatro."'), ('".$numero."','".$selectAlumnoCinco."')";
+
+}
 
 
-if(mysqli_query($enlace, $sql3) && mysqli_query($enlace,$sql4)):
+
+
+if(mysqli_query($enlace, $sql3) && mysqli_query($enlace,$sql4)&& mysqli_query($enlace,$sql_5)):
     // $_SESSION['mensaje'] = '<div class="alert alert-success alert-dismissible" role="alert">
     // <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     // Alumno agregado con exito!</div>';
-    header('Location: ../pages/llenar_plantilla_pie.php');
+    header('Location: ../pages/lista_plantillas_pie.php');
     echo "agregado OK";
     
 else:
     echo "Error";
-    echo $sql3;
+    echo $sql_5;
+    echo "id del alumno = ".$selectAlumnoDos." bucle = ".$bucle_alumno;
 endif;
 
 

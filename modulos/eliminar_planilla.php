@@ -8,13 +8,17 @@ if(isset($_POST['btn-delete'])):
 
 endif;
 
-    $sql = "DELETE up, p FROM usuarios_planilla up LEFT JOIN planilla p ON up.id_planilla = p.id WHERE up.id_planilla = $id"; 
+// $sql = "DELETE up, p FROM usuarios_planilla up LEFT JOIN planilla p ON up.id_planilla = p.id WHERE up.id_planilla = $id"; 
+$sql = "DELETE FROM planilla WHERE id = $id"; 
+$sql2 = "DELETE FROM planilla_planilla WHERE id_planilla = $id"; 
+$sql3 = "DELETE FROM usuarios_planilla WHERE id_planilla = $id"; 
+
     // $sql2 = "DELETE FROM planilla WHERE id = '$id'"; 
     // ALTER TABLE usuarios_planilla ADD FOREIGN KEY(id_planilla) REFERENCES planilla(id) 
 
 
 
-    if(mysqli_query($enlace, $sql)):
+    if(mysqli_query($enlace, $sql2) && mysqli_query($enlace, $sql3) && mysqli_query($enlace, $sql)):
         // $_SESSION['mensaje'] = '<div class="alert alert-danger alert-dismissible" role="alert">
         // <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         // <strong>Profesional eliminado con exito!</strong></div>';

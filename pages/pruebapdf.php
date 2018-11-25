@@ -12,6 +12,8 @@ $resultado= $enlace->query($query);
 
 class pdf extends FPDF{
 
+    
+
     public function header(){
 
         $this->Image('..\assets\img\logomined.jpg',30,8,50,30,'jpg');
@@ -98,8 +100,11 @@ class pdf extends FPDF{
     }
 //************** Fin del código para ajustar texto *****************
 //******************************************************************
+
+    
     
 } 
+
 
 
 $pdf = new pdf();
@@ -256,7 +261,7 @@ $pdf->SetFillColor(232,232,232);
 $pdf->SetFont('Arial');
 $pdf->Cell(195,6,'Nombres de los estudiantes',1,1,'L',1);
 
-$query="SELECT p.lugar_establecimiento,p.lugar_daem,p.lugar_daem,p.lugar_redes_apoyo,pr.apellidos,pr.nombres,pr.telefono,pr.correo FROM planilla p INNER JOIN profesionals pr ON p.lugar_daem=pr.id WHERE p.id=$id ";
+$query="SELECT a.nombres, a.apellidos,up.id_planilla  FROM alumnos a INNER JOIN usuarios_planilla up ON a.id=up.id_alumno WHERE up.id_planilla=$id ";
 $resultado= $enlace->query($query);
 
 while($row=$resultado->fetch_assoc()){
@@ -267,6 +272,37 @@ while($row=$resultado->fetch_assoc()){
     
    
 }
+$pdf->Ln();
+$pdf->SetFont('Arial','B');
+$pdf->SetXY(10,112);
+$pdf->Cell(195,6,'Objetivos de Aprendizaje',1,1,'L',1);
+$pdf->SetFillColor(232,232,232);
+$pdf->Cell(20,18,'Fecha',1,0,'C',1);
+$pdf->MultiCell( 25, 6, 'Horas pedagogicas Realizadas', 1,'C',1);
+$pdf->SetXY(55,118);
+$pdf->MultiCell( 25, 6, 'Lugar(dentro o fuera del aula)', 1,'C',1);
+$pdf->SetXY(80,118);
+$pdf->MultiCell( 45, 6, 'Acciones, actividades y apoyos entregados a estudiantes)', 1,'C',1);
+$pdf->SetXY(125,118);
+$pdf->MultiCell( 41, 9, 'Observaciones / Acuerdos)', 1,'C',1);
+$pdf->SetXY(165,118);
+$pdf->MultiCell( 40, 9, 'Nombre del profesional', 1,'C',1);
+
+$pdf->SetFillColor(255,255,255);
+$pdf->MultiCell(20,50,'12/10/2018',1,0,'C',1);
+$pdf->SetXY(30,136);
+$pdf->MultiCell(25,50,'99',1,'C',1);
+$pdf->SetXY(55,136);
+$pdf->MultiCell(25,4,'Aula de recursos',1,'C',1);
+$pdf->SetXY(80,136);
+$pdf->MultiCell( 45, 5, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', 1,'C',1);
+
+
+$query="SELECT p.fecha_creacion  FROM alumnos a INNER JOIN usuarios_planilla up ON a.id=up.id_alumno WHERE up.id_planilla=$id ";
+$resultado= $enlace->query($query);
+
+
+
 
 
 

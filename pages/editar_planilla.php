@@ -42,19 +42,21 @@ endif;
 
                                     <br>
                                     <?php
+                                      
                                         $num = 0;
-                                        $sql = "SELECT nombres, titulo_profesional, id_profesional FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND titulo_profesional='PROFESOR(A)' AND id_planilla = $id_planilla";
+                                        $sql = "SELECT * FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND titulo_profesional='PROFESOR(A)' AND id_planilla = $id_planilla";
                                         $resultado = mysqli_query($enlace, $sql);
                                         while ($dado = mysqli_fetch_array($resultado)):
                                             $nombre = $dado['nombres'];
                                             $titulo = $dado['titulo_profesional'];
+                                            $id_profesional = $dado['id'];
                                             $num ++;
                                     ?>
                                     <div id="row<?php echo $num?>" class="row">
                                         <div id="inputTres<?php echo $num?>" class="col-md-12 cantidadDocentes">
                                             <select name="nombre<?php echo $num ?>" id="nombre<?php echo $num ?>" class="form-control">
 
-                                                <option value="<?php echo $dado['id_profesional'] ?>">
+                                                <option value="<?php echo $id_profesional; ?>">
                                                     <?php echo $nombre." - ".$titulo; ?>
                                                 </option>
                                                 <?php
@@ -78,7 +80,7 @@ endif;
                                                 <div class="col-md-6">
                                                     <input class="hidden" type="" name="numeroUno<?php echo $num;?>"
                                                         value="<?php print_r($id_planilla) ?>">
-                                                    <input class="hidden" type="" name="idUno<?php echo $num;?>" value="<?php echo $dado['id_profesional'] ?>">
+                                                    <input class="hidden" type="" name="idUno<?php echo $num;?>" value="<?php echo $id_profesional; ?>">
                                                     <button type="submit" name="btn-delete<?php echo $num;?>" class="btn btn-danger">Eliminar</button>
                                                 </div>
                                             </div>
@@ -156,18 +158,20 @@ endif;
                                     <br>
                                     <?php
                                         $num = 0;
-                                        $sql = "SELECT nombres, titulo_profesional, id_profesional FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND id_planilla = $id_planilla AND titulo_profesional='EDUCADOR(A) DIFERENCIAL'";
+                                        $sql = "SELECT * FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND id_planilla = $id_planilla AND titulo_profesional='EDUCADOR(A) DIFERENCIAL'";
                                         $resultado = mysqli_query($enlace, $sql);
                                         while ($dado = mysqli_fetch_array($resultado)):
                                             $nombre = $dado['nombres'];
                                             $titulo = $dado['titulo_profesional'];
+                                            $id_profesional = $dado['id'];
+
                                             $num ++;
                                     ?>
                                     <div id="row<?php echo $num?>" class="row">
                                         <div id="col<?php echo $num?>" class="col-md-12 cantidadEspecial">
                                             <select name="select<?php echo $num ?>" id="select<?php echo $num ?>" class="form-control">
 
-                                                <option value="<?php echo $dado['id_profesional'] ?>">
+                                                <option value="<?php echo $id_profesional; ?>">
                                                     <?php echo $nombre." - ".$titulo; ?>
                                                 </option>
                                                 <?php
@@ -191,7 +195,7 @@ endif;
                                                 <div class="col-md-6">
                                                     <input class="hidden" type="" name="numeroDos<?php echo $num;?>"
                                                         value="<?php print_r($id_planilla) ?>">
-                                                    <input class="hidden" type="" name="idDos<?php echo $num;?>" value="<?php echo $dado['id_profesional'] ?>">
+                                                    <input class="hidden" type="" name="idDos<?php echo $num;?>" value="<?php echo $id_profesional; ?>">
                                                     <button type="submit" name="borrar<?php echo $num;?>" class="btn btn-danger">Eliminar</button>
                                                 </div>
                                             </div>
@@ -204,11 +208,12 @@ endif;
 
                                     <?php
                                         $num2 = $num;
-                                        $sql = "SELECT nombres, titulo_profesional, id_profesional FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND id_planilla = $id_planilla AND titulo_profesional='EDUCADORA DE PARBULO'";
+                                        $sql = "SELECT * FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND id_planilla = $id_planilla AND titulo_profesional='EDUCADORA DE PARBULO'";
                                         $resultado = mysqli_query($enlace, $sql);
                                         while ($dado = mysqli_fetch_array($resultado)):
                                             $nombre = $dado['nombres'];
                                             $titulo = $dado['titulo_profesional'];
+                                            $id_profesional = $dado['id'];
                                             $num2 ++;
                                     ?>
                                     <div id="row<?php echo $num2?>" class="row">
@@ -216,7 +221,7 @@ endif;
                                             <select name="select<?php echo $num2 ?>" id="select<?php echo $num2 ?>"
                                                 class="form-control">
 
-                                                <option value="<?php echo $dado['id_profesional'] ?>">
+                                                <option value="<?php echo $id_profesional; ?>">
                                                     <?php echo $nombre." - ".$titulo; ?>
                                                 </option>
                                                 <?php
@@ -240,7 +245,7 @@ endif;
                                                 <div class="col-md-6">
                                                     <input class="hidden" type="" name="numeroDos<?php echo $num2;?>"
                                                         value="<?php print_r($id_planilla) ?>">
-                                                    <input class="hidden" type="" name="idDos<?php echo $num2;?>" value="<?php echo $dado['id_profesional'] ?>">
+                                                    <input class="hidden" type="" name="idDos<?php echo $num2;?>" value="<?php echo $id_profesional; ?>">
                                                     <button type="submit" name="borrar<?php echo $num2;?>" class="btn btn-danger">Eliminar</button>
                                                 </div>
                                             </div>
@@ -320,18 +325,20 @@ endif;
                                     <br>
                                     <?php
                                         $num = 0;
-                                        $sql = "SELECT nombres, titulo_profesional, id_profesional FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND id_planilla = $id_planilla AND titulo_profesional='TERAPEUTA OCUPACIONAL'";
+                                        $sql = "SELECT * FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND id_planilla = $id_planilla AND titulo_profesional='TERAPEUTA OCUPACIONAL'";
                                         $resultado = mysqli_query($enlace, $sql);
                                         while ($dado = mysqli_fetch_array($resultado)):
                                             $nombre = $dado['nombres'];
                                             $titulo = $dado['titulo_profesional'];
+                                            $id_profesional = $dado['id'];
+
                                             $num ++;
                                     ?>
                                     <div id="row<?php echo $num?>" class="row">
                                         <div id="col<?php echo $num?>" class="col-md-12 cantidadAsistente">
                                             <select name="sel<?php echo $num ?>" id="sel<?php echo $num ?>" class="form-control">
 
-                                                <option value="<?php echo $dado['id_profesional'] ?>">
+                                                <option value="<?php echo $id_profesional; ?>">
                                                     <?php echo $nombre." - ".$titulo; ?>
                                                 </option>
                                                 <?php
@@ -355,7 +362,7 @@ endif;
                                                 <div class="col-md-6">
                                                     <input class="hidden" type="" name="numeroDos<?php echo $num;?>"
                                                         value="<?php print_r($id_planilla) ?>">
-                                                    <input class="hidden" type="" name="idTres<?php echo $num;?>" value="<?php echo $dado['id_profesional'] ?>">
+                                                    <input class="hidden" type="" name="idTres<?php echo $num;?>" value="<?php echo $id_profesional; ?>">
                                                     <button type="submit" name="delete<?php echo $num;?>" class="btn btn-danger">Eliminar</button>
                                                 </div>
                                             </div>
@@ -368,18 +375,19 @@ endif;
 
                                     <?php
                                         $num2 = $num;
-                                        $sql = "SELECT nombres, titulo_profesional, id_profesional FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND id_planilla = $id_planilla AND titulo_profesional='PSICOLOGO(A)'";
+                                        $sql = "SELECT * FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND id_planilla = $id_planilla AND titulo_profesional='PSICOLOGO(A)'";
                                         $resultado = mysqli_query($enlace, $sql);
                                         while ($dado = mysqli_fetch_array($resultado)):
                                             $nombre = $dado['nombres'];
                                             $titulo = $dado['titulo_profesional'];
+                                            $id_profesional = $dado['id'];
                                             $num2 ++;
                                     ?>
                                     <div id="row<?php echo $num2?>" class="row">
                                         <div id="col<?php echo $num2?>" class="col-md-12 cantidadAsistente">
                                             <select name="sel<?php echo $num2 ?>" id="sel<?php echo $num2 ?>" class="form-control">
 
-                                                <option value="<?php echo $dado['id_profesional'] ?>">
+                                                <option value="<?php echo $id_profesional; ?>">
                                                     <?php echo $nombre." - ".$titulo; ?>
                                                 </option>
                                                 <?php
@@ -404,7 +412,7 @@ endif;
                                                     <input class="hidden" type="" name="numeroDos<?php echo $num2;?>"
                                                         value="<?php print_r($id_planilla) ?>">
                                                     <input class="hidden" type="" name="idTres<?php echo $num2;?>"
-                                                        value="<?php echo $dado['id_profesional'] ?>">
+                                                        value="<?php echo $id_profesional; ?>">
                                                     <button type="submit" name="delete<?php echo $num2;?>" class="btn btn-danger">Eliminar</button>
                                                 </div>
                                             </div>
@@ -417,10 +425,11 @@ endif;
 
                                     <?php
                                         $num3 = $num2;
-                                        $sql = "SELECT nombres, titulo_profesional, id_profesional FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND id_planilla = $id_planilla AND titulo_profesional='FONOAUDIOLOGO(A)'";
+                                        $sql = "SELECT * FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND id_planilla = $id_planilla AND titulo_profesional='FONOAUDIOLOGO(A)'";
                                         $resultado = mysqli_query($enlace, $sql);
                                         while ($dado = mysqli_fetch_array($resultado)):
                                             $nombre = $dado['nombres'];
+                                            $id_profesional = $dado['id'];
                                             $titulo = $dado['titulo_profesional'];
                                             $num3 ++;
                                     ?>
@@ -428,7 +437,7 @@ endif;
                                         <div id="col<?php echo $num3?>" class="col-md-12 cantidadAsistente">
                                             <select name="sel<?php echo $num3 ?>" id="sel<?php echo $num3 ?>" class="form-control">
 
-                                                <option value="<?php echo $dado['id_profesional'] ?>">
+                                                <option value="<?php echo $id_profesional; ?>">
                                                     <?php echo $nombre." - ".$titulo; ?>
                                                 </option>
                                                 <?php
@@ -453,7 +462,7 @@ endif;
                                                     <input class="hidden" type="" name="numeroDos<?php echo $num3;?>"
                                                         value="<?php print_r($id_planilla) ?>">
                                                     <input class="hidden" type="" name="idTres<?php echo $num3;?>"
-                                                        value="<?php echo $dado['id_profesional'] ?>">
+                                                        value="<?php echo $id_profesional; ?>">
                                                     <button type="submit" name="delete<?php echo $num3;?>" class="btn btn-danger">Eliminar</button>
                                                 </div>
                                             </div>
