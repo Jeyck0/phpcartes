@@ -72,15 +72,14 @@ include ('../configs/conexion_db.php');
                                                     $titulo = $dado['titulo_profesional'];
 
                                                 ?>
-                                                <option value="<?php echo $id; ?>">
-                                                    <?php echo $nombre." - ".$titulo; ?>
-                                                </option>
-                                                <?php
+                                            <option value="<?php echo $id; ?>">
+                                                <?php echo $nombre." - ".$titulo; ?>
+                                            </option>
+                                            <?php
                                                 endwhile;
                                             ?>
-                                            </select>
-                                            <br>
-                                        </div>
+                                        </select>
+                                        <br>
                                     </div>
                                 </div>
                                 <div class="container-fluid">
