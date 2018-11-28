@@ -15,7 +15,11 @@ include('includes/interfaz.php');
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
+
+                    <?php if($_SESSION['tipo']==1) { ?>
                     <a href="agregar_establecimiento.php" class="btn btn-sm btn-success">Nuevo establecimiento</a>
+                    <?php } ?>
+
                 </div>
                 <div class="panel-body">
                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -62,8 +66,12 @@ include('includes/interfaz.php');
                                 </td>
                                 <td>
                                     <a href="ver_establecimiento.php?id=<?php echo $dado['id'] ?>" type="submit" name="btn-ver" class="btn btn-xs btn-info">Ver</a>
+
+                                    <?php if($_SESSION['tipo']==1) { ?>
                                     <a href="editar_establecimiento.php?id=<?php echo $dado['id'] ?>" class="btn btn-xs btn-warning">Editar</a>
                                     <a href="" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#myModal<?php echo $dado['id'] ?>">Eliminar</a>
+                                    <?php } ?>
+
                                     <!-- Modal -->
                                     <div id="myModal<?php echo $dado['id'] ?>" class="modal fade" role="dialog">
                                         <div class="modal-dialog">
