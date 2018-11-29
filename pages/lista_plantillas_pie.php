@@ -63,7 +63,7 @@ include ('../configs/conexion_db.php');
                                 <a href="agregar_objetivos.php?id=<?php echo $dado['id'] ?>" type="submit" name="objetivo"><i class="fas fa-eye fa-2x" style="color:#0066ff;"></i></a>
                                 </td >
                                 <td style="text-align:center">
-                                <a href="pruebapdf.php?id=<?php echo $dado['id'] ?>" type="submit" name="descargar"><i class="fas fa-download fa-2x"></i></a>
+                                <a href="mpdfprueba.php?id=<?php echo $dado['id'] ?>" type="submit" name="descargar"><i class="fas fa-download fa-2x"></i></a>
                                 </td>
                                 <td>
                                     <a href="ver_planilla_pie.php?id=<?php echo $dado['id'] ?>" type="submit" name="btn-ver" class="btn btn-xs btn-info">Ver</a>
