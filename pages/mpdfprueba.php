@@ -198,12 +198,12 @@ function selectTabla8($s_id){
 	$tabla="";
 
 	while($row=$resultado->fetch_assoc()){
-		$tabla.='<div class="A borde" style="height:120px;padding-top:11px;">'.$row['fecha_ultimo_cambio'].'</div>
-		<div class="B borde" style="height:120px;padding-top:11px;">'.$row['horas_realizadas'].'</div>
-		<div class="C borde" style="height:120px;padding-top:11px;">'.utf8_decode($row['lugar_aula']).'</div>
-		<div class="D borde" style="height:120px;padding-top:11px;">'.utf8_decode($row['actividades']).'</div>
-		<div class="E borde" style="height:120px;padding-top:11px;">'.utf8_decode($row['observaciones']).'</div>
-		<div class="F borde" style="height:120px;padding-top:11px;">'.utf8_decode($row['nombres'])." ".$row['apellidos']." ".$row['titulo_profesional'].'</div>';
+		$tabla.='<div class="A borde" style="height:200px;padding-top:11px;">'.$row['fecha_ultimo_cambio'].'</div>
+		<div class="B borde" style="height:200px;padding-top:11px;">'.$row['horas_realizadas'].'</div>
+		<div class="C borde" style="height:200px;padding-top:11px;">'.utf8_decode($row['lugar_aula']).'</div>
+		<div class="D borde" style="height:200px;padding-top:11px;">'.utf8_decode($row['actividades']).'</div>
+		<div class="E borde" style="height:200px;padding-top:11px;">'.utf8_decode($row['observaciones']).'</div>
+		<div class="F borde" style="height:200px;padding-top:11px;">'.utf8_decode($row['nombres'])." ".$row['apellidos']." ".$row['titulo_profesional'].'</div>';
 	}
 
 	return $tabla;

@@ -1,9 +1,15 @@
 <?php
-include ('includes/interfaz.php');
 include ('../configs/conexion_db.php');
+include ('includes/interfaz.php');
 
 if(isset($_GET['id'])): 
     $id_planilla = mysqli_escape_string($enlace, $_GET['id']);
+    $sql = "SELECT * FROM planilla_planilla WHERE id_planilla = '$id_planilla'";
+    $resultado = mysqli_query($enlace, $sql);
+    while ($dado = mysqli_fetch_array($resultado)):
+        $ant = $dado['antecedentes1'];
+    endwhile;
+
 endif;
 ?>
 
@@ -11,6 +17,7 @@ endif;
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Resumen Proceso Evaluación Diagnóstica Integral e Interdisciplinaria </h1>
+
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -26,7 +33,7 @@ endif;
                             <div class="form-group">
                                 <label for="">Antecedentes relevantes de la Anamnesis</label>
                                 <p>Señale aquella información más relevante en el desarrollo del estudiante,la familia y el entorno, que impacte en el aprendizaje, según datos recogidos en la entrevista de la Anamnesis</p>
-                                <textarea name="txt_antecedentes_1" id="txt_antecedentes_1"  rows="3" class="form-control"></textarea>
+                                <textarea name="txt_antecedentes_1" id="txt_antecedentes_1"  rows="3" class="form-control" value=""><?php $dado['antecedentes1'] = null ? "" : $dado['antecedente1'] ; ?></textarea>
                             </div>
                             <div class="form-group">
                                 <p>Si el o la estudiante no es usuario habitual del español, consigne el nivel de español que maneja tanto en comprensión como en la expresión oral y/o escrita:</p>
