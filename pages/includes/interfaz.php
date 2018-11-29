@@ -99,6 +99,7 @@ header('Location:../login.php');
                             </div>
                             <!-- /input-group -->
                         </li>
+                        <?php if($_SESSION['tipo']==1) { ?>
                         <li>
                             <a href="#"><i class="fas fa-address-book"></i> Agregar Usuarios<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -114,6 +115,7 @@ header('Location:../login.php');
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        <?php } ?>
                         <li>
                             <a href="#"><i class="fas fa-address-book"></i> Ver Usuarios<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
