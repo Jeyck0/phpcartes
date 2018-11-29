@@ -8,6 +8,11 @@ $resultado= $enlace->query($query);
 
 $html='
 <style>
+.resumen {
+	width:95%;
+	border: solid 2px black ;
+	padding:5px;
+}
 .lista-estudiantes{
 	width:95%;
 }
@@ -15,6 +20,7 @@ $html='
 	margin-top: 100px;
 	margin-right:20px;
 	margin-left:40px;
+	margin-bottom:100px;
    }
 div{
 	width: 200px;
@@ -187,7 +193,7 @@ function selectTabla7($s_id){
 
 function selectTabla8($s_id){
 	$connect = new mysqli ('localhost','root','','phpcartes');
-	$query="SELECT actividades,observaciones,nombres,apellidos,titulo_profesional,lugar_aula,horas_realizadas,fecha_ultimo_cambio FROM planilla_planilla INNER JOIN profesionals ON id_profesional=profesionals.id WHERE id_planilla='$s_id' ";
+	$query="SELECT actividades,observaciones,nombres,apellidos,titulo_profesional,lugar_aula,horas_realizadas,fecha_ultimo_cambio FROM planilla_planilla INNER JOIN profesionals ON id_profesional=profesionals.id WHERE id_planilla='$s_id'";
 	$resultado= $connect->query($query);
 	$tabla="";
 
@@ -202,6 +208,125 @@ function selectTabla8($s_id){
 
 	return $tabla;
 }
+
+function selectTabla9($s_id){
+	$connect = new mysqli ('localhost','root','','phpcartes');
+	$query="SELECT antecedentes1 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null ";
+	$resultado= $connect->query($query);
+	$tabla="";
+
+	while($row=$resultado->fetch_assoc()){
+		$tabla.='<div class="resumen">'.$row['antecedentes1'].'</div>';
+	}
+
+	return $tabla;
+}
+
+function selectTabla10($s_id){
+	$connect = new mysqli ('localhost','root','','phpcartes');
+	$query="SELECT antecedentes2 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null ";
+	$resultado= $connect->query($query);
+	$tabla="";
+
+	while($row=$resultado->fetch_assoc()){
+		$tabla.='<div class="resumen">'.$row['antecedentes2'].'</div>';
+	}
+
+	return $tabla;
+}
+
+function selectTabla11($s_id){
+	$connect = new mysqli ('localhost','root','','phpcartes');
+	$query="SELECT valoracion FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null ";
+	$resultado= $connect->query($query);
+	$tabla="";
+
+	while($row=$resultado->fetch_assoc()){
+		$tabla.='<div class="resumen">'.$row['valoracion'].'</div>';
+	}
+
+	return $tabla;
+}
+
+function selectTabla12($s_id){
+	$connect = new mysqli ('localhost','root','','phpcartes');
+	$query="SELECT evaluacion FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null ";
+	$resultado= $connect->query($query);
+	$tabla="";
+
+	while($row=$resultado->fetch_assoc()){
+		$tabla.='<div class="resumen">'.$row['evaluacion'].'</div>';
+	}
+
+	return $tabla;
+}
+
+function selectTabla13($s_id){
+	$connect = new mysqli ('localhost','root','','phpcartes');
+	$query="SELECT familiar1 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null ";
+	$resultado= $connect->query($query);
+	$tabla="";
+
+	while($row=$resultado->fetch_assoc()){
+		$tabla.='<div class="resumen">'.$row['familiar1'].'</div>';
+	}
+
+	return $tabla;
+}
+
+function selectTabla14($s_id){
+	$connect = new mysqli ('localhost','root','','phpcartes');
+	$query="SELECT familiar2 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null ";
+	$resultado= $connect->query($query);
+	$tabla="";
+
+	while($row=$resultado->fetch_assoc()){
+		$tabla.='<div class="resumen">'.$row['familiar2'].'</div>';
+	}
+
+	return $tabla;
+}
+
+function selectTabla15($s_id){
+	$connect = new mysqli ('localhost','root','','phpcartes');
+	$query="SELECT escolar1 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null ";
+	$resultado= $connect->query($query);
+	$tabla="";
+
+	while($row=$resultado->fetch_assoc()){
+		$tabla.='<div class="resumen">'.$row['escolar1'].'</div>';
+	}
+
+	return $tabla;
+}
+
+function selectTabla16($s_id){
+	$connect = new mysqli ('localhost','root','','phpcartes');
+	$query="SELECT escolar2 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null ";
+	$resultado= $connect->query($query);
+	$tabla="";
+
+	while($row=$resultado->fetch_assoc()){
+		$tabla.='<div class="resumen">'.$row['escolar2'].'</div>';
+	}
+
+	return $tabla;
+}
+
+function selectTabla17($s_id){
+	$connect = new mysqli ('localhost','root','','phpcartes');
+	$query="SELECT observaciones_2 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null ";
+	$resultado= $connect->query($query);
+	$tabla="";
+
+	while($row=$resultado->fetch_assoc()){
+		$tabla.='<div class="resumen">'.$row['observaciones_2'].'</div>';
+	}
+
+	return $tabla;
+}
+
+
 
 
 $html .=(selectTabla($id));
@@ -262,6 +387,64 @@ $html6 ='<br/><div  class=" lista-estudiantes" style="font-weight: bold;">Objeti
 ';
 $html .=$html6;
 $html.=(selectTabla8($id));
+
+$html7='<h3>Resumen Proceso Evaluación Diagnóstica Integral e Interdisciplinaria</h3>
+<h4>Antecedentes relevantes de la Anamnesis</h4>
+<p style="color:grey">Señale aquella información más relevante en el desarrollo del estudiante,la familia y el entorno, que impacte en el aprendizaje, según datos recogidos en la entrevista de la Anamnesis:</p>
+';
+$html.=$html7;
+$html.=(selectTabla9($id));
+
+$html8='<p style="color:grey">Si el o la estudiante no es usuario habitual del español, consigne el nivel de español que maneja tanto en comprensión como en la expresión oral y/o escrita:</p>
+';
+$html.=$html8;
+$html.=(selectTabla10($id));
+
+$html9='<h4>Valoración de Salud</h4>
+<p style="color:grey">Señale si existe alguna condicion de salud o tratamiento actual del estudiante que sea relevante consignar:</p>
+';
+$html.=$html9;
+$html.=(selectTabla11($id));
+
+$html10='<h4>Evaluación Psicoeducativa</h4>
+<p style="color:grey">A partir de la evaluación psicoeducativa realizada al estudiante, señale aquellos aspectos relevantes para su aprendizaje:</p>
+';
+$html.=$html10;
+$html.=(selectTabla12($id));
+
+$html11='<h4>Contexto Familiar</h4>
+<p style="color:grey">Describa aspectos del  Contexto Familiar que favorecen el aprendizaje :</p>
+
+';
+$html.=$html11;
+$html.=(selectTabla13($id));
+
+$html12='<p style="color:grey">Describa aspectos del  Contexto Familiar que dificultan el aprendizaje :</p>
+';
+$html.=$html12;
+$html.=(selectTabla14($id));
+
+$html13='<h4>Contexto Escolar</h4>
+<p style="color:grey">Describa aspectos del  Contexto Escolar que favorecen el aprendizaje :</p>
+
+';
+$html.=$html13;
+$html.=(selectTabla15($id));
+
+$html14='
+<p style="color:grey">Describa aspectos del  Contexto Escolar que dificultan el aprendizaje :</p>
+
+';
+$html.=$html14;
+$html.=(selectTabla16($id));
+
+$html15='<h4>Observaciones</h4>
+
+
+';
+$html.=$html15;
+$html.=(selectTabla17($id));
+
 
 $mpdf = new mPDF('c','A4');
 $mpdf->SetImportUse();

@@ -72,6 +72,11 @@ endif;
                                 <input type="hidden" name = 'id' value="<?php echo $id_planilla; ?>">
                             </div>
                         </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                            <a href="agregar_resumen.php?id=<?php echo $id_planilla; ?>" type="submit" name="btn-ver" class="btn btn-success btn-lg btn-block">Agregar Resumen</a>       
+                            </div>            
+                        </div>
                     </div>
                 </div>
             </div>
