@@ -27,7 +27,7 @@ endif;
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <form role="form" method="POST" action="../modulos/editar_alumno.php">
+                
                         <input type="hidden" name = 'id' value="<?php echo $dado['id'] ?>">
                             <div class="col-lg-6">
                                 <div class="form-group">
@@ -74,12 +74,43 @@ endif;
                                 <div class="form-group">
                                     <label>Curso</label>
                                     <input disabled name="curso" type="text" class="form-control" value="<?php echo $dado['curso'] ?>">
-                                </div>                                                 
+                                </div>
+                                <div class="form-group">
+                                    <label>Planilla</label>
+                                    <form action="../modulos/busqueda_planilla_alumno.php" method="POST">
+                                    <select name="select_planilla" id="planilla" class="form-control" >
+                                        <?php
+
+                                                $sql = "SELECT id_planilla FROM usuarios_planilla where id_alumno=$id ORDER BY id";
+                                                $resultado = mysqli_query($enlace, $sql);
+                                                $contador = mysqli_num_rows($resultado);
+
+                                                
+                                                while ($dado = mysqli_fetch_array($resultado)):
+                                                    $id = $dado['id'];
+                                                    $id_planilla=$dado['id_planilla']
+                                                    
+                                        
+                                                ?>
+                                        <option value="<?php echo $id_planilla; ?>">
+                                            <?php echo $id_planilla; ?>
+                                        </option>
+                                        <?php
+                                                endwhile;
+                                            ?>
+                                    </select>
+                                    <select name="contador" id="contador" class="hidden">
+                                    <option value=<?php echo $contador?>></option>
+                                    </select>
+     
+                                </div>                                                  
                             </div>                                              
                         </div>
                         <div class="row">
                             <div class="col-lg-6"><a href="lista_alumno.php" class="btn btn-primary btn-lg btn-block " >Listado de Alumno</a></div>
-                            <div class="col-lg-6"></div>
+                            <div class="col-lg-6"><div class="form-group">
+                                   <button id="btn_planilla" name="btn_planilla" type="submit" class="btn btn-success btn-lg btn-block ">Ver Planilla</button>                 
+                                </div></div>
                         </div>
                 </form> 
                 </div>
@@ -89,3 +120,11 @@ endif;
 </div>
 
 <?php include('includes/cierre-interfaz.php'); ?>
+<script>
+$(document).ready(function(){
+    if(($('#contador').val())==0){
+        $('#planilla').attr('disabled',true);
+        $('#btn_planilla').attr('disabled',true);
+    }
+})
+</script>

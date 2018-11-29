@@ -88,7 +88,7 @@ endif;
                                     <input disabled name="coordinador" type="text" class="form-control" value="<?php echo $dado['Coordinador'] ?>">
                                 </div> 
                                 <div class="form-group">
-                                <label>Planilla</label>
+                                    <label>Planilla</label>
                                     <form action="../modulos/busqueda_planilla_profesional.php" method="POST">
                                     <select name="select_planilla" id="planilla" class="form-control" >
                                         <?php

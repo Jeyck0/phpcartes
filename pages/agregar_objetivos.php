@@ -5,6 +5,17 @@ include ('../configs/conexion_db.php');
 if(isset($_GET['id'])): 
     $id_planilla = mysqli_escape_string($enlace, $_GET['id']);
 endif;
+
+$sql = "SELECT swich FROM planilla_planilla WHERE id_planilla = '$id_planilla'";
+$resultado = mysqli_query($enlace, $sql);
+$dado = mysqli_fetch_array($resultado);
+$swich = $dado['swich'];
+
+$sql2 = "SELECT id_planilla FROM planilla_planilla WHERE id_planilla = '$id_planilla'";
+$resultado2 = mysqli_query($enlace, $sql2);
+$dado2 = mysqli_fetch_array($resultado2);
+$swich2 = $dado2['id_planilla'];
+
 ?>
 
 <div id="page-wrapper">
@@ -74,7 +85,14 @@ endif;
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                            <a href="agregar_resumen.php?id=<?php echo $id_planilla; ?>" type="submit" name="btn-ver" class="btn btn-success btn-lg btn-block">Agregar Resumen</a>       
+                            <a href="agregar_resumen.php?id=<?php echo $id_planilla; ?>" type="submit" id="btn-ver" name="btn-ver" class="btn btn-success btn-lg btn-block">Agregar Resumen</a>
+                            <a href="agregar_resumen.php?id=<?php echo $id_planilla; ?>" type="submit" id="btn-editar" name="btn-editar" class="btn btn-success btn-lg btn-block">Editar Resumen</a>
+                                <select name="swich" id="swich" hidden>
+                                    <option value="<?php echo $swich;?>"></option>
+                                </select> 
+                                <select name="swich2" id="swich2" hidden>
+                                    <option value="<?php echo $swich2;?>"></option>
+                                </select>      
                             </div>            
                         </div>
                     </div>
@@ -86,5 +104,22 @@ endif;
 <?php
 include ('includes/cierre-interfaz.php');
 ?>
+
+<script>
+$(document).ready(function(){
+    if($('#swich').val()==1){
+        $('#btn-ver').addClass("hidden");
+    }
+    else{
+        $('#btn-editar').addClass("hidden");
+        
+    }
+    
+    if($('#swich2').val()==""){
+        $('#btn-ver').addClass("hidden");
+        alert (" IMPORTANTE!! :Para Agregar un resumen debe existir al menos UN REGISTRO DE APOYO PARA ESTUDIANTES");
+    }
+});
+</script>
 
 

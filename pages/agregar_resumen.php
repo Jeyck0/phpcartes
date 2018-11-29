@@ -2,9 +2,16 @@
 include ('includes/interfaz.php');
 include ('../configs/conexion_db.php');
 
+
+
 if(isset($_GET['id'])): 
     $id_planilla = mysqli_escape_string($enlace, $_GET['id']);
 endif;
+
+
+
+
+
 ?>
 
 <div id="page-wrapper">
@@ -100,8 +107,9 @@ endif;
                             <div class="form-group">
                                 <input type="submit" name="insertar_resumen" id="insertar_resumen" value="Insertar a planilla" class="btn btn-lg btn-primary" />
                                 <a href="agregar_objetivos.php?id=<?php echo $id_planilla; ?>" type="submit" name="btn-ver" class="btn btn-success btn-lg ">Volver</a>
-                                <input type="hidden" name = 'id' value="<?php echo $id_planilla; ?>">       
-
+                                <input type="hidden" name = 'id' value="<?php echo $id_planilla; ?>"> 
+                                <input type="hidden" name = 'swich' value="<?php echo $swich; ?>">        
+                                
                             </div>
                         </div>
                     </div>
@@ -110,8 +118,11 @@ endif;
 </form></div>
     </div>
 </div>
+
 <?php
 include ('includes/cierre-interfaz.php');
 ?>
+
+
 
 
