@@ -39,7 +39,7 @@ $swich2 = $dado2['id_planilla'];
                         <div class="col-lg-6">     
                             <div class="form-group">
                                 <label for="">Profesional</label>
-                                <select name="profesional" id="profesional" class="form-control">
+                                <select name="profesional" id="profesional" class="form-control" required>
                                     <option value=""> Seleccione </option>
                                     <?php
                                     $sql = "SELECT up.id_profesional,p.nombres,p.apellidos,p.titulo_profesional FROM usuarios_planilla up INNER JOIN profesionals p ON up.id_profesional=p.id  WHERE id_planilla = '$id_planilla'";
@@ -60,7 +60,7 @@ $swich2 = $dado2['id_planilla'];
                             </div>
                             <div class="form-group">
                                 <label for="">Lugar (Dentro o fuera del aula)</label>
-                                <select name="lugar_aula" id="lugar_aula" class="form-control">
+                                <select name="lugar_aula" id="lugar_aula" class="form-control" required>
                                     <option value="" selected>Seleccione</option>
                                     <option value="1">Aula Comun</option>
                                     <option value="2">Aula de Recursos</option>
@@ -68,15 +68,15 @@ $swich2 = $dado2['id_planilla'];
                             </div>
                             <div class="form-group">
                                 <label for="">Horas Realizadas</label>
-                                <input type="text" name="horas" class="form-control">
+                                <input type="text" name="horas" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Acciones, actividades y apoyos entregados a estudiantes.</label>
-                                <textarea name="txt_actividades" id="txt_actividades"  rows="3" class="form-control" maxlength="130" placeholder="Hasta 200 caracteres..."></textarea>
+                                <textarea name="txt_actividades" id="txt_actividades"  rows="3" class="form-control" maxlength="130" placeholder="Hasta 130 caracteres..." required></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="">Observaciones / Acuerdos</label>
-                                <textarea name="txt_observaciones" id="txt_observaciones"  rows="3" class="form-control" maxlength="130" placeholder="Hasta 200 caracteres..."></textarea>
+                                <textarea name="txt_observaciones" id="txt_observaciones"  rows="3" class="form-control" maxlength="130" placeholder="Hasta 130 caracteres..." required></textarea>
                             </div>
                             <div class="form-group">
                                 <input type="submit" name="insertar_objetivos" id="insertar_objetivos" value="Insertar a planilla" class="btn btn-lg btn-primary" />
@@ -86,7 +86,7 @@ $swich2 = $dado2['id_planilla'];
                         <div class="col-lg-6">
                             <div class="form-group">
                             <a href="agregar_resumen.php?id=<?php echo $id_planilla; ?>" type="submit" id="btn-ver" name="btn-ver" class="btn btn-success btn-lg btn-block">Agregar Resumen</a>
-                            <a href="agregar_resumen.php?id=<?php echo $id_planilla; ?>" type="submit" id="btn-editar" name="btn-editar" class="btn btn-success btn-lg btn-block">Editar Resumen</a>
+                            <a href="editar_resumen.php?id=<?php echo $id_planilla; ?>" type="submit" id="btn-editar" name="btn-editar" class="btn btn-success btn-lg btn-block">Editar Resumen</a>
                                 <select name="swich" id="swich" hidden>
                                     <option value="<?php echo $swich;?>"></option>
                                 </select> 
