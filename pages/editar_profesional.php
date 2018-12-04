@@ -71,7 +71,7 @@ endif;
                                     <label>Tipo de profesional</label>
                                     <label class="hidden" id="valor-profesional" ><?php echo $dado['titulo_profesional'] ?></label>
                                     <select id="select-profesional" class="form-control" name="titulo" >
-                                        <option value="1">Educadora de parbulo</option>
+                                        <option value="1">Educadora de parvulos</option>
                                         <option value="2">Psicologo(A)</option>
                                         <option value="3">Terapeuta ocupacional</option>
                                         <option value="4">Fonoaudiologo(A)</option>
@@ -122,7 +122,7 @@ endif;
         $(document).ready(function(){
             var valor_profesional = $("#valor-profesional").text();
             var select_profesional =$("#select-profesional");
-            if(valor_profesional=="EDUCADORA DE PARBULO"){
+            if(valor_profesional=="EDUCADORA DE PARVULOS"){
                 select_profesional.val("1").attr("selected");
             }
             if(valor_profesional=="PSICOLOGO(A)"){

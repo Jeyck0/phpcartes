@@ -134,7 +134,7 @@ include ('../configs/conexion_db.php');
                                                         <option value=""> Seleccione </option>
                                                         <?php
 
-                                                $sql = "SELECT * FROM profesionals WHERE titulo_profesional='EDUCADORA DE PARBULO' OR titulo_profesional='EDUCADOR(A) DIFERENCIAL' ORDER BY id";
+                                                $sql = "SELECT * FROM profesionals WHERE titulo_profesional='EDUCADORA DE PARVULOS' OR titulo_profesional='EDUCADOR(A) DIFERENCIAL' ORDER BY id";
                                                 $resultado = mysqli_query($enlace, $sql);
                                                 while ($dado = mysqli_fetch_array($resultado)):
                                                     $id = $dado['id'];

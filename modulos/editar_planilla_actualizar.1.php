@@ -15,7 +15,7 @@ if(isset($_POST['actualizar'])){
 
 }
 
-$sql_1 = "DELETE up FROM usuarios_planilla up INNER JOIN profesionals pr ON up.id_profesional = pr.id WHERE id_planilla = $numero AND titulo_profesional = 'EDUCADORA DE PARBULO' OR titulo_profesional = 'EDUCADOR(A) DIFERENCIAL'";
+$sql_1 = "DELETE up FROM usuarios_planilla up INNER JOIN profesionals pr ON up.id_profesional = pr.id WHERE id_planilla = $numero AND titulo_profesional = 'EDUCADORA DE PARVULOS' OR titulo_profesional = 'EDUCADOR(A) DIFERENCIAL'";
 
 
 // echo "ID nombre anterior".$id_anterior;

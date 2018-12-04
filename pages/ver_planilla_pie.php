@@ -54,7 +54,7 @@ endif;
 
                                     <?php
 
-                                    $sql = "SELECT nombres, titulo_profesional FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND titulo_profesional='EDUCADORA DE PARBULO' AND id_planilla = $id_planilla ";
+                                    $sql = "SELECT nombres, titulo_profesional FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND titulo_profesional='EDUCADORA DE PARVULOS' AND id_planilla = $id_planilla ";
                                     $resultado = mysqli_query($enlace, $sql);
                                     while ($dado = mysqli_fetch_array($resultado)):
                                         $nombre = $dado['nombres'];

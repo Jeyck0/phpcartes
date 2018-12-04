@@ -208,7 +208,7 @@ endif;
 
                                     <?php
                                         $num2 = $num;
-                                        $sql = "SELECT * FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND id_planilla = $id_planilla AND titulo_profesional='EDUCADORA DE PARBULO'";
+                                        $sql = "SELECT * FROM usuarios_planilla u, planilla pl, profesionals p WHERE u.id_planilla=pl.id AND u.id_profesional=p.id AND id_planilla = $id_planilla AND titulo_profesional='EDUCADORA DE PARVULOS'";
                                         $resultado = mysqli_query($enlace, $sql);
                                         while ($dado = mysqli_fetch_array($resultado)):
                                             $nombre = $dado['nombres'];
@@ -226,7 +226,7 @@ endif;
                                                 </option>
                                                 <?php
 
-                                                    $sql2 = "SELECT * FROM profesionals WHERE titulo_profesional='EDUCADORA DE PARBULO' ORDER BY id";
+                                                    $sql2 = "SELECT * FROM profesionals WHERE titulo_profesional='EDUCADORA DE PARVULOS' ORDER BY id";
                                                     $resultado2 = mysqli_query($enlace, $sql2);
                                                     while ($dado2 = mysqli_fetch_array($resultado2)):
                                                         $id2 = $dado2['id'];
@@ -276,7 +276,7 @@ endif;
                                                 <option>Seleccionar</option>
                                                 <?php
 
-                                                    $sql2 = "SELECT * FROM profesionals where titulo_profesional='EDUCADORA DE PARBULO' OR titulo_profesional='EDUCADOR(A) DIFERENCIAL' ORDER BY id";
+                                                    $sql2 = "SELECT * FROM profesionals where titulo_profesional='EDUCADORA DE PARVULOS' OR titulo_profesional='EDUCADOR(A) DIFERENCIAL' ORDER BY id";
                                                     $resultado2 = mysqli_query($enlace, $sql2);
                                                     while ($dado2 = mysqli_fetch_array($resultado2)):
                                                         $id2 = $dado2['id'];

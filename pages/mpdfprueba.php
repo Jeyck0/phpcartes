@@ -90,7 +90,7 @@ function selectTabla($s_id){
 
 function selectTabla2($s_id){
 	$connect = new mysqli ('localhost','root','','phpcartes');
-	$query="SELECT nombres,apellidos,asignatura_modulo,titulo_profesional, telefono, correo, id_planilla, id_profesional FROM usuarios_planilla up INNER JOIN profesionals pr ON up.id_profesional=pr.id WHERE up.id_planilla='$s_id' and (pr.titulo_profesional='EDUCADORA DE PARBULO' OR pr.titulo_profesional='EDUCADOR(A) DIFERENCIAL')";
+	$query="SELECT nombres,apellidos,asignatura_modulo,titulo_profesional, telefono, correo, id_planilla, id_profesional FROM usuarios_planilla up INNER JOIN profesionals pr ON up.id_profesional=pr.id WHERE up.id_planilla='$s_id' and (pr.titulo_profesional='EDUCADORA DE PARVULOS' OR pr.titulo_profesional='EDUCADOR(A) DIFERENCIAL')";
 	$resultado= $connect->query($query);
 	$tabla="";
 

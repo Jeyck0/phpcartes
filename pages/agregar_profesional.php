@@ -60,7 +60,7 @@ include('includes/interfaz.php');
                                 <div class="form-group">
                                     <label>Tipo de profesional</label>
                                     <select class="form-control" name="titulo">
-                                        <option value="1">Educadora de parbulo</option>
+                                        <option value="1">Educadora de parvulos</option>
                                         <option value="2">Psicologo(A)</option>
                                         <option value="3">Terapeuta ocupacional</option>
                                         <option value="4">Fonoaudiologo(A)</option>
