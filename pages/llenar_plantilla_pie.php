@@ -286,12 +286,13 @@ include ('../configs/conexion_db.php');
                                             <div class="form-group">
                                                 <input type="submit" name="insertar" id="insertar" value="Insertar a planilla"
                                                     class="btn btn-lg btn-danger" />
+                                                      
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <select name="cordinador1" id="nombre1" class="form-control">
+                                            <select name="cordinador1" id="cordinador1" class="form-control">
                                                 <option value=""> Seleccione </option>
                                                 <?php
 
@@ -362,3 +363,39 @@ include ('../configs/conexion_db.php');
 
 
 <?php include('includes/cierre-interfaz.php'); ?>
+
+<script>
+   $(document).ready(function() {
+    alert("ATENCION :Para Crear una planilla debe rellenar todos los campos");
+    //$('#insertar').addClass('hidden');
+
+    
+  
+});
+
+    $('#nombre1').change(function (){
+        if($('#nombre1').val()=="" || $('#nombre2').val()==""){
+            alert("caca");
+            $('#insertar').addClass('hidden');
+        }
+
+    });
+
+    $('#nombre2').change(function (){
+        if($('#nombre1').val()=="" || $('#nombre2').val()==""){
+            alert("caca");
+            $('#insertar').addClass('hidden');
+        }
+
+    });
+
+    $('#nombre3').change(function (){
+        if($('#nombre1').val()=="" || $('#nombre2').val()==""){
+            alert("caca");
+            $('#insertar').addClass('hidden');
+        }
+
+    });
+
+
+</script>
