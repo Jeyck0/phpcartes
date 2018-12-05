@@ -78,8 +78,8 @@ include ('../configs/conexion_db.php');
                                             </select>
                                             <div class="form-group">
                                                 <div id="input1" class="clonedInput">
-                                                    <select name="nombre1" id="nombre1" class="form-control">
-                                                        <option value=""> Seleccione </option>
+                                                    <select name="nombre1" id="nombre1" class="form-control" required>
+                                                        <option value="" selected disabled hidden> Seleccione </option>
                                                         <?php
 
                                                         $sql = "SELECT * FROM profesionals where titulo_profesional='PROFESOR(A)' ORDER BY id";
@@ -130,8 +130,8 @@ include ('../configs/conexion_db.php');
                                             </select>
                                             <div class="form-group">
                                                 <div id="divs1" class="clon">
-                                                    <select name="profe1" id="profe1" class="form-control">
-                                                        <option value=""> Seleccione </option>
+                                                    <select name="profe1" id="profe1" class="form-control" required>
+                                                        <option value="" selected disabled hidden> Seleccione </option>
                                                         <?php
 
                                                 $sql = "SELECT * FROM profesionals WHERE titulo_profesional='EDUCADORA DE PARBULO' OR titulo_profesional='EDUCADOR(A) DIFERENCIAL' ORDER BY id";
@@ -181,8 +181,8 @@ include ('../configs/conexion_db.php');
                                             </select>
                                             <div class="form-group">
                                                 <div id="div1" class="clonar">
-                                                    <select name="docente1" id="docente1" class="form-control">
-                                                        <option value=""> Seleccione </option>
+                                                    <select name="docente1" id="docente1" class="form-control" required>
+                                                        <option value="" selected disabled hidden> Seleccione </option>
                                                         <?php
 
                                                 $sql = "SELECT * FROM profesionals WHERE titulo_profesional='TERAPEUTA OCUPACIONAL' OR titulo_profesional='PSICOLOGO(A)' OR titulo_profesional='FONOAUDIOLOGO(A)' ORDER BY id";
@@ -233,8 +233,8 @@ include ('../configs/conexion_db.php');
                                             </select>
                                             <div class="form-group">
                                                 <div class="clonar2" id="divAl1">
-                                                    <select name="alumno1" id="alumno1" class="form-control">
-                                                        <option value=""> Seleccione </option>
+                                                    <select name="alumno1" id="alumno1" class="form-control" required>
+                                                        <option value="" selected disabled hidden> Seleccione </option>
                                                         <?php
 
                                                             $sql = "SELECT * FROM alumnos  ORDER BY id";
@@ -291,8 +291,8 @@ include ('../configs/conexion_db.php');
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <select name="cordinador1" id="nombre1" class="form-control">
-                                                <option value=""> Seleccione </option>
+                                            <select name="cordinador1" id="nombre1" class="form-control" required>
+                                                <option value="" selected disabled hidden> Seleccione </option>
                                                 <?php
 
                                                 $sql = "SELECT * FROM profesionals where coordinador='si' ORDER BY id";
@@ -310,8 +310,8 @@ include ('../configs/conexion_db.php');
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <select name="cordinador2" id="nombre1" class="form-control">
-                                                <option value=""> Seleccione </option>
+                                            <select name="cordinador2" id="nombre1" class="form-control" required>
+                                                <option value="" selected disabled hidden> Seleccione </option>
                                                 <?php
 
                                                 $sql = "SELECT * FROM profesionals where coordinador='si' ORDER BY id";
@@ -329,8 +329,8 @@ include ('../configs/conexion_db.php');
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <select name="cordinador3" id="nombre1" class="form-control">
-                                                <option value=""> Seleccione </option>
+                                            <select name="cordinador3" id="nombre1" class="form-control" required>
+                                                <option value="" selected disabled hidden> Seleccione </option>
                                                 <?php
 
                                                 $sql = "SELECT * FROM profesionals where coordinador='si' ORDER BY id";

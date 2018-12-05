@@ -40,7 +40,7 @@ $swich2 = $dado2['id_planilla'];
                             <div class="form-group">
                                 <label for="">Profesional</label>
                                 <select name="profesional" id="profesional" class="form-control" required>
-                                    <option value=""> Seleccione </option>
+                                    <option value="" selected disabled hidden> Seleccione </option>
                                     <?php
                                     $sql = "SELECT up.id_profesional,p.nombres,p.apellidos,p.titulo_profesional FROM usuarios_planilla up INNER JOIN profesionals p ON up.id_profesional=p.id  WHERE id_planilla = '$id_planilla'";
                                     $resultado = mysqli_query($enlace, $sql);
@@ -61,7 +61,7 @@ $swich2 = $dado2['id_planilla'];
                             <div class="form-group">
                                 <label for="">Lugar (Dentro o fuera del aula)</label>
                                 <select name="lugar_aula" id="lugar_aula" class="form-control" required>
-                                    <option value="" selected>Seleccione</option>
+                                    <option value="" selected disabled hidden>Seleccione</option>
                                     <option value="1">Aula Comun</option>
                                     <option value="2">Aula de Recursos</option>
                                 </select>
