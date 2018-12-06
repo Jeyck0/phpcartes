@@ -70,21 +70,24 @@ include('includes/interfaz.php');
                                 </div>
                                 <div class="form-group">
                                     <label>Sexo</label>
-                                    <select class="form-control" name="sexo">
+                                    <select class="form-control" name="sexo" required>
+                                        <option value="" selected disabled hidden>Seleccione</option>
                                         <option value="1">Masculino</option>
                                         <option value="2">Femenino</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Jefe de curso</label>
-                                    <select class="form-control" name="jefatura">
+                                    <select class="form-control" name="jefatura" required>
+                                        <option value="" selected disabled hidden>Seleccione</option>
                                         <option value="1">Si</option>
                                         <option value="2">No</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Coordinador</label>
-                                    <select class="form-control" name="coordinador">
+                                    <select class="form-control" name="coordinador" required>
+                                        <option value="" selected disabled hidden>Seleccione</option>
                                         <option value="1">Si</option>
                                         <option value="2">No</option>
                                     </select>

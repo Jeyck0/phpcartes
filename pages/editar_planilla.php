@@ -107,7 +107,8 @@ endif;
                                     <div id="" class="row">
                                         <div id="" class="col-md-12">
                                             <select name="nuevoDocente" id="nuevoDocente" class="form-control" required>
-                                                <option>Seleccionar</option>
+                                            <option value="" selected disabled hidden>Seleccione</option>
+                                                
                                                 <?php
 
                                             $sql2 = "SELECT * FROM profesionals where titulo_profesional='PROFESOR(A)' ORDER BY id";
@@ -273,7 +274,7 @@ endif;
                                     <div id="" class="row">
                                         <div id="" class="col-md-12">
                                             <select name="nuevoEspecial" id="" class="form-control" required>
-                                                <option>Seleccionar</option>
+                                            <option value="" selected disabled hidden>Seleccione</option>                                                
                                                 <?php
 
                                                     $sql2 = "SELECT * FROM profesionals where titulo_profesional='EDUCADORA DE PARVULOS' OR titulo_profesional='EDUCADOR(A) DIFERENCIAL' ORDER BY id";
@@ -491,7 +492,7 @@ endif;
                                         <div id="" class="col-md-12">
                                             <select name="nuevoAsistente" id="nuevoAsistente" class="form-control"
                                                 required>
-                                                <option>Seleccionar</option>
+                                            <option value="" selected disabled hidden>Seleccione</option>                                                
                                                 <?php
 
                                                     $sql2 = "SELECT * FROM profesionals where titulo_profesional='FONOAUDIOLOGO(A)' OR titulo_profesional='PSICOLOGO(A)' OR titulo_profesional='TERAPEUTA OCUPACIONAL' ORDER BY id";

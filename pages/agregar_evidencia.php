@@ -31,8 +31,14 @@ include ('../configs/conexion_db.php');
                 <div class="panel-heading">
                     <!-- <a href="llenar_plantilla_pie.php" class="btn btn-sm btn-success">Llenar nueva plantilla</a> -->
 
-                    <form id="" role="form" method="POST" action="../modulos/nuevaPlanilla.php">
-                        <input type="submit" id="numero" name="numero" value="Llenar nueva planilla" class="btn btn-sm btn-success" />
+                    <form action="../modulos/upload.php" method="post" enctype="multipart/form-data">
+                        <label for="file-upload" class="subir">
+                            <i class="fas fa-cloud-upload-alt"></i> Subir archivo
+                        </label>
+                        <input id="file-upload" name="file-upload" onchange='cambiar()' type="file" style='display: none;'/>
+                        <div id="info"></div>
+                        <input type="submit" value="Enviar" name="enviar">  
+                        <input type="submit" value="<?php echo $dado['id']?>" name="id" hidden> 
                     </form>
                 </div>
                 <div class="panel-body">
@@ -40,7 +46,8 @@ include ('../configs/conexion_db.php');
                         <thead>
                             <tr>
                                 <th scope="col">N° Plantilla</th>
-                                <th scope="col">Ver Evidencia</th>
+                                <th scope="col">Subir Evidencia</th>
+                                <th scope="col">Colegio</th>
                                 <th scope="col">Participantes</th>
                                 <th scope="col">Ultima edición</th>
                                 <th scope="col">Agregar Objetivos</th>
@@ -50,37 +57,29 @@ include ('../configs/conexion_db.php');
                         </thead>
 
                         <tbody>
-                            <?php   
+                            <?php 
                                     // $sql = "SELECT p.nombres, u.id, u.id_planilla, u.ultimo_cambio from profesionals p  inner join usuarios_planilla u ON p.id=u.id_profesional where id_profesional > 0";
                                     $sql = "SELECT * from planilla ";
                                     // $sql = "SELECT id_planilla FROM usuarios_planilla u, planilla pl WHERE u.id_planilla=pl.id";
                                     $resultado = mysqli_query($enlace, $sql);
                                     while ($dado = mysqli_fetch_array($resultado)):
-                                    
-                                    
                                     ?>
                             <tr>
                                 <td>
-                                <?php
-                                $id_planilla = $dado['id'];
-                                $sql2="SELECT evidencia FROM planilla_planilla WHERE id_planilla ='$id_planilla'";
-                                $resultado2 = mysqli_query($enlace, $sql2);
-                                while($dado2 = mysqli_fetch_array($resultado2)){
-                                    $link =$dado2['evidencia'];
-                                }
-                                
-                                
-                                 echo $dado['id']; ?>
+                                <?php echo $dado['id'] ?>
                                 </td>
-                                <td style="text-align:center">
-                                <a id="descargar" href="<?php echo $link;?>" >Descargar Evidencia</a>
-                                <input hidden type="text" id="swich" value="<?php echo $swich;?>">
+                                <td style="text-align:center"> 
+                                    
+                                </td>
+                                <td>
+                                    
                                 </td>
                                 <td>
                                 <?php echo $_SESSION['s_id'] ?>
                                 </td>
                                 <td>
                                 
+                                    
                                 </td>
                                 <td style="text-align:center">
                                 <a href="agregar_objetivos.php?id=<?php echo $dado['id'] ?>" type="submit" name="objetivo"><i class="fas fa-book-reader fa-2x" style="color:#0066ff;"></i></a>
@@ -138,6 +137,4 @@ include ('includes/cierre-interfaz.php');
         var pdrs = document.getElementById('file-upload').files[0].name;
         document.getElementById('info').innerHTML = pdrs;
     }
-
-    
 </script>

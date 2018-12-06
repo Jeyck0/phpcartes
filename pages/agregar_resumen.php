@@ -20,6 +20,22 @@ endif;
 
 ?>
 
+<style>
+.subir{
+    padding: 5px 10px;
+    background: #f55d3e;
+    color:#fff;
+    border:0px solid #fff;
+}
+ 
+.subir:hover{
+    color:#fff;
+    background: #f7cb15;
+}
+
+
+</style>
+
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
@@ -28,7 +44,7 @@ endif;
         </div>
         <!-- /.col-lg-12 -->
     </div>
-    <div class="row"><form id="" role="form" method="POST" action="../modulos/insertar_resumen.php">
+    <div class="row"><form id="" role="form" method="POST"  action="../modulos/insertar_resumen.php" enctype="multipart/form-data">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -107,6 +123,13 @@ endif;
                                 <label for="" style="color:#73C2FB">Observaciones</label>
                                 <textarea name="txt_observaciones" id="txt_observaciones" rows="3" class="form-control"></textarea>
                             </div>
+                            <div class="form-group">
+                                <label for="file-upload" class="subir">
+                                <i class="fas fa-cloud-upload-alt"></i> Subir archivo
+                                </label>
+                                <input id="file-upload" name="file-upload" onchange='cambiar()' type="file" style='display: none;'/>
+                                <div id="info"></div>                                
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -129,7 +152,12 @@ endif;
 <?php
 include ('includes/cierre-interfaz.php');
 ?>
-
+<script type="application/javascript">
+    function cambiar(){
+        var pdrs = document.getElementById('file-upload').files[0].name;
+        document.getElementById('info').innerHTML = pdrs;
+    }
+</script>
 
 
 
