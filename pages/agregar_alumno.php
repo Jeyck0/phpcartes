@@ -31,7 +31,7 @@ include('includes/interfaz.php');
                                 </div>
                                 <div class="form-group">
                                     <label for="">Rut</label>
-                                    <input id="rut" name="rut" type="text" class="form-control" required oninput="checkRut(this)">
+                                    <input id="rut" name="rut" type="text" class="form-control" required >
                                 </div>
                                 <div class="form-group">
                                     <label for="">Nombres</label>
