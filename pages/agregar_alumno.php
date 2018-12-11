@@ -78,7 +78,7 @@ include('includes/interfaz.php');
                         <div class="col-lg-12">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <button class="btn btn-primary btn-lg btn-block " name="btn-crear" type="submit">Registrar
+                                    <button id="send" class="btn btn-primary btn-lg btn-block " name="btn-crear" type="submit">Registrar
                                         Alumno</button>
                                 </div>
                                 <div class="col-lg-6">
@@ -103,5 +103,7 @@ include('includes/interfaz.php');
         }
     }
 </script>
+
+
 
 <?php include('includes/cierre-interfaz.php'); ?>
