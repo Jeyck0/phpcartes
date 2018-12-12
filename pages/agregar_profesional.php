@@ -51,7 +51,7 @@ include('includes/interfaz.php');
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="">Correo</label>
-                                    <input name="correo" type="text" class="form-control">
+                                    <input name="correo" id="email" type="text" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Fecha nacimiento</label>
@@ -98,7 +98,7 @@ include('includes/interfaz.php');
                         <div class="col-lg-12">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <button class="btn btn-primary btn-lg btn-block " name="submit" type="submit">Registrar
+                                    <button class="btn btn-primary btn-lg btn-block " id="send" name="submit" type="submit">Registrar
                                         Profesional
                                     </button></div>
                                 <div class="col-lg-6"></div>
@@ -115,7 +115,7 @@ include('includes/interfaz.php');
         </div>
     </div>
 </div>
-
+<?php include('includes/cierre-interfaz.php'); ?>
 <script type="text/javascript">
     function Limpiar() {
     var t = document.getElementById("limpiar").getElementsByTagName("input");
@@ -125,4 +125,20 @@ include('includes/interfaz.php');
     }
 </script>
 
-<?php include('includes/cierre-interfaz.php'); ?>
+<script>
+
+
+
+
+
+$(document).ready(function() {
+    $('#send').click(function(){
+        if($("#email").val().indexOf('@', 0) == -1 || $("#email").val().indexOf('.', 0) == -1) {
+            alert('El correo electrónico introducido no es correcto.');
+            return false;
+        }
+
+        
+    });
+});
+</script>

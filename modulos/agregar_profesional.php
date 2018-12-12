@@ -30,9 +30,8 @@ if(isset($_POST["submit"])){
         
 
     else{
-		/**header('Location: ../tablaAlumno.php?error'); */
-		echo 'caca';
-		echo $sql;
+		header('Location: ../pages/pantalla_error.php'); 
+		
 	}
         
    
