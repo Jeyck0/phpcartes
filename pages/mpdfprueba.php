@@ -211,7 +211,7 @@ function selectTabla8($s_id){
 
 function selectTabla9($s_id){
 	$connect = new mysqli ('localhost','root','','phpcartes');
-	$query="SELECT antecedentes1 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null ";
+	$query="SELECT antecedentes1 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null AND evidencia is null";
 	$resultado= $connect->query($query);
 	$tabla="";
 
@@ -224,7 +224,7 @@ function selectTabla9($s_id){
 
 function selectTabla10($s_id){
 	$connect = new mysqli ('localhost','root','','phpcartes');
-	$query="SELECT antecedentes2 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null ";
+	$query="SELECT antecedentes2 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null AND evidencia is null";
 	$resultado= $connect->query($query);
 	$tabla="";
 
@@ -237,7 +237,7 @@ function selectTabla10($s_id){
 
 function selectTabla11($s_id){
 	$connect = new mysqli ('localhost','root','','phpcartes');
-	$query="SELECT valoracion FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null ";
+	$query="SELECT valoracion FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null AND evidencia is null";
 	$resultado= $connect->query($query);
 	$tabla="";
 
@@ -250,7 +250,7 @@ function selectTabla11($s_id){
 
 function selectTabla12($s_id){
 	$connect = new mysqli ('localhost','root','','phpcartes');
-	$query="SELECT evaluacion FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null ";
+	$query="SELECT evaluacion FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null AND evidencia is null";
 	$resultado= $connect->query($query);
 	$tabla="";
 
@@ -263,7 +263,7 @@ function selectTabla12($s_id){
 
 function selectTabla13($s_id){
 	$connect = new mysqli ('localhost','root','','phpcartes');
-	$query="SELECT familiar1 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null ";
+	$query="SELECT familiar1 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null AND evidencia is null";
 	$resultado= $connect->query($query);
 	$tabla="";
 
@@ -276,7 +276,7 @@ function selectTabla13($s_id){
 
 function selectTabla14($s_id){
 	$connect = new mysqli ('localhost','root','','phpcartes');
-	$query="SELECT familiar2 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null ";
+	$query="SELECT familiar2 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null AND evidencia is null";
 	$resultado= $connect->query($query);
 	$tabla="";
 
@@ -289,7 +289,7 @@ function selectTabla14($s_id){
 
 function selectTabla15($s_id){
 	$connect = new mysqli ('localhost','root','','phpcartes');
-	$query="SELECT escolar1 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null ";
+	$query="SELECT escolar1 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null AND evidencia is null ";
 	$resultado= $connect->query($query);
 	$tabla="";
 
@@ -302,7 +302,7 @@ function selectTabla15($s_id){
 
 function selectTabla16($s_id){
 	$connect = new mysqli ('localhost','root','','phpcartes');
-	$query="SELECT escolar2 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null ";
+	$query="SELECT escolar2 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null AND evidencia is null";
 	$resultado= $connect->query($query);
 	$tabla="";
 
@@ -315,7 +315,7 @@ function selectTabla16($s_id){
 
 function selectTabla17($s_id){
 	$connect = new mysqli ('localhost','root','','phpcartes');
-	$query="SELECT observaciones_2 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null ";
+	$query="SELECT observaciones_2 FROM planilla_planilla WHERE id_planilla='$s_id' AND actividades is null AND evidencia is null";
 	$resultado= $connect->query($query);
 	$tabla="";
 

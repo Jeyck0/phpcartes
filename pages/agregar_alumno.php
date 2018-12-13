@@ -69,7 +69,24 @@ include('includes/interfaz.php');
                                 </div>
                                 <div class="form-group">
                                     <label>Curso</label>
-                                    <input id="curso" name="curso" type="text" class="form-control" required>
+                                        <select name="curso" id="curso" class="form-control" required>
+                                            <option value="" selected disabled hidden> Seleccione </option>
+                                            <?php
+
+                                            $sql = "SELECT * FROM curso";
+                                            $resultado = mysqli_query($enlace, $sql);
+                                            while ($dado = mysqli_fetch_array($resultado)):    
+                                                $nombre = $dado['nombre_curso']; 
+                                                $id_curso = $dado['id'];                                           
+
+                                            ?>
+                                            <option value="<?php echo $id_curso; ?>">
+                                                <?php echo $nombre." ".$id_curso?>
+                                            </option>
+                                            <?php
+                                                endwhile;
+                                            ?>
+                                    </select>
                                 </div>
                             </div>
                     </div>

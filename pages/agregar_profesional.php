@@ -1,5 +1,6 @@
 <?php
 include('includes/interfaz.php');
+include('../configs/conexion_db.php');
 ?>
 
 <div id="page-wrapper">
@@ -45,7 +46,25 @@ include('includes/interfaz.php');
                                 </div>
                                 <div class="form-group">
                                     <label for="">Asignatura y/o modulo</label>
-                                    <input name="asignatura" type="text" class="form-control">
+                                    <select class="form-control hidden" name="asignatura" id="asignatura1">
+                                        <option value="Artes Visuales">Artes Visuales</option>
+                                        <option value="Ciencias Naturales">Ciencias Naturales</option>
+                                        <option value="Educación Física y Salud">Educación Física y Salud</option>
+                                        <option value="Historia, Geografía y Ciencias Sociales">Historia, Geografía y Ciencias Sociales</option>
+                                        <option value="Matemática">Matemática</option>
+                                        <option value="Música">Música</option>
+                                        <option value="Orientación">Orientación</option>
+                                        <option value="Tecnología">Tecnología</option>
+                                    </select>
+                                    <select class="form-control hidden" name="asignatura" id="asignatura2">
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                    <select class="form-control " name="asignatura" id="asignatura3" disabled>
+                                        <option value="">Seleccione</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -59,7 +78,8 @@ include('includes/interfaz.php');
                                 </div>
                                 <div class="form-group">
                                     <label>Tipo de profesional</label>
-                                    <select class="form-control" name="titulo">
+                                    <select class="form-control" name="titulo" id="titulo" required>
+                                        <option value="">Seleccione</option>
                                         <option value="1">Educadora de parvulos</option>
                                         <option value="2">Psicologo(A)</option>
                                         <option value="3">Terapeuta ocupacional</option>
@@ -140,5 +160,30 @@ $(document).ready(function() {
 
         
     });
+});
+
+$('#titulo').change(function() {
+    if($('#titulo').val()=='5'){
+        $('#asignatura1').removeClass('hidden');
+        $('#asignatura1').attr('name','asignatura');
+
+        $('#asignatura3').addClass('hidden');
+        $('#asignatura2').addClass('hidden');
+        $('#asignatura2').attr('name','noname');
+    }
+    else{
+        $('#asignatura2').removeClass('hidden');
+        $('#asignatura2').attr('name','asignatura');
+
+        $('#asignatura3').addClass('hidden');
+        $('#asignatura1').addClass('hidden');
+        $('#asignatura1').attr('name','noname');
+    }
+
+    if($('#titulo').val()==''){
+        $('#asignatura1').addClass('hidden');
+        $('#asignatura3').removeClass('hidden');
+        $('#asignatura2').addClass('hidden');
+    }
 });
 </script>
