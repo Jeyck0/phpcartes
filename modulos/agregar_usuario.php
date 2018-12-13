@@ -10,7 +10,7 @@ if(isset($_POST["submit"])){
 	
     }
     
-    $sql='INSERT INTO users'
+    $sql='INSERT INTO users';
     
     if($password == $password2){
 
@@ -22,11 +22,11 @@ if(isset($_POST["submit"])){
 		$_SESSION['s_id'] = $usuario;
 		$_SESSION['tipo'] = $dado['privilegio'];
 		//SE REDIRECCIONA AL SISTEMA
-		header("Location:../pages/index.php");
+		// header("Location:../pages/index.php");
 		echo "login correcto";
 	}
 	else{
-		header("Location:../login.php");
+		// header("Location:../login.php");
 		echo "login incorrecto";
 	}
 	

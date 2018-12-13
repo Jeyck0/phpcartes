@@ -20,7 +20,7 @@
   </head>
 
   <body class="text-center">
-    <form class="form-signin"  method="post" action="../modulos/agregar_usuario.php.php">
+    <form class="form-signin"  method="post" action="../modulos/agregar_usuario.php">
 
       <h1 class="h3 mb-3 font-weight-normal">Crear Usuario</h1>
       <div class="form-group">
