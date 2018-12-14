@@ -27,7 +27,8 @@ endif;
         header('Location: ../pages/lista_alumno.php?success');
         
     else:
-        header('Location: ../pages/pantalla_error_alumno.php');
+        //header('Location: ../pages/pantalla_error_alumno.php');
+        echo $sql;
     endif;
 
     

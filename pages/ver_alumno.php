@@ -5,7 +5,7 @@ include ('includes/interfaz.php');
 
 if(isset($_GET['id'])): 
     $id = mysqli_escape_string($enlace, $_GET['id']);
-    $sql = "SELECT * FROM alumnos WHERE id = '$id'";
+    $sql = "SELECT a.id,a.nombres,a.apellidos,a.rut,a.ciudad,a.direccion,a.fecha_nacimiento,a.telefono,a.sexo,a.num_matricula,a.curso,c.nombre_curso FROM alumnos a inner join curso c on c.id=a.curso WHERE a.id = '$id'";
     $resultado = mysqli_query($enlace, $sql);
     $dado = mysqli_fetch_array($resultado);
 endif; 
@@ -73,7 +73,7 @@ endif;
                                 </div>
                                 <div class="form-group">
                                     <label>Curso</label>
-                                    <input disabled name="curso" type="text" class="form-control" value="<?php echo $dado['curso'] ?>">
+                                    <input disabled name="curso" type="text" class="form-control" value="<?php echo $dado['nombre_curso'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Planilla</label>
