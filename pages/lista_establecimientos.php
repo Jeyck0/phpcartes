@@ -27,7 +27,7 @@ include('includes/interfaz.php');
                             <tr>
                                 <th scope="col">RBD</th>
                                 <th scope="col">Nombre</th>
-                                <th scope="col">Ciudad</th>
+                                <th scope="col">Comuna</th>
                                 <th scope="col">Dirección</th>
                                 <th scope="col">Teléfono</th>
                                 <th scope="col">Entidad</th>
@@ -50,7 +50,7 @@ include('includes/interfaz.php');
                                     <?php echo $dado['nombre'] ?>
                                 </td>
                                 <td>
-                                    <?php echo $dado['ciudad'] ?>
+                                    <?php echo $dado['comuna'] ?>
                                 </td>
                                 <td>
                                     <?php echo $dado['direccion'] ?>

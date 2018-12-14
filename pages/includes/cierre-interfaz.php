@@ -10,6 +10,7 @@
 <script src="../js/editar_planilla.js" type="text/javascript"></script>
 <script src="../js/editar_planilla.1.js" type="text/javascript"></script>
 <script src="../js/editar_planilla.2.js" type="text/javascript"></script>
+<script src="../js/datos.js" type="text/javascript"></script>
 
 
 <!-- Bootstrap Core JavaScript -->
