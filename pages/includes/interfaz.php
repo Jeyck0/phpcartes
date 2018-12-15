@@ -100,6 +100,7 @@ header('Location:../login.php');
                             <!-- /input-group -->
                         </li>
                         <?php if($_SESSION['tipo']==1) { ?>
+                        
                         <li>
                             <a href="#"><i class="fas fa-address-book"></i> Profesionales<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -116,9 +117,13 @@ header('Location:../login.php');
                         <li>
                             <a href="#"><i class="fas fa-address-book"></i> Alumnos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
+                        <?php if($_SESSION['tipo']==1) { ?>
+
                                 <li>
                                     <a href="agregar_alumno.php">Agregar</a>
                                 </li>
+                        <?php } ?>
+
                                 <li>
                                     <a href="lista_alumno.php">Ver</a>
                                 </li>
@@ -127,7 +132,14 @@ header('Location:../login.php');
                         </li>
                         <li>
                             <a href="lista_plantillas_pie.php"><i class="fa fa-table fa-fw"></i> Plantillas Pie</a>
-                        </li>                                             
+                        </li>
+                        <?php if($_SESSION['tipo']==1) { ?>
+
+                        <li>
+                            <a href="lista_plantillas_pie.php"><i class="fa fa-user fa-fw"></i> Agregar Usuario</a>
+                        </li>  
+                        <?php } ?>
+
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
