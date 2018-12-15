@@ -101,32 +101,26 @@ header('Location:../login.php');
                         </li>
                         <?php if($_SESSION['tipo']==1) { ?>
                         <li>
-                            <a href="#"><i class="fas fa-address-book"></i> Agregar Usuarios<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fas fa-address-book"></i> Profesionales<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="agregar_profesional.php">Profesional</a>
+                                    <a href="agregar_profesional.php">Agregar</a>
                                 </li>
                                 <li>
-                                    <a href="agregar_alumno.php">Alumno</a>
-                                </li>
-                                <li>
-                                    <a href="agregar_establecimiento.php">Establecimiento</a>
+                                    <a href="listaProfesionals.php">Ver</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <?php } ?>
                         <li>
-                            <a href="#"><i class="fas fa-address-book"></i> Ver Usuarios<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fas fa-address-book"></i> Alumnos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="listaProfesionals.php">Profesionales</a>
+                                    <a href="agregar_alumno.php">Agregar</a>
                                 </li>
                                 <li>
-                                    <a href="lista_alumno.php">Alumnos</a>
-                                </li>
-                                <li>
-                                    <a href="lista_establecimientos.php">Establecimientos</a>
+                                    <a href="lista_alumno.php">Ver</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
