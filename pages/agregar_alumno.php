@@ -104,7 +104,7 @@ include('includes/interfaz.php');
 
                                             ?>
                                             <option value="<?php echo $id_curso; ?>">
-                                                <?php echo $nombre." ".$id_curso?>
+                                                <?php echo $nombre;?>
                                             </option>
                                             <?php
                                                 endwhile;

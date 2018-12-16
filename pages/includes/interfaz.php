@@ -73,8 +73,6 @@ header('Location:../login.php');
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> Usuario</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuración</a>
-                        </li>
                         <li class="divider"></li>
                         <li><a href="../modulos/cerrar.php"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
                         </li>
@@ -90,30 +88,29 @@ header('Location:../login.php');
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Buscar...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
+                                SECCIONES
+                                
                             </span>
                             </div>
                             <!-- /input-group -->
                         </li>
-                        <?php if($_SESSION['tipo']==1) { ?>
+                        
                         
                         <li>
                             <a href="#"><i class="fas fa-address-book"></i> Profesionales<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
+                            <?php if($_SESSION['tipo']==1) { ?>
                                 <li>
                                     <a href="agregar_profesional.php">Agregar</a>
                                 </li>
+                                <?php } ?>    
                                 <li>
                                     <a href="listaProfesionals.php">Ver</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <?php } ?>
+                        
                         <li>
                             <a href="#"><i class="fas fa-address-book"></i> Alumnos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -136,7 +133,7 @@ header('Location:../login.php');
                         <?php if($_SESSION['tipo']==1) { ?>
 
                         <li>
-                            <a href="lista_plantillas_pie.php"><i class="fa fa-user fa-fw"></i> Agregar Usuario</a>
+                            <a href="agregar_usuario.php"><i class="fa fa-user fa-fw"></i> Agregar Usuario</a>
                         </li>  
                         <?php } ?>
 

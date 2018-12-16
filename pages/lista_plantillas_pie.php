@@ -42,7 +42,7 @@ include ('../configs/conexion_db.php');
                                 <th scope="col">N° Plantilla</th>
                                 <th scope="col">Ver Evidencia</th>
                                 <th scope="col">Participantes</th>
-                                <th scope="col">Ultima edición</th>
+                               <!-- <th scope="col">Ultima edición</th> -->
                                 <th scope="col">Agregar Objetivos</th>
                                 <th scope="col">Descargar</th>
                                 <th scope="col">Opciones</th>
@@ -63,10 +63,12 @@ include ('../configs/conexion_db.php');
                                 <td>
                                 <?php
                                 $id_planilla = $dado['id'];
-                                $sql2="SELECT evidencia FROM planilla_planilla WHERE id_planilla ='$id_planilla'";
+                                $sql2="SELECT evidencia,fecha_ultimo_cambio FROM planilla_planilla WHERE id_planilla ='$id_planilla'";
                                 $resultado2 = mysqli_query($enlace, $sql2);
                                 while($dado2 = mysqli_fetch_array($resultado2)){
                                     $link =$dado2['evidencia'];
+                                    
+                                    $ultimo = date("d/m/Y H:i:s", strtotime($dado2['fecha_ultimo_cambio']));
                                 }
                                 
                                 
@@ -79,9 +81,9 @@ include ('../configs/conexion_db.php');
                                 <td>
                                 <?php echo $_SESSION['s_id'] ?>
                                 </td>
-                                <td>
-                                
-                                </td>
+                              <!--  <td>
+                                <?php //echo $ultimo; ?>
+                                </td>-->
                                 <td style="text-align:center">
                                 <a href="agregar_objetivos.php?id=<?php echo $dado['id'] ?>" type="submit" name="objetivo"><i class="fas fa-book-reader fa-2x" style="color:#0066ff;"></i></a>
                                 </td >

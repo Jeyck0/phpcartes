@@ -27,15 +27,8 @@
       <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Usuario" required autofocus> 
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" id="password" class="form-control" placeholder="Contraseña" name="password" required>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Recordarme
-        </label>
-        
-      </div>
       <p style="color : red;" hidden>Usuario o password incorrectos!</p>
       <div><button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Iniciar Sesion</button></div>
-     	<p class="mt-3"><a href="pages/agregar_usuario.php">Crear Usuario</a></p>
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
     </form>
   </body>

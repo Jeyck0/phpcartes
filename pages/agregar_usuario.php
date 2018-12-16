@@ -29,11 +29,11 @@
       </div>
       <div class="form-group">
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="password" class="form-control" placeholder="Contraseña" name="password" required>
+        <input type="password" id="pass_1" class="form-control" placeholder="Contraseña" name="password" required>
       </div>
       <div class="form-group">
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="password" class="form-control" placeholder="Contraseña" name="password2" required>
+        <input type="password" id="pass_2" class="form-control" placeholder="Contraseña" name="password2" required>
       </div>
       
       
@@ -45,9 +45,42 @@
         
       </div>
       <p style="color : red;" hidden>Usuario o password incorrectos!</p>
-      <div><button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Iniciar Sesion</button></div>
-     	<p class="mt-3"><a href="agregar_usuario.php">Crear Usuario</a></p>
+      <div><button class="btn btn-lg btn-primary btn-block" type="submit" name="submit" id="crear">CREAR</button></div>
+      <div class="mt-3 mb-3"><a href="index.php">Volver</a></div>
+
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
     </form>
   </body>
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+
+  <script>
+    $('#pass_1').keyup(function(){
+      var _this = $('#pass_1');
+      var pass_1 = $('#pass_1').val();
+                      _this.attr('style', 'background:white');
+      if(pass_1.charAt(0) == ' '){
+      _this.attr('style', 'background:#FF4A4A');
+      }
+      
+      if(_this.val() == ''){
+      _this.attr('style', 'background:#FF4A4A');
+      }
+      });
+      
+      $('#pass_2').keyup(function(){
+      var pass_1 = $('#pass_1').val();
+      var pass_2 = $('#pass_2').val();
+      var _this = $('#pass_2');
+                      _this.attr('style', 'background:white');
+      if(pass_1 != pass_2 && pass_2 != ''){
+      _this.attr('style', 'background:#FF4A4A');
+      $('#crear').prop('disabled',true); 
+      }
+      else{
+        $('#crear').attr('disabled',false); 
+      }
+      });
+  
+  </script>
 </html>

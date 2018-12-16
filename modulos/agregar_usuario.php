@@ -10,23 +10,14 @@ if(isset($_POST["submit"])){
 	
     }
     
-    $sql='INSERT INTO users';
+    $sql="INSERT INTO users (name,password,privilegio) VALUES('".$usuario."','".$password."','".$admin."')";
     
     if($password == $password2){
-
+		if(mysqli_query($enlace, $sql)){
+			header('Location: ../login.php'); 
+			echo 'correcto =)';
+			echo $sql;
+		}
     }
 	
-	if($num > 0){
-		//SE CREA LA SESION CON LA ID DEL USUARIO
-		$row=mysqli_fetch_array($respuesta);
-		$_SESSION['s_id'] = $usuario;
-		$_SESSION['tipo'] = $dado['privilegio'];
-		//SE REDIRECCIONA AL SISTEMA
-		// header("Location:../pages/index.php");
-		echo "login correcto";
-	}
-	else{
-		// header("Location:../login.php");
-		echo "login incorrecto";
-	}
 	

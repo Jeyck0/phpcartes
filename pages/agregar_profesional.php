@@ -68,7 +68,7 @@ include('../configs/conexion_db.php');
                                     <input name="telefono" type="text" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Asignatura y/o modulo</label>
+                                    <label for="">Asignatura y/o Ámbito</label>
                                     <select class="form-control hidden" name="asignatura" id="asignatura1">
                                         <option value="Artes Visuales">Artes Visuales</option>
                                         <option value="Ciencias Naturales">Ciencias Naturales</option>
@@ -81,10 +81,9 @@ include('../configs/conexion_db.php');
                                         <option value="Tecnología">Tecnología</option>
                                     </select>
                                     <select class="form-control hidden" name="asignatura" id="asignatura2">
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="C">C</option>
-                                        <option value="D">D</option>
+                                        <option value="Formación personal y social">Formación personal y social</option>
+                                        <option value="Comunicación">Comunicación</option>
+                                        <option value="Relación con el medio natural y cultural">Relación con el medio natural y cultural</option>
                                     </select>
                                     <select class="form-control " name="asignatura" id="asignatura3" disabled>
                                         <option value="">Seleccione</option>
