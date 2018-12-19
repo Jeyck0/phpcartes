@@ -172,7 +172,7 @@ include('includes/interfaz.php');
     ciudades_9 = new Array("Angol", "Carahue", "Collipulli", "Cunco", "Curacautin", "Freire", "Gorbea", "Labranza",
         "Lautaro", "Loncoche", "Nueva Imperial", "Padre Las Casas", "Pitrufquen", "Pucon", "Puren", "Renaico",
         "Temuco", "Traiguen", "Victoria", "Villarrica");
-    ciudades_10 = new Array("Futrono", "La Union", "Lanco", "Los Lagos", "Paillaco", "Panguipulli", "Rio Bueno",
+    ciudades_14 = new Array("Futrono", "La Union", "Lanco", "Los Lagos", "Paillaco", "Panguipulli", "Rio Bueno",
         "San Jose de la Mariquina", "Valdivia");
     ciudades_11 = new Array("Coihaique", "Puerto Aisen");
     ciudades_12 = new Array("Punta Arenas", "Puerto Natales");
@@ -183,7 +183,7 @@ include('includes/interfaz.php');
         "Nunoa", "Padre Hurtado", "Paine", "Pedro Aguirre Cerda", "Penaflor", "Penalolen", "Pirque", "Providencia",
         "Pudahuel", "Puente Alto", "Quilicura", "Quinta Normal", "Recoleta", "Renca", "San Bernardo", "San Joaquin",
         "San Jose de Maipo", "San Miguel", "San Ramon", "Santiago", "Talagante", "Tiltil", "Vitacura");
-    ciudades_14 = new Array("Ancud", "Calbuco", "Castro", "Fresia", "Frutillar", "Llanquihue", "Los Muermos", "Osorno",
+    ciudades_10 = new Array("Ancud", "Calbuco", "Castro", "Fresia", "Frutillar", "Llanquihue", "Los Muermos", "Osorno",
         "Puerto Montt", "Puerto Varas", "Purranque", "Quellon", "Rio Negro");
     ciudades_15 = new Array("Antofagasta", "Calama", "Maria Elena", "Mejillones", "Taltal", "Tocopilla");
 			// 2) crear una funcion que permita ejecutar el cambio dinamico
