@@ -13,11 +13,14 @@ if(isset($_POST["submit"])){
     $sql="INSERT INTO users (name,password,privilegio) VALUES('".$usuario."','".$password."','".$admin."')";
     
     if($password == $password2){
-		if(mysqli_query($enlace, $sql)){
-			header('Location: ../login.php'); 
-			echo 'correcto =)';
-			echo $sql;
-		}
+      if(mysqli_query($enlace, $sql)){
+        header('Location: ../login.php'); 
+        echo 'correcto =)';
+        echo $sql;
+      }
+      else{
+        header('Location: ../pages/pantalla_error_usuario.php'); 
+      }
     }
 	
 	
