@@ -17,18 +17,23 @@ if(isset($_POST["submit"])){
 	//CUENTA EL NUMERO DE FILAS QUE RETORNO LA CONSULTA
 	$num = mysqli_num_rows($respuesta);
 	
-	if($num > 0){
-		//SE CREA LA SESION CON LA ID DEL USUARIO
-		$row=mysqli_fetch_array($respuesta);
-		$_SESSION['s_id'] = $usuario;
-		$_SESSION['tipo'] = $dado['privilegio'];
-		//SE REDIRECCIONA AL SISTEMA
-		header("Location:../pages/index.php");
-		echo "login correcto";
+	if(($password == $dado['password']) && ($usuario == $dado['name'])){
+		if($num > 0){
+			//SE CREA LA SESION CON LA ID DEL USUARIO
+			$row=mysqli_fetch_array($respuesta);
+			$_SESSION['s_id'] = $usuario;
+			$_SESSION['tipo'] = $dado['privilegio'];
+			//SE REDIRECCIONA AL SISTEMA
+			header("Location:../pages/index.php");
+			echo "login correcto";
+		}
+		else{
+			header("Location:../login.php");
+			echo "login incorrecto";
+		}
 	}
 	else{
-		header("Location:../login.php");
-		echo "login incorrecto";
+		header("Location:../pages/pantalla_error_logeo.php");
 	}
 	
 	
