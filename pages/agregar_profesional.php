@@ -65,7 +65,7 @@ include('../configs/conexion_db.php');
                                 </div>
                                 <div class="form-group">
                                     <label for="">Teléfono</label>
-                                    <input name="telefono" type="text" class="form-control">
+                                    <input name="telefono" type="number" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Asignatura y/o Ámbito</label>

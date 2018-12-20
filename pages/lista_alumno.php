@@ -38,7 +38,7 @@ include('includes/interfaz.php');
 
                         <tbody>
                             <?php 
-                                    $sql = "SELECT * FROM alumnos";
+                                    $sql = "SELECT a.id,a.nombres,a.apellidos,a.rut,a.ciudad,a.direccion,a.fecha_nacimiento,a.telefono,a.sexo,a.num_matricula,a.curso,c.nombre_curso FROM alumnos a inner join curso c on c.id=a.curso";;
                                     $resultado = mysqli_query($enlace, $sql);
                                     while ($dado = mysqli_fetch_array($resultado)):
                                     ?>
@@ -56,7 +56,7 @@ include('includes/interfaz.php');
                                     <?php echo $dado['apellidos'] ?>
                                 </td>
                                 <td>
-                                    <?php echo $dado['curso'] ?>
+                                    <?php echo $dado['nombre_curso'] ?>
                                 </td>
                                 <td>
                                     <a href="ver_alumno.php?id=<?php echo $dado['id'] ?>" class="btn btn-xs btn-info">Ver</a>
