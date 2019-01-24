@@ -2,30 +2,35 @@
 require_once ("../configs/conexion_db.php");
 
 if(isset($_POST['btn-crear'])):
-    $matricula = mysqli_escape_string($enlace, $_POST['matricula']);
     $rut = mysqli_escape_string($enlace, $_POST['rut']);
     $nombres = mysqli_escape_string($enlace, $_POST['nombres']);
     $apellidos = mysqli_escape_string($enlace, $_POST['apellidos']);
-    $nacimiento = mysqli_escape_string($enlace, $_POST['nacimiento']);
-    $ciudad = mysqli_escape_string($enlace, $_POST['ciudad']);
+    $nacimiento = mysqli_escape_string($enlace, $_POST['fecha_nacimiento']);
     $direccion = mysqli_escape_string($enlace, $_POST['direccion']);
+    $salud = mysqli_escape_string($enlace, $_POST['salud']);
+    $vive = mysqli_escape_string($enlace, $_POST['vive']);
+    $apodrado1 = mysqli_escape_string($enlace, $_POST['apodrado1']);
+    $apodrado2 = mysqli_escape_string($enlace, $_POST['apodrado2']);
     $telefono = mysqli_escape_string($enlace, $_POST['telefono']);
-    $sexo = mysqli_escape_string($enlace, $_POST['sexo']);
+    $pie = mysqli_escape_string($enlace, $_POST['pie']);
+    $social = mysqli_escape_string($enlace, $_POST['social']);
+    $tipo = mysqli_escape_string($enlace, $_POST['tipo']);
     $curso = mysqli_escape_string($enlace, $_POST['curso']);
+    $repitencia = mysqli_escape_string($enlace, $_POST['repitencia']);
+    $diagnostico = mysqli_escape_string($enlace, $_POST['diagnostico']);
+
 
 endif;
 
-    $sql = "INSERT INTO alumnos (nombres, apellidos, rut, ciudad, direccion, fecha_nacimiento, telefono, sexo, num_matricula, curso) 
-    VALUES ('".$nombres."', '".$apellidos."', '".$rut."', '".$ciudad."', '".$direccion."', '".$nacimiento."', '".$telefono."', '".$sexo."', '".$matricula."', '".$curso."' )";
-
-
+    $sql = "INSERT INTO alumnos (rut, nombres, apellidos, fecha_nacimiento, direccion, salud, vive, apodrado1, apodrado2, telefono, pie, social, tipo, curso, repitencia, diagnostico) 
+    VALUES ('".$nombres."', '".$apellidos."', '".$rut."', '".$direccion."', '".$nacimiento."', '".$telefono."', '".$curso."', '".$salud."', '".$vive."', '".$apodrado1."', '".$apodrado2."', '".$pie."', '".$social."', '".$tipo."', '".$repitencia."', '".$diagnostico."' )";
 
     if(mysqli_query($enlace, $sql)):
-        $_SESSION['mensaje'] = '<div class="alert alert-success alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        Alumno agregado con exito!</div>';
-        header('Location: ../pages/lista_alumno.php?success');
-        
+        // $_SESSION['mensaje'] = '<div class="alert alert-success alert-dismissible" role="alert">
+        // <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        // Alumno agregado con exito!</div>';
+        // header('Location: ../pages/lista_alumno.php?success');
+        echo "success";
     else:
         //header('Location: ../pages/pantalla_error_alumno.php');
         echo $sql;

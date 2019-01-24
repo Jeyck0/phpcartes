@@ -26,10 +26,6 @@ include('includes/interfaz.php');
 
                             <div class="col-lg-6" >
                                 <div class="form-group">
-                                    <label for="">Numero de Matricula</label>
-                                    <input id="matricula" name="matricula" type="number" class="form-control" required>
-                                </div>
-                                <div class="form-group">
                                     <label for="">Rut</label>
                                     <input id="rut" name="rut" type="text" class="form-control" required >
                                 </div>
@@ -43,72 +39,100 @@ include('includes/interfaz.php');
                                 </div>
                                 <div class="form-group">
                                     <label for="">Fecha nacimiento</label>
-                                    <input id="nacimiento" name="nacimiento" type="date" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="">Región</label>
-                                    <select class="seleccion form-control" name="cosa" onchange="cambia()">
-                                        <option value="0" selected="selected">Regiones</option>
-                                        <option value="1">Tarapaca</option>
-                                        <option value="2">Antofagasta</option>
-                                        <option value="3">Atacama</option>
-                                        <option value="4">Coquimbo</option>
-                                        <option value="5">Valparaiso</option>
-                                        <option value="6">O'Higgins</option>
-                                        <option value="7">Maule</option>
-                                        <option value="8">Bio - Bio</option>
-                                        <option value="9">Araucania</option>
-                                        <option value="10">Los Lagos</option>
-                                        <option value="11">Aisen</option>
-                                        <option value="12">Magallanes Y Antartica</option>
-                                        <option value="13">Metropolitana</option>
-                                        <option value="14">Los Rios</option>
-                                        <option value="15">Arica y Parinacota</option>
-                                    </select>
-                                </div>
-                                <div class="form-group"> 
-                                    <label for="">Comuna</label>
-                                    <select class="seleccion form-control" name="opt">
-                                        <option value="0">Comuna</option>
-                                    </select>
+                                    <input id="fecha_nacimiento" name="fecha_nacimiento" type="date" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Dirección</label>
                                     <input id="direccion" name="direccion" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Teléfono</label>
-                                    <input id="telefono" name="telefono" type="text" class="form-control" required>
+                                    <label for="">Previsión de salud</label>
+                                    <select class="form-control" name="salud">
+                                        <option value="" selected="selected">-- Seleccione --</option>
+                                        <option value="0">Isapre</option>
+                                        <option value="1">Fonasa</option>
+                                        <option value="2">Capredena</option>
+                                        <option value="3">Subsidio familiar</option>
+                                        <option value="4">Prais</option>
+                                        <option value="5">Otro</option>
+                                    </select>
+                                </div>
+                                <div class="form-group"> 
+                                    <label for="">Vive con</label>
+                                    <select class="form-control" name="vive">
+                                        <option value="">-- Seleccione --</option>
+                                        <option value="0">Madre y Padre</option>
+                                        <option value="1">Madre</option>
+                                        <option value="2">Padre</option>
+                                        <option value="3">Abuelos</option>
+                                        <option value="4">Otro familiar</option>
+                                        <option value="5">Institución</option>
+
+                                    </select>
+                                </div>
+                                <div class="form-group"> 
+                                    <label for="">Institución Protección social</label>
+                                    <select class="form-control" name="social">
+                                        <option value="">-- Seleccione --</option>
+                                        <option value="0">SENAME</option>
+                                        <option value="1">CEPIJ</option>
+                                        <option value="2">Tribunales</option>
+                                        <option value="3">COSAM</option>
+                                        <option value="4">OPCION</option>
+                                        <option value="4">Otro</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="">Apodrado 1</label>
+                                    <input id="apodrado1" name="apodrado1" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Genero</label>
-                                    <select id="sexo" name="sexo" class="form-control" required>
-                                        <option selected>Seleccionar...</option>
-                                        <option value="1">Masculino</option>
-                                        <option value="2">Femenino</option>
+                                    <label>Apodrado 2</label>
+                                    <input id="apodrado2" name="apodrado2" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Fono/Contacto</label>
+                                    <input id="telefono" name="telefono" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group"> 
+                                    <label for="">PIE</label>
+                                    <select class="form-control" name="pie">
+                                        <option value="">-- Seleccione --</option>
+                                        <option value="0">Si</option>
+                                        <option value="1">No</option>
+                                    </select>
+                                </div>
+                                <div class="form-group"> 
+                                    <label for="">Diagnostico</label>
+                                    <select class="form-control" name="diagnostico">
+                                        <option value="">-- Seleccione --</option>
+                                        <option value="0">Opcion 1</option>
+                                        <option value="1">Opcion 2</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group"> 
+                                    <label for="">Tipo de estudiante</label>
+                                    <select class="form-control" name="tipo">
+                                        <option value="">-- Seleccione --</option>
+                                        <option value="0">Nuevo</option>
+                                        <option value="1">Extranjero</option>
+                                        <option value="2">De la escuela</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Curso</label>
-                                        <select name="curso" id="curso" class="form-control" required>
-                                            <option value="" selected disabled hidden> Seleccione </option>
-                                            <?php
-
-                                            $sql = "SELECT * FROM curso";
-                                            $resultado = mysqli_query($enlace, $sql);
-                                            while ($dado = mysqli_fetch_array($resultado)):    
-                                                $nombre = $dado['nombre_curso']; 
-                                                $id_curso = $dado['id'];                                           
-
-                                            ?>
-                                            <option value="<?php echo $id_curso; ?>">
-                                                <?php echo $nombre;?>
-                                            </option>
-                                            <?php
-                                                endwhile;
-                                            ?>
+                                    <input id="curso" name="curso" type="text" class="form-control" required>                                        
+                                </div>
+                                <div class="form-group"> 
+                                    <label for="">Repitencia</label>
+                                    <select class="form-control" name="repitencia">
+                                        <option value="">-- Seleccione --</option>
+                                        <option value="0">Si</option>
+                                        <option value="1">No</option>
+                                        
                                     </select>
                                 </div>
                             </div>
